@@ -1,39 +1,40 @@
-# Приватность: режим выводится из юрисдикции
+# Privacy: the regime is derived from jurisdiction
 
-Справочник режимов для карты. Режим не назначается «по привычке» — он следствие того, где субъекты и обработка.
+A reference of regimes for the map. A regime is not assigned "out of habit" — it follows from where the subjects and the processing are.
 
-Персональные данные — процесс, не галочка в конце. Skill: `autoteam-security` + чеклист `templates/privacy-checklist.md`.
+Personal data is a process, not a checkbox at the end. Skill: `autoteam-security` + checklist `templates/privacy-checklist.md`.
 
-## Правило юрисдикции
+## The jurisdiction rule
 
-1. Какие данные (категории: учётные, платёжные, геолокация, биометрия…).
-2. Где субъекты (жители каких стран) и где хранение/обработка.
-3. Какой режим применяется. **Не** вешать 152-ФЗ на весь мир.
+1. What data (categories: account, payment, geolocation, biometrics…).
+2. Where the subjects are (residents of which countries) and where storage/processing happens.
+3. Which regime applies. Do **not** slap a single national regime onto the whole world.
 
-| Режим | Когда |
+| Regime | When |
 |-------|--------|
-| **GDPR** (ЕС/ЕЭЗ и часто «предлагаем услуги в ЕС») | субъекты в ЕС или таргетинг на ЕС |
-| **152-ФЗ** | субъекты и/или оператор в **РФ**, обработка ПДн по российскому праву |
-| Другие (CCPA/CPRA, UK GDPR, отраслевые) | по рынку продукта — зафиксируй в карте, не выдумывай полный комплаенс |
+| **GDPR** (EU/EEA and often "offering services in the EU") | subjects in the EU or targeting the EU |
+| **CCPA/CPRA** | subjects in California, applicability thresholds by revenue/volume |
+| **UK GDPR** | subjects in the United Kingdom |
+| National regimes (LGPD, PIPL, local personal data laws) | per the subjects' and operator's country — record it in the map, do not invent full compliance |
 
-Несколько рынков — несколько режимов в одной карте. Строже общее: то, что требует явное согласие / локализация / удаление — выполняй для соответствующего сегмента пользователей.
+Multiple markets — multiple regimes in one map. The common baseline is the stricter one: whatever requires explicit consent / localization / deletion — do it for the corresponding user segment.
 
-## Карта (артефакт)
+## The map (artifact)
 
-`docs/privacy/jurisdiction-map.md` в **продукте** (не в autoteam):
+`docs/privacy/jurisdiction-map.md` in the **product** (not in autoteam):
 
-- категории данных;
-- правовые основания (согласие, договор, законный интерес — своими словами);
-- хранение и срок;
-- кто имеет доступ (роли);
-- трансграничная передача;
-- права субъекта (доступ, удаление, отзыв) — какие экраны/API это закрывают;
-- применимые режимы списком.
+- data categories;
+- legal bases (consent, contract, legitimate interest — in your own words);
+- storage and retention period;
+- who has access (roles);
+- cross-border transfers;
+- subject rights (access, deletion, withdrawal) — which screens/APIs cover them;
+- applicable regimes as a list.
 
-Нет карты — оценка и архитектура помечают риск; не блокируй UI-полировку других экранов, но **блокируй** выкатку сбора новых ПДн.
+No map — estimation and architecture flag the risk; don't block UI polish on other screens, but **do block** releasing the collection of new personal data.
 
-## Минимум в коде
+## Minimum in code
 
-- Не логировать токены, пароли, полные карты, сырые документы удостоверения.
-- Секреты не в git.
-- Удаление/экспорт — задача с владельцем, не «потом».
+- Don't log tokens, passwords, full card numbers, raw identity documents.
+- Secrets are not in git.
+- Deletion/export is a task with an owner, not "later".

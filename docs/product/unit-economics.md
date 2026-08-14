@@ -1,31 +1,31 @@
-# Unit-экономика (порядок величины)
+# Unit economics (order of magnitude)
 
-Нужна, чтобы решения о продукте и цене не врали про «окупится». Не заменяет бухгалтерию. Живую экономику (CAC, вклад, churn из реальных цифр) ведёт `autoteam-pricing` вместе с `autoteam-analytics`; здесь — порядок величины на старте.
+Needed so that product and pricing decisions don't lie about "it'll pay off". Not a substitute for accounting. The live economics (CAC, contribution, churn from real numbers) is kept by `autoteam-pricing` together with `autoteam-analytics`; here — the order of magnitude at the start.
 
-Сегмент задаёт, **какие** цифры обязательны. Нет цифры — ASSUMP или вопрос, не ноль.
+The segment determines **which** numbers are mandatory. No number — ASSUMP or a question, not zero.
 
-## B2B контракт (проект / подписка на организацию)
+## B2B contract (project / per-organization subscription)
 
-- Число клиентов в год, средний чек (или TCV), себестоимость внедрения (часы × ставка).
-- Срок окупаемости внедрения vs сопровождение.
-- Риск: один клиент = большая доля выручки.
+- Number of customers per year, average deal size (or TCV), implementation cost (hours × rate).
+- Implementation payback period vs ongoing support.
+- Risk: one customer = a large share of revenue.
 
-## Self-serve (карточка, подписка самим)
+## Self-serve (card payment, users subscribe themselves)
 
-- CAC (стоимость привлечения) хотя бы порядком: канал, конверсия лендинга, пробный период.
-- ARPU / вклад с пользователя после комиссий.
-- Churn за месяц. Если неизвестен — диапазон и чувствительность.
+- CAC (customer acquisition cost) at least to an order of magnitude: channel, landing conversion, trial period.
+- ARPU / per-user contribution after fees.
+- Monthly churn. If unknown — a range and sensitivity.
 
-## Marketplace (две стороны)
+## Marketplace (two sides)
 
-- Комиссия, доля каждой стороны, дотации на старт.
-- Кого привлекаем первым и за чей счёт.
-- Не складывай оборот площадки в «выручку».
+- Commission, each side's share, launch subsidies.
+- Whom we acquire first and at whose expense.
+- Don't count platform turnover as "revenue".
 
-## Внутренний инструмент
+## Internal tool
 
-- Ценность = время, ошибки, риск, а не выручка, если нет продажи.
-- Кто платит часами (команда) и кто выигрывает (оператор, смежный отдел).
-- Нет цифры — ASSUMP, не ноль.
+- Value = time, errors, risk — not revenue, if there's no sale.
+- Who pays in hours (the team) and who gains (the operator, an adjacent department).
+- No number — ASSUMP, not zero.
 
-Общее: не путай выручку площадки и оборот. Часы разработки — вход в себестоимость, не цена продажи (цену говорит человек).
+Overall: don't confuse the platform's revenue with its turnover. Development hours are an input to cost, not the sale price (the human sets the price).

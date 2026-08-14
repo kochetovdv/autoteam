@@ -1,22 +1,22 @@
-# Карта приватности
+# Privacy map
 
-- Продукт:
-- Где субъекты (страны/регионы):
-- Где хранение и обработка:
-- Режимы (по карте юрисдикций, справочник `docs/compliance/privacy.md`): …
+- Product:
+- Where the subjects are (countries/regions):
+- Where storage and processing happen:
+- Regimes (per the jurisdiction map, reference `docs/compliance/privacy.md`): …
 
-Режим — следствие юрисдикции субъектов и оператора, не привычки. Несколько рынков — несколько режимов.
+The regime follows from the jurisdiction of the subjects and the operator, not from habit. Multiple markets — multiple regimes.
 
-## Категории данных
+## Data categories
 
-| Категория | Зачем | Срок | Кто читает | Основание |
+| Category | Why | Retention | Who reads | Basis |
 
-## Трансграничная передача
+## Cross-border transfer
 
-## Права субъекта (экран/API)
+## Subject rights (screen/API)
 
-Доступ | исправление | удаление | отзыв согласия
+Access | rectification | deletion | consent withdrawal
 
-## Запрещено в логах
+## Forbidden in logs
 
-Токены, пароли, полные платёжные номера, сканы удостоверений.
+Tokens, passwords, full payment numbers, ID document scans.

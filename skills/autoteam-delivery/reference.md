@@ -1,7 +1,6 @@
-# Ремесло и QA
+# Craft and QA
 
-Читай канон метода, не копируй сюда. Стек — `docs/process/stack.md`. Карта файлов — `docs/delivery/README.md`.
+Read the method canon, don't copy it here. Stack — `docs/process/stack.md`. File map — `docs/delivery/README.md`.
 
-- `docs/delivery/qa.md` — когда какой вид проверки
-- `docs/delivery/go.md` — только если сервер на Go
-- `docs/delivery/react.md` — только если UI на React (веб); состав клиентов — решение проекта
+- `docs/delivery/qa.md` — which kind of check when
+- stack-specific craft (language, framework) — product overlay; the set of clients is a project decision

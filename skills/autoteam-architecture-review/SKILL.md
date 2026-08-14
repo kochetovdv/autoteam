@@ -1,22 +1,22 @@
 ---
 name: autoteam-architecture-review
-description: Регулярное и триггерное ревью архитектуры без остановки независимого потока. Использовать по каденсу, после всплеска фич, перед новым хранилищем, при инциденте.
+description: Regular and trigger-based architecture review without stopping the independent flow. Use on cadence, after a burst of features, before a new store, on an incident.
 ---
 
-# Архитектурное ревью
+# Architecture review
 
-Не code review PR. Не чини код в этом запуске. Не тот промпт, что проектировал контур.
+Not a PR code review. Don't fix code in this run. Not the same prompt that designed the system.
 
-**Вход.** Репозиторий продукта, прошлый отчёт если есть. **Выход.** Файл ревью и вердикт. **Запреты.** Чинить код здесь; стопать весь борд из-за REMEDIATE. **Evidence.** Ревизия кода/ADR, сравнение с прошлым отчётом. **Стоп.** Только Blocker в границе затронутых задач. **Дальше.** Правки → `autoteam-delivery` / `autoteam-quality` / `autoteam-security` отдельными задачами.
+**Input.** Product repository, previous report if any. **Output.** Review file and verdict. **Forbidden.** Fixing code here; stopping the whole board over a REMEDIATE. **Evidence.** Code/ADR audit, comparison with the previous report. **Stop.** Only a Blocker within the boundary of affected tasks. **Next.** Fixes → `autoteam-delivery` / `autoteam-quality` / `autoteam-security` as separate tasks.
 
-Каденс: активный — неделя или ~8 задач; спокойный — месяц; инцидент данных/гонки — сразу.
+Cadence: active — a week or ~8 tasks; quiet — a month; data incident/race conditions — immediately.
 
-Триггер: новый контекст, сервис, хранилище, брокер, смена прав, рост нагрузки.
+Trigger: new context, service, store, broker, permission change, load growth.
 
-Независимые задачи продолжаются. Стоп — только Blocker в их границе.
+Independent tasks continue. Stop — only a Blocker within their boundary.
 
-Порядок: ревизия кода и ADR → карта связей и данных → измерения (границы, владелец записи, гонки, роли на сервере, отказы/логи, KISS, долг с датой) → сравнение с прошлым отчётом → файл.
+Order: code and ADR audit → map of dependencies and data → measurements (boundaries, record owner, race conditions, roles on the server, failures/logs, KISS, debt with a date) → comparison with the previous report → file.
 
-Артефакт: `docs/architecture/reviews/YYYY-MM-DD.md` в **продукте**. Шаблон канона метода: `templates/architecture-review.md`.
+Artifact: `docs/architecture/reviews/YYYY-MM-DD.md` in the **product**. Method canon template: `templates/architecture-review.md`.
 
-Вердикт: `HEALTHY` | `WATCH` | `REMEDIATE`. REMEDIATE не стопает весь поток.
+Verdict: `HEALTHY` | `WATCH` | `REMEDIATE`. REMEDIATE does not stop the whole flow.

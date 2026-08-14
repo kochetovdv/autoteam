@@ -1,14 +1,12 @@
-# Ремесло поставки
+# Delivery craft
 
-Стек — из текущего продукта (`docs/process/stack.md`). Файлы ниже — не «всегда этот язык».
+The stack comes from the current product (`docs/process/stack.md`). The files below are not "always this language".
 
-| Файл | Когда читать |
+| File | When to read |
 |------|----------------|
-| [qa.md](qa.md) | всегда при поставке |
-| [data.md](data.md) | хранилище, миграции, бэкап |
-| [observability.md](observability.md) | логи, метрики, отказы |
-| [release.md](release.md), [incidents.md](incidents.md), [ci-flags.md](ci-flags.md) | выкатка и инцидент |
-| [go.md](go.md) | сервер продукта на Go |
-| [react.md](react.md) | UI продукта на React (веб) |
+| [qa.md](qa.md) | always when delivering |
+| [data.md](data.md) | storage, migrations, backup |
+| [observability.md](observability.md) | logs, metrics, failures |
+| [release.md](release.md), [incidents.md](incidents.md), [ci-flags.md](ci-flags.md) | release and incident |
 
-Нет стека в репозитории — не открывай go.md/react.md как приказ выбрать их.
+Stack-specific craft (rules of a particular language/framework) lives in the product overlay, not in the canon.

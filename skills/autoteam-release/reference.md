@@ -1,3 +1,3 @@
-# Выкатка
+# Release
 
-Канон метода: `docs/delivery/release.md`, `incidents.md`, `ci-flags.md`. Не вставляй сюда хосты другого продукта.
+Method canon: `docs/delivery/release.md`, `incidents.md`, `ci-flags.md`. Don't paste another product's hosts here.

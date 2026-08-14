@@ -1,3 +1,3 @@
-# Ревью: измерения
+# Review: measurements
 
-Канон каденса: `docs/architecture/review.md`. Шаблон: `templates/architecture-review.md`.
+Cadence canon: `docs/architecture/review.md`. Template: `templates/architecture-review.md`.

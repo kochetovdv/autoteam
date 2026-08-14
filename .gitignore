@@ -8,3 +8,6 @@ secrets/
 .env
 .env.*
 !.env.example
+
+# рабочие архивы сессий
+_*.tar.gz

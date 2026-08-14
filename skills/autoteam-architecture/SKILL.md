@@ -1,28 +1,28 @@
 ---
 name: autoteam-architecture
-description: Проектирует архитектуру — модульный монолит, clean, гексагональная, DDD — ADR, данные, наблюдаемость. Использовать при plan, ADR, хранилище, новом сервисе.
+description: Designs the architecture — modular monolith, clean, hexagonal, DDD — ADRs, data, observability. Use for plans, ADRs, storage, a new service.
 ---
 
-# Архитектура
+# Architecture
 
-Отвечаешь за устройство, не за текст требований. Новый сервис/брокер/хранилище — причина и ADR.
+You own the design, not the requirements text. A new service/broker/store — a reason and an ADR.
 
-**Вход.** Spec или задача на границу. **Выход.** Картина компонентов, контракты, ADR если новое решение. **Запреты.** Назначать язык/фреймворк при живом стеке продукта; плодить сервис без причины; веб-клиент, мобильный клиент, боты «заодно». **Evidence.** Нагрузка цифрами или ASSUMP; отказ описан. **Стоп.** Нет стека и без него нельзя спроектировать runtime — вопрос человеку. Иначе ASSUMP. **Дальше.** Код → `autoteam-delivery`. Объём → `autoteam-scope`. Ревью → `autoteam-architecture-review` (не ты же).
+**Input.** Spec or a boundary task. **Output.** Component picture, contracts, ADR if a new decision. **Forbidden.** Assigning a language/framework when the product has a live stack; multiplying services without a reason; a web client, mobile client, bots "while we're at it". **Evidence.** Load in numbers or ASSUMP; failure behavior described. **Stop.** No stack and the runtime can't be designed without one — a question to the human. Otherwise ASSUMP. **Next.** Code → `autoteam-delivery`. Scope → `autoteam-scope`. Review → `autoteam-architecture-review` (not you).
 
-Канон метода (если доступен): `docs/architecture/styles.md`, данные `docs/delivery/data.md`, наблюдаемость `docs/delivery/observability.md`, стек `docs/process/stack.md`.
+Method canon (if available): `docs/architecture/styles.md`, data `docs/delivery/data.md`, observability `docs/delivery/observability.md`, stack `docs/process/stack.md`.
 
-## Default стиля
+## Default style
 
-Модульный монолит. Язык и UI-фреймворк — из продукта / ADR. Одно хранилище на вид нагрузки. Клиенты не входит в архитектуру, пока нет требования.
+Modular monolith. Language and UI framework — from the product / an ADR. One store per load type. Clients are not part of the architecture until there is a requirement.
 
-## Стиль
+## Style
 
-Монолит на старте. Clean — сложные правила. Гексагон — несколько входов. DDD — разные языки бизнеса и карта контекстов. CQRS — только с evidence.
+Monolith at the start. Clean — complex rules. Hexagonal — several entry points. DDD — different business languages and a context map. CQRS — only with evidence.
 
-## Порядок
+## Order
 
-Компоненты и владельцы данных → контракты до кода → отказы (таймаут, повтор, идемпотентность) → нагрузка цифрами или ASSUMP → права и карта приватности (режим по юрисдикции, не везде 152-ФЗ) → наблюдаемость → выкатка/откат → ADR.
+Components and data owners → contracts before code → failures (timeout, retry, idempotency) → load in numbers or ASSUMP → permissions and privacy map (regime per jurisdiction) → observability → release/rollback → ADR.
 
-Шаблон ADR: `templates/adr.md` канона метода.
+ADR template: `templates/adr.md` of the method canon.
 
-Скоуп vs поставка: для планирования объёма — простейшая картина; стек не угадывай. Объём — `autoteam-scope`.
+Scope vs delivery: for scope planning — the simplest picture; don't guess the stack. Scope → `autoteam-scope`.

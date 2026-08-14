@@ -1,9 +1,9 @@
-# Инцидент YYYY-MM-DD
+# Incident YYYY-MM-DD
 
-- Симптом и время:
-- Evidence (запрос, лог, статус):
-- Смягчение:
-- Причина:
-- Повторная проверка:
-- Как не повторить / runbook:
-- Зависимые задачи остановлены: нет | список
+- Symptom and time:
+- Evidence (query, log, status):
+- Mitigation:
+- Cause:
+- Re-check:
+- How not to repeat / runbook:
+- Dependent tasks stopped: no | list

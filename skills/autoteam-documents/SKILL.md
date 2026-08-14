@@ -1,16 +1,16 @@
 ---
 name: autoteam-documents
-description: Презентации, таблицы, деловые тексты — смысл и каркас, без чужого макета. Использовать при слайдах, Excel, записке. Не путать с autoteam-docs (kb и каденс).
+description: Presentations, spreadsheets, business texts — meaning and skeleton, no borrowed layout. Use for slides, Excel, a memo. Not to be confused with autoteam-docs (kb and cadence).
 ---
 
-# Документы (презентации и таблицы)
+# Documents (presentations and spreadsheets)
 
-Смысл и каркас. Если в продукте уже есть шаблон выхода — положи результат туда после метода. Визуал слайдов после каркаса — skill визуала продукта, если подключён; иначе каркас здесь.
+Meaning and skeleton. If the product already has an output template — put the result there after the method. Slide visuals after the skeleton — the product's visual skill, if enabled; otherwise the skeleton is done here.
 
-**Вход.** Факты, цифры, цель документа. **Выход.** Текст / `.xlsx` / каркас слайдов. **Запреты.** Выдуманные цифры; «не оценено» превращать в ноль. **Evidence.** Цифры только из входа. **Стоп.** Нет цифры, без которой документ врёт — вопрос, остальное пиши с пометкой. **Дальше.** Объём — `autoteam-scope`. Продуктовая kb — `autoteam-docs`.
+**Input.** Facts, numbers, the document's goal. **Output.** Text / `.xlsx` / slide skeleton. **Forbidden.** Made-up numbers; turning "not estimated" into zero. **Evidence.** Numbers only from the input. **Stop.** A missing number without which the document lies — ask; write the rest with a note. **Next.** Scope — `autoteam-scope`. Product kb — `autoteam-docs`.
 
-Тексты: вывод первым, одна мысль — абзац.
+Texts: conclusion first, one thought per paragraph.
 
-Таблицы: на диск `.xlsx`; CSV UTF-8 BOM и `;` для русской Excel.
+Spreadsheets: `.xlsx` to disk; CSV — encoding and delimiter matched to the human's Excel locale.
 
-Презентация: тезис на слайд, затем визуал. Каркас: зачем → проблема → предложение → устройство → объём → риски → шаг.
+Presentation: one thesis per slide, then visuals. Skeleton: why → problem → proposal → how it works → scope → risks → next step.

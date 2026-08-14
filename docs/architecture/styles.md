@@ -1,17 +1,17 @@
-# Стили архитектуры
+# Architecture styles
 
-Default стиля: **модульный монолит**. Язык и UI-фреймворк — из текущего продукта / ADR (`docs/process/stack.md`). Нет стека — зафиксировать с человеком, не назначать язык. Новый сервис, брокер, хранилище — только с измеримой причиной и ADR.
+Default style: **modular monolith**. Language and UI framework — from the current product / ADR (`docs/process/stack.md`). No stack — pin it down with the human, do not assign a language. A new service, broker, or store — only with a measurable reason and an ADR.
 
-## Когда какой стиль
+## Which style when
 
-| Стиль | Когда уместен | Суть |
+| Style | When appropriate | Essence |
 |-------|----------------|------|
-| Модульный монолит | почти всегда на старте | Один процесс, жёсткие границы пакетов |
-| Чистое ядро (Clean) | сложные правила, много адаптеров | Зависимости только внутрь |
-| Гексагональная (порты и адаптеры) | HTTP + очередь + CLI + легаси | Ядро не знает фреймворк |
-| DDD | разные языки бизнеса | Ограниченные контексты |
-| CQRS / события | разные нагрузки чтения/записи | Не начинать без evidence |
+| Modular monolith | almost always at the start | One process, hard package boundaries |
+| Clean core (Clean) | complex rules, many adapters | Dependencies point inward only |
+| Hexagonal (ports and adapters) | HTTP + queue + CLI + legacy | Core knows no framework |
+| DDD | different business languages | Bounded contexts |
+| CQRS / events | different read/write loads | Do not start without evidence |
 
-Не объявляй DDD без карты контекстов. Не объявляй микросервисы, если боль в модулях одного репо.
+Do not declare DDD without a context map. Do not declare microservices when the pain is in the modules of a single repo.
 
-Шаблон ADR: `templates/adr.md`. Ревью: `docs/architecture/review.md`.
+ADR template: `templates/adr.md`. Review: `docs/architecture/review.md`.

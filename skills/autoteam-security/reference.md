@@ -1,5 +1,5 @@
-# Приватность и роли
+# Privacy and roles
 
-Канон метода: `docs/compliance/privacy.md`. Шаблон карты: `templates/privacy-checklist.md`.
+Method canon: `docs/compliance/privacy.md`. Map template: `templates/privacy-checklist.md`.
 
-Несколько юрисдикций — несколько режимов в одной карте. Строже для сегмента пользователей, не «самый страшный закон на все строки».
+Multiple jurisdictions — multiple regimes in one map. Stricter per user segment, not "the scariest law for all rows".

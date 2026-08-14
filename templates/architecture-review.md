@@ -1,23 +1,23 @@
-# Архитектурное ревью YYYY-MM-DD
+# Architecture review YYYY-MM-DD
 
-- Ревизия кода:
-- Каденс / триггер:
-- Автор ревью (не автор проверяемого design):
+- Code revision:
+- Cadence / trigger:
+- Review author (not the author of the design under review):
 
-## Карта
+## Map
 
-Кто с кем говорит, кто владеет данными.
+Who talks to whom, who owns the data.
 
-## Находки
+## Findings
 
-- [Blocker|Major|Minor] … → затрагивает задачи: …
+- [Blocker|Major|Minor] … → affects tasks: …
 
-## Что можно делать параллельно
+## What can proceed in parallel
 
-## Что ждёт человека
+## What awaits the human
 
-## Сравнение с прошлым обзором
+## Comparison with the previous review
 
-## Вердикт
+## Verdict
 
 `HEALTHY` | `WATCH` | `REMEDIATE`

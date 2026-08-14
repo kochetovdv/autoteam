@@ -1,15 +1,15 @@
-# Реестр ресурсов
+# Resource registry
 
-Всё, что нужно продукту кроме кода и денег: учётки, доступы, инфраструктура, данные, действия человека. Деньги — `autoteam-budget`; здесь — вещи и доступы. Значения секретов сюда не попадают никогда — только указатель, где лежит.
+Everything the product needs besides code and money: accounts, access, infrastructure, data, human actions. Money — `autoteam-budget`; here — things and access. Secret values never enter this file — only a pointer to where they live.
 
-| ID | Тип | Ресурс | Статус | Указатель / владелец | Срок годности | Блокирует пакеты |
+| ID | Type | Resource | Status | Pointer / owner | Expiry | Blocks packages |
 |----|-----|--------|--------|----------------------|---------------|------------------|
-| R-001 | учётка \| доступ \| инфраструктура \| данные \| действие человека | | есть \| нужно \| запрошено (дата) | | | |
+| R-001 | account \| access \| infrastructure \| data \| human action | | have \| needed \| requested (date) | | | |
 
-Правила:
+Rules:
 
-- Отсутствие ресурса — не стоп цикла: пакет помечается `Blocked-by-resource`, остальное едет.
-- Создать учётку / оплатить / пройти идентификацию может только человек — такие строки попадают в очередь действий человека (дайджест начала цикла) с прозрачным последствием: «без R-00X пакет Y стоит после чекпойнта Z».
-- Ресурс с общим лимитом на несколько продуктов (LLM-учётка, хостинг-аккаунт) помечается «общий»; дележ общего — человек.
-- Поле «срок годности» (домен, сертификат, тариф) проверяет призма эксплуатации на приёмке.
-- Секрет создан — в реестре указатель на хранилище, значение не в git и не в чат (`autoteam-security`).
+- A missing resource does not stop the cycle: the package is marked `Blocked-by-resource`, the rest keeps moving.
+- Creating an account / paying / passing identity verification — only the human can do that; such rows go into the human action queue (the cycle-start digest) with the consequence made transparent: "without R-00X, package Y stalls after checkpoint Z".
+- A resource with a limit shared across products (LLM account, hosting account) is marked "shared"; dividing the shared — the human's call.
+- The "expiry" field (domain, certificate, plan) is checked by the operations lens at acceptance.
+- Secret created — the registry holds a pointer to the vault; the value goes neither into git nor into chat (`autoteam-security`).

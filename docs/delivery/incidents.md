@@ -1,9 +1,9 @@
-# Инциденты
+# Incidents
 
-1. Зафиксируй симптом и время (что видит пользователь, какой запрос).
-2. Evidence: статус API, лог с id, при данных — запрос к хранилищу. Не UX-отмазка.
-3. Смягчение (откат релиза, флаг, масштаб) — с согласованием, если разрушительно.
-4. Причина. Повтор той же проверкой.
-5. Запись: что случилось, как увидели, как не повторить. Обнови runbook.
+1. Record the symptom and time (what the user sees, which request).
+2. Evidence: API status, log with id, and for data — a query against the store. Not a UX excuse.
+3. Mitigation (release rollback, flag, scaling) — with approval if destructive.
+4. Cause. Reproduce with the same check.
+5. Entry: what happened, how we saw it, how not to repeat it. Update the runbook.
 
-Не совмещай с «заодно перепишем модуль». Независимые задачи не стопай, если инцидент в другой границе.
+Do not combine with "let's rewrite the module while we're at it". Do not stop independent tasks if the incident is in another boundary.

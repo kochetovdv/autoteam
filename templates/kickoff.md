@@ -1,39 +1,39 @@
-# Поручение старта цикла (шаблон)
+# Cycle-start assignment (template)
 
-Скопируй блок ниже первым сообщением новой задачи. Подключи две папки: рабочую папку проекта и канон autoteam. Впиши задание и рамки, `<...>` замени. Задание может быть любым: продукт из идеи, редизайн, анализ чужого кода, эксперимент — маршрут выберет оркестратор.
+Copy the block below as the first message of a new task. Connect two folders: the project working folder and the autoteam canon. Fill in the task and constraints, replacing `<...>`. The task can be anything: a product from an idea, a redesign, analysis of someone else's code, an experiment — the orchestrator picks the route.
 
 ```
-В папке autoteam — канон навыков команды (библиотека, только чтение).
-Прочитай autoteam-orchestrator и работай по канону.
-Режим: решение (автономно, журнал решений) | интерактив.
+The autoteam folder holds the team's skill canon (library, read-only).
+Read autoteam-orchestrator and work by the canon.
+Mode: solution (autonomous, decision journal) | interactive.
 
-Старт цикла:
-1. Копия канона в проект: skills → .claude/skills/, docs и templates → autoteam/.
-   Копия уже есть — перезапиши целиком: копия это кэш.
-2. Онбординг: карта репозитория (если он не пуст), инвентаризация ресурсов
-   → реестр docs/process/resources.md.
-3. git: есть — работай в нём; нет — инициализируй. Чекпойнт-коммит в конце
-   каждой волны. Маркер цикла docs/process/.cycle-lock.
-4. Журнал решений docs/process/decisions.md (append-only, амендменты).
-5. Первым сообщением мне — бриф и дайджест: до 3 вопросов, где ранний ответ
-   дешевле всего, плюс действия, которые могу сделать только я (учётки,
-   оплаты, доступы). Ответов не жди — работай на ASSUMP.
+Cycle start:
+1. Copy the canon into the project: skills → .claude/skills/, docs and templates → autoteam/.
+   Copy already exists — overwrite it entirely: the copy is a cache.
+2. Onboarding: repository map (if it's not empty), resource inventory
+   → registry docs/process/resources.md.
+3. git: exists — work in it; doesn't — initialize. Checkpoint commit at the end
+   of every wave. Cycle marker docs/process/.cycle-lock.
+4. Decision journal docs/process/decisions.md (append-only, amendments).
+5. First message to me — brief and digest: up to 3 questions where an early
+   answer is cheapest, plus actions only I can take (accounts, payments,
+   access). Don't wait for answers — work on ASSUMP.
 
-Задание:
-<что сделать — своими словами, с известными фактами и ссылками>
+Task:
+<what to do — in your own words, with known facts and links>
 
-Рамки:
-- Рабочая папка: <имя>
-- Прод: не выкатывать | «выкати» — можно в этом цикле
-- Финальная приёмка: борд критиков по призмам провала продукта
-- Факты и ресурсы, которых нет во входе, не выдумывать: ASSUMP с пометкой,
-  реестр ресурсов, очередь действий человека
-- В конце: демо-сценарий и handoff (вердикты борда, возвраты, журнал);
-  ретро — только по триггерам канона
+Constraints:
+- Working folder: <name>
+- Production: do not release | "release it" — allowed this cycle
+- Final acceptance: critic board across product-failure lenses
+- Facts and resources absent from the input are not to be invented: ASSUMP with
+  a marker, resource registry, human action queue
+- At the end: demo script and handoff (board verdicts, returns, journal);
+  retro — only on canon triggers
 ```
 
-Примечания (не копируются в поручение):
+Notes (not copied into the assignment):
 
-- Для анализа чужого репозитория задание формулируй как вопросы («что за система, где риски, что чинить первым») — оркестратор поведёт через onboarding → architecture-review + quality/security; режим «решение» здесь тоже работает: результат — отчёт с evidence, не правки чужого кода без поручения.
-- «Выкати» в задании = разрешение на прод в этот цикл. Нет слова — прод жёстко закрыт.
-- Чем больше фактов во входе (ссылки, данные, учётки в реестр), тем меньше ASSUMP и переделок.
+- For analyzing someone else's repository, phrase the task as questions ("what is this system, where are the risks, what to fix first") — the orchestrator will route through onboarding → architecture-review + quality/security; "solution mode" works here too: the result is a report with evidence, not edits to someone else's code without an assignment.
+- "Release it" in the task = permission for production this cycle. No such word — production is hard-closed.
+- The more facts in the input (links, data, accounts into the registry), the fewer ASSUMP entries and reworks.

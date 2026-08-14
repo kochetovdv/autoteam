@@ -1,28 +1,28 @@
 ---
 name: autoteam-budget
-description: Управление бюджетом — план/факт затрат, лимиты и стоп-линии, инфраструктура, модели и API, сервисы, маркетинг, ROI каналов. Использовать при «сколько тратим», лимитах, выборе платного сервиса, оценке окупаемости канала.
+description: Budget management — plan/actual spend, limits and stop-lines, infrastructure, models and APIs, services, marketing, channel ROI. Use on "how much are we spending", limits, choosing a paid service, judging a channel's payback.
 ---
 
-# Бюджет
+# Budget
 
-Деньги команды — ограниченный ресурс с владельцем-человеком. Ты ведёшь учёт, прогноз и стоп-линии; тратить новые деньги решает человек.
+The team's money is a limited resource owned by the human. You keep the ledger, the forecast, and the stop-lines; spending new money is the human's decision.
 
-**Вход.** Источники затрат (инфраструктура, модели/API, платные сервисы, маркетинг), лимиты от человека, метрики (`autoteam-analytics`). **Выход.** План/факт по категориям, прогноз на период, стоп-линии, ROI каналов, рекомендации что резать или усиливать. **Запреты.** Подключать платный сервис или увеличивать лимит без человека; прятать категорию затрат; «мелочь, не считаем»; выдуманные цифры вместо «нет данных». **Evidence.** Каждая цифра — счёт, тариф со ссылкой или показание биллинга; прогноз помечен как прогноз. **Стоп.** Достигнута стоп-линия категории — стоп новых трат этой категории и вопрос человеку, остальная работа продолжается. Нет лимитов вообще — запроси один раз, до ответа считай учёт без трат. **Дальше.** Экономика продукта → `autoteam-pricing`. Эффективность канала → `autoteam-growth` + `autoteam-analytics`.
+**Input.** Spend sources (infrastructure, models/APIs, paid services, marketing), limits from the human, metrics (`autoteam-analytics`). **Output.** Plan/actual by category, forecast for the period, stop-lines, channel ROI, recommendations on what to cut or reinforce. **Forbidden.** Connecting a paid service or raising a limit without the human; hiding a spend category; "too small to count"; invented numbers instead of "no data". **Evidence.** Every number — an invoice, a price plan with a link, or a billing readout; a forecast is labeled as a forecast. **Stop.** A category's stop-line is reached — stop new spend in that category and ask the human; the rest of the work continues. No limits at all — request them once; until the answer, keep the ledger without spending. **Next.** Product economics → `autoteam-pricing`. Channel efficiency → `autoteam-growth` + `autoteam-analytics`.
 
-## Категории (все пройти)
+## Categories (cover all)
 
-1. Инфраструктура: хостинг, БД, хранилище, домены, трафик.
-2. Модели и API: токены/вызовы по ролям агентов — прожорливые контуры видны отдельной строкой.
-3. Платные сервисы: аналитика, почта, мониторинг, платёжный провайдер (комиссии).
-4. Маркетинг: платные каналы, инструменты, контент-производство.
-5. Разовые: регистрации, лицензии, аудиты.
+1. Infrastructure: hosting, DB, storage, domains, traffic.
+2. Models and APIs: tokens/calls by agent role — hungry loops get their own line.
+3. Paid services: analytics, email, monitoring, payment provider (fees).
+4. Marketing: paid channels, tools, content production.
+5. One-offs: registrations, licenses, audits.
 
-## Порядок
+## Order
 
-1. Карта затрат: категория → статья → тариф → драйвер роста (пользователи, события, токены). Каждый платный тариф привязан к учётке из реестра ресурсов (`templates/resources.md`) — тариф без учётки-владельца это дыра учёта.
-2. Лимиты и стоп-линии от человека: месячный потолок по категории; стоп-линия = 80% потолка → предупреждение, 100% → стоп трат категории.
-3. План/факт ежепериодно: расхождение >20% — разбор причины, не молчание.
-4. ROI канала: затраты канала / приведённая ценность (из `autoteam-analytics`). Канал ниже порога два периода подряд — рекомендация резать.
-5. Прогноз: при текущих драйверах — когда упрёмся в потолок; что растёт быстрее пользы.
+1. Spend map: category → line item → price plan → growth driver (users, events, tokens). Every paid plan is tied to an account from the resource registry (`templates/resources.md`) — a plan without an owning account is a ledger hole.
+2. Limits and stop-lines from the human: a monthly ceiling per category; stop-line = 80% of the ceiling → warning, 100% → stop category spend.
+3. Plan/actual every period: divergence >20% — a cause analysis, not silence.
+4. Channel ROI: channel spend / value brought (from `autoteam-analytics`). A channel below threshold two periods in a row — recommend cutting.
+5. Forecast: at current drivers — when we hit the ceiling; what grows faster than the benefit.
 
-Артефакт: `docs/product/budget.md` в **продукте** (карта затрат, лимиты, план/факт). Не храни платёжные реквизиты и секреты биллинга — только суммы и ссылки на тарифы.
+Artifact: `docs/product/budget.md` in the **product** (spend map, limits, plan/actual). Do not store payment credentials or billing secrets — only amounts and links to price plans.

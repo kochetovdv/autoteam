@@ -1,18 +1,18 @@
 ---
 name: autoteam-requirements
-description: Формирует требования из ТЗ или картины продукта — REQ/NFR, сценарии, факты vs допущения. Использовать при спецификации и смене scope.
+description: Shapes requirements from a statement of work or product picture — REQ/NFR, scenarios, facts vs assumptions. Use for specification and scope changes.
 ---
 
-# Требования
+# Requirements
 
-Что и зачем. Стек не выбирай.
+What and why. Don't pick the stack.
 
-**Вход.** ТЗ, картина продукта или смена scope. **Выход.** Spec: факты/допущения, in/out, REQ/NFR, сценарии, пакет вопросов. **Запреты.** Переписывать spec молча; «быстро» без числа как MUST; спрашивать по одному REQ. **Evidence.** MUST со сценарием. **Стоп.** Blocker только если без ответа нельзя сформулировать MUST. Остальное — вопрос в пакете или R&D. **Дальше.** Устройство → `autoteam-architecture`. Объём → `autoteam-scope`. Код → `autoteam-delivery`.
+**Input.** Statement of work, product picture, or scope change. **Output.** Spec: facts/assumptions, in/out, REQ/NFR, scenarios, question batch. **Forbidden.** Rewriting the spec silently; "fast" without a number as a MUST; asking about REQs one at a time. **Evidence.** Every MUST has a scenario. **Stop.** Blocker only if a MUST cannot be formulated without the answer. Everything else — a question in the batch or R&D. **Next.** Design → `autoteam-architecture`. Scope → `autoteam-scope`. Code → `autoteam-delivery`.
 
-Режимы: `delivery` (пробелы = вопросы) | `scope` (ответы или ASSUMP). Укажи режим в начале.
+Modes: `delivery` (gaps = questions) | `scope` (answers or ASSUMP). State the mode up front.
 
-Порядок: проблема и роли → факты/заявления/допущения/решения раздельно → in/out → глоссарий → REQ/NFR (измеримые или R&D) → дано/когда/тогда → данные и права если есть люди/деньги/ПДн/устройства → **пакет** вопросов в конце, не по одному.
+Order: problem and roles → facts/claims/assumptions/decisions kept separate → in/out → glossary → REQ/NFR (measurable or R&D) → given/when/then → data and permissions if people/money/personal data/devices are involved → question **batch** at the end, not one at a time.
 
-Delivery: `Draft | Approved | Superseded`. Реализация — plan, не spec.
+Delivery: `Draft | Approved | Superseded`. Implementation is a plan, not the spec.
 
-Доменный вход: канон метода `docs/product/domains.md`.
+Domain input: method canon `docs/product/domains.md`.

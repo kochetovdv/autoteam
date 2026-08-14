@@ -1,23 +1,22 @@
-# Чего в autoteam всё ещё нет
+# What autoteam still lacks
 
-Сознательные дыры. Не раздувать в скиллы «на всякий случай».
+Deliberate gaps. Do not inflate them into "just in case" skills.
 
-| Тема | Статус |
+| Topic | Status |
 |------|--------|
-| Медиазакупка как ремесло (кабинеты, ставки, креативы) | нет; проектирование и оценка канала — `autoteam-growth`, лимиты трат — `autoteam-budget` |
-| Оценка в часах/деньгах для внешнего заказчика, оферта | вне метода; внутренний объём — `autoteam-scope` |
-| Продажи B2B как процесс (пайплайн, звонки, договоры) | нет; сообщение сегменту — `autoteam-positioning` |
-| Поддержка пользователей / customer success как процесс | нет; обратная связь в картину — `autoteam-product` |
-| Найм людей, грейды, зарплаты | нет |
-| Юриспруденция кроме приватности (договоры, IP, лицензии кода, экспорт) | нет |
-| Бухгалтерия, налоги, счета | нет; учёт затрат и лимиты — `autoteam-budget` |
-| Полный App Store / Play гайд | нет, только развилка цены клиента |
-| Угрозы уровня red team / пентест как услуга | нет, есть чеклист секретов и ролей |
-| Выбор облака (AWS vs GCP vs on-prem) как скилл | нет, есть «не плодить инфраструктуру без причины» |
-| Дизайн логотипа и бренд-платформа | нет, есть характер и токены в `autoteam-ui` |
-| Локализация UI на много языков как процесс | нет |
-| Онбординг **людей** в компанию | нет; есть онбординг **агента** в репозиторий |
+| Media buying as a craft (ad accounts, bids, creatives) | no; channel design and evaluation — `autoteam-growth`, spending limits — `autoteam-budget` |
+| Estimates in hours/money for an external client, formal offers | outside the method; internal scope — `autoteam-scope` |
+| B2B sales as a process (pipeline, calls, contracts) | no; the message to a segment — `autoteam-positioning` |
+| User support / customer success as a process | no; feedback into the picture — `autoteam-product` |
+| Hiring people, grades, salaries | no |
+| Law beyond privacy (contracts, IP, code licenses, export) | no |
+| Accounting, taxes, invoices | no; cost tracking and limits — `autoteam-budget` |
+| A full App Store / Play guide | no, only the client-cost fork |
+| Red-team-level threats / pentest as a service | no, there is a checklist for secrets and roles |
+| Cloud choice (AWS vs GCP vs on-prem) as a skill | no, there is "don't multiply infrastructure without reason" |
+| Logo design and brand platform | no, there is character and tokens in `autoteam-ui` |
+| UI localization into many languages as a process | no |
+| Onboarding **people** into a company | no; there is onboarding an **agent** into a repository |
+| Cross-project orchestration (shared accounts, limits, and resources across products) | no; a resource with a shared limit is marked "shared" in the registry, the split is the human's call |
 
-| Межпроектная оркестрация (общие учётки, лимиты и ресурсы нескольких продуктов) | нет; ресурс с общим лимитом помечается «общий» в реестре, дележ — человек |
-
-Когда тема станет повторяющейся работой — отдельный skill или docs, не раньше.
+When a topic becomes recurring work — a separate skill or docs, not before.

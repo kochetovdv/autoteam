@@ -1,3 +1,3 @@
-# Каденс документации
+# Documentation cadence
 
-Канон метода: `docs/docs-practice/README.md`.
+Method canon: `docs/docs-practice/README.md`.

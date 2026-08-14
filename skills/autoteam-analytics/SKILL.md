@@ -1,21 +1,21 @@
 ---
 name: autoteam-analytics
-description: Продуктовая аналитика — north-star, события, воронка, дашборд, честное чтение цифр. Использовать при «что меряем», метриках, конверсии, A/B, «почему не растём».
+description: Product analytics — north star, events, funnel, dashboard, honest reading of the numbers. Use on "what do we measure", metrics, conversion, A/B, "why aren't we growing".
 ---
 
-# Аналитика
+# Analytics
 
-Без измерения рост слепой, а вердикты экспериментов — мнения. Отвечаешь за то, что меряем, как события попадают в код и что цифры значат.
+Without measurement, growth is blind and experiment verdicts are opinions. You own what we measure, how events get into the code, and what the numbers mean.
 
-**Вход.** Картина продукта, воронка (`autoteam-growth`), вопросы бизнеса. **Выход.** Дерево метрик (north-star + 3–5 ведущих), план событий, дашборд, честные выводы. **Запреты.** Метрики тщеславия как цель (регистрации без активации); менять определение метрики молча; выводы из выборки «3 пользователя» без оговорки; собирать ПДн в события без карты приватности. **Evidence.** Каждое число — запрос/событие, по которому оно получено. **Стоп.** Нет. Нет данных — поставь инструментирование задачей, не выдумывай цифру. **Дальше.** События в код → `autoteam-delivery`. ПДн в событиях → `autoteam-security`. Эксперимент → `autoteam-research` (порог и вердикт — до цифр).
+**Input.** Product picture, funnel (`autoteam-growth`), business questions. **Output.** Metric tree (north star + 3–5 leading metrics), event plan, dashboard, honest conclusions. **Forbidden.** Vanity metrics as the goal (signups without activation); silently changing a metric's definition; conclusions from a "3 users" sample without a caveat; collecting personal data into events without a privacy map. **Evidence.** Every number — the query/event it came from. **Stop.** None. No data — file instrumentation as a task, do not invent a number. **Next.** Events into code → `autoteam-delivery`. Personal data in events → `autoteam-security`. Experiment → `autoteam-research` (threshold and verdict — before the numbers).
 
-## Порядок
+## Order
 
-1. North-star: одна метрика ценности (на старте — использование ценности, не выручка). Ведущие: активация, удержание, конверсия к деньгам.
-2. Воронка: этапы от первого касания до оплаты и повторного использования. На каждом — метрика и событие.
-3. План событий: имя, свойства, когда срабатывает, владелец. Схема событий — контракт: меняется явно, не молча.
-4. Инструмент — из стека и решения продукта (self-hosted / SaaS). Не тащи тяжёлую платформу «на всякий случай».
-5. Дашборд: north-star, воронка, деньги. Один экран, обновляется без ручной сборки.
-6. Чтение: тренд важнее точки; сегменты важнее среднего; корреляция ≠ причина. Аномалия — сначала проверка инструментирования, потом теории.
+1. North star: one value metric (at the start — value usage, not revenue). Leading: activation, retention, conversion to money.
+2. Funnel: stages from first touch to payment and repeat use. Each has a metric and an event.
+3. Event plan: name, properties, when it fires, owner. The event schema is a contract: it changes explicitly, not silently.
+4. The tool — from the stack and the product's decision (self-hosted / SaaS). Do not drag in a heavy platform "just in case".
+5. Dashboard: north star, funnel, money. One screen, updates without manual assembly.
+6. Reading: trend over a point; segments over the average; correlation ≠ causation. An anomaly — check the instrumentation first, theories second.
 
-Артефакт: `docs/product/metrics.md` в **продукте** (дерево метрик и план событий).
+Artifact: `docs/product/metrics.md` in the **product** (metric tree and event plan).

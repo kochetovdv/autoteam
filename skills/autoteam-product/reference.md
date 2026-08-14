@@ -1,3 +1,3 @@
-# Unit-экономика и домены
+# Unit economics and domains
 
-Канон метода: `docs/product/unit-economics.md`, `docs/product/domains.md`, `docs/product/discovery.md`.
+Method canon: `docs/product/unit-economics.md`, `docs/product/domains.md`, `docs/product/discovery.md`.

@@ -1,24 +1,24 @@
 ---
 name: autoteam-docs
-description: Документация для бизнеса и для разработки плюс регулярное обновление — когда устарело, кто обновляет. Использовать при kb, README, runbook, «документация устарела», после смены поведения.
+description: Documentation for business and for development, plus regular refresh — when it goes stale, who updates it. Use for kb, README, runbook, "docs are stale", after a behavior change.
 ---
 
-# Документация продукта и кода
+# Product and code documentation
 
-Не «напиши README». Три слоя: бизнес, техническая, процесс. Канон метода: `docs/docs-practice/README.md`.
+Not "write a README". Three layers: business, technical, process. Method canon: `docs/docs-practice/README.md`.
 
-**Вход.** Смена поведения/API/роли или «дока устарела». **Выход.** Обновлённые слои в репозитории **продукта**. **Запреты.** Пути репо как меню для бизнеса; выдуманные кнопки; единственная правда только в чате. **Evidence.** Кнопка/API сверяется с UI или контрактом. **Стоп.** Нет. Нет владельца слоя — очередь, не стоп чужого кода. **Дальше.** Поведение меняет `autoteam-delivery` в том же цикле.
+**Input.** A change in behavior/API/roles, or "docs are stale". **Output.** Updated layers in the **product** repository. **Forbidden.** Repo paths as a menu for business; made-up buttons; the only source of truth living in chat. **Evidence.** Button/API checked against the UI or the contract. **Stop.** None. No layer owner — queue it, don't stop someone else's code. **Next.** Behavior is changed by `autoteam-delivery` in the same cycle.
 
-Бизнес: экраны и правила простым языком. Сверяй кнопки с UI.
+Business: screens and rules in plain language. Check buttons against the UI.
 
-Техническая: ADR, runbook, контракт, как запустить и откатить.
+Technical: ADR, runbook, contract, how to run and roll back.
 
-## Каденс
+## Cadence
 
-В том же изменении, что поведение/API/роль/команда админки/выкатка.
+In the same change as the behavior/API/role/admin command/release.
 
-Регулярный проход: активный продукт — раз в 1–2 недели; спокойный — с архитектурным ревью раз в месяц.
+Regular pass: active product — every 1–2 weeks; quiet — with the architecture review once a month.
 
-Устаревшее: нет кнопки, код врёт доку, мёртвая ссылка. Владелец в README продукта.
+Stale: a button that doesn't exist, code contradicting the doc, a dead link. Owner in the product README.
 
-Пользовательская kb в UI — бандлы как в проекте (не обещай отдачу файлов из `docs/`, если рантайм их туда не кладёт).
+User-facing kb in the UI — bundled as the project does it (don't promise to serve files from `docs/` if the runtime doesn't put them there).

@@ -1,25 +1,25 @@
-# ADR-NNNN: заголовок
+# ADR-NNNN: title
 
-- Статус: Draft | Accepted | Superseded
-- Дата:
-- Решение:
+- Status: Draft | Accepted | Superseded
+- Date:
+- Decision:
 
-## Контекст
+## Context
 
-Зачем решаем сейчас.
+Why we are deciding now.
 
-## Решение
+## Decision
 
-Что выбираем.
+What we choose.
 
-## Почему не другое
+## Why not something else
 
-1–3 отвергнутых варианта.
+1–3 rejected options.
 
-## Как проверить
+## How to verify
 
-Команда, метрика, сценарий.
+Command, metric, scenario.
 
-## Когда пересмотреть
+## When to revisit
 
-Триггер (нагрузка, цена, инцидент).
+Trigger (load, cost, incident).

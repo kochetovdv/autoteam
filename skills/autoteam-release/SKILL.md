@@ -1,28 +1,28 @@
 ---
 name: autoteam-release
-description: Выкатка и инциденты — механизм из проекта (git-push, CI/CD, serverless, runbook), smoke, откат, статусы. Использовать при деплое, релизе, инциденте, staging.
+description: Release and incidents — mechanism from the project (git-push, CI/CD, serverless, runbook), smoke, rollback, statuses. Use for deploy, release, incident, staging.
 ---
 
-# Выкатка и инциденты
+# Release and incidents
 
-Механизм выкатки — свойство продукта, не канона. Сначала узнай, как катится **этот** проект (онбординг / runbook): git push → платформа; merge → CI/CD; serverless; compose по SSH; ручной runbook. Не копируй хосты, SSH и пайплайны другого продукта.
+The release mechanism is a property of the product, not of the canon. First learn how **this** project ships (onboarding / runbook): git push → platform; merge → CI/CD; serverless; compose over SSH; manual runbook. Don't copy another product's hosts, SSH, and pipelines.
 
-**Вход.** Поручение выкатить / инцидент / готовый срез изменений; механизм деплоя проекта. **Выход.** Выкат со smoke-evidence, запись в runbook при инциденте. **Запреты.** Wipe, force-все, тяжёлые операции под нагрузкой, commit-push «заодно», выдуманный scope, чужие хосты. **Evidence.** Smoke-команда + вывод (или проверка URL после деплоя платформой). **Стоп.** Нет «выкати/можно» — срез готов и один вопрос, не зависай. Объявление production — человек. **Дальше.** Инцидент с границей данных → очередь `autoteam-architecture-review`. Чужой scope не стопай.
+**Input.** An assignment to release / an incident / a ready change set; the project's deploy mechanism. **Output.** A release with smoke evidence, a runbook entry for an incident. **Forbidden.** Wipe, force-anything, heavy operations under load, commit-push "while at it", made-up scope, other products' hosts. **Evidence.** Smoke command + output (or a URL check after a platform deploy). **Stop.** No "ship it / go ahead" — change set ready plus one question; don't hang. Declaring production is the human's call. **Next.** An incident with a data boundary → `autoteam-architecture-review` queue. Don't stop someone else's scope.
 
-## Инварианты (при любом механизме)
+## Invariants (under any mechanism)
 
-- Известно, что уходит: срез изменений, миграции да/нет, что не делать.
-- Smoke после выката: главный путь жив, evidence командой или запросом.
-- Откат известен **до** выката: git revert, предыдущий образ, rollback платформы.
-- Секреты по средам раздельно; прод-секреты не в логах выката.
-- Разрушительное (миграция с потерей, wipe, пересчёт) — бэкап и явное согласование.
+- Know what ships: the change set, migrations yes/no, what not to do.
+- Smoke after the release: the main path is alive, evidence by command or request.
+- Rollback known **before** the release: git revert, previous image, platform rollback.
+- Secrets separated per environment; prod secrets not in release logs.
+- Destructive actions (lossy migration, wipe, recompute) — backup and explicit sign-off.
 
-## Статусы и согласование
+## Statuses and sign-off
 
-Если проект ведёт файлы патчей: `draft` → `ready` (пишет реализатор) → `published` (пишет выкатывающий после smoke; другой субагент, не автор кода). В git-flow роль патча играет PR / релиз-тег — статусы не дублируй, следуй проекту.
+If the project keeps patch files: `draft` → `ready` (written by the implementer) → `published` (written by the releaser after smoke; a different subagent, not the code's author). In git flow the PR / release tag plays the patch's role — don't duplicate statuses, follow the project.
 
-«Выкати / можно» в поручении = можно этот цикл. Среды — имена как в проекте; staging ≠ объявление production. Канон: `docs/delivery/release.md`, `incidents.md`, `ci-flags.md`.
+"Ship it / go ahead" in the assignment = allowed for this cycle. Environments — names as in the project; staging ≠ declaring production. Canon: `docs/delivery/release.md`, `incidents.md`, `ci-flags.md`.
 
-## Инцидент
+## Incident
 
-Симптом → evidence → смягчение → причина → та же проверка → запись в runbook. Шаблон `templates/incident.md`. Не рефакторь прод «заодно».
+Symptom → evidence → mitigation → cause → the same check again → runbook entry. Template `templates/incident.md`. Don't refactor prod "while at it".

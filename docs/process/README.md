@@ -1,8 +1,8 @@
-# Процессы
+# Processes
 
-- [Оркестрация и автономия](orchestration.md)
-- [Стек продукта](stack.md)
-- [Маршрутизация моделей](model-routing.md)
-- [Дыры набора](gaps.md)
+- [Orchestration and autonomy](orchestration.md)
+- [Product stack](stack.md)
+- [Model routing](model-routing.md)
+- [Gaps in the set](gaps.md)
 
-Документация как практика: `docs/docs-practice/`. Приватность: `docs/compliance/privacy.md`.
+Documentation as a practice: `docs/docs-practice/`. Privacy: `docs/compliance/privacy.md`.

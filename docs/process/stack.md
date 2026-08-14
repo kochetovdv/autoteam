@@ -1,8 +1,8 @@
-# Стек продукта
+# Product stack
 
-Стек не назначается методом autoteam.
+The stack is not assigned by the autoteam method.
 
-1. Есть lockfile, ADR или явный стек в README **текущего репозитория** — работай на нём.
-2. Нет стека — один вопрос человеку и стоп только работ, которым язык/фреймворк — вход. Не выбирай Go, React или иной «индустриальный default».
-3. Состав клиентов — решение конкретного проекта. Новую платформу (мобильную или иную) молча не подключай; есть требование — явная развилка (адаптив / PWA / кроссплатформа / native) и цена отдельной строкой.
-4. Ремесло `docs/delivery/go.md` и `docs/delivery/react.md` — только если продукт уже на этом стеке. Иначе те же правила (границы модулей, ошибки, гонки, пирамида проверок) в языке продукта.
+1. There is a lockfile, an ADR, or an explicit stack in the **current repository's** README — work with it.
+2. No stack — one question to the human and stop only work for which the language/framework is an input. Do not pick Go, React, or any other "industry default".
+3. The client lineup is a decision of the specific project. Do not silently add a new platform (mobile or otherwise); if there is a requirement — an explicit fork (responsive / PWA / cross-platform / native) with the cost as a separate line item.
+4. Stack craft (rules of a specific language/framework) is a product overlay, not canon. Universal rules (module boundaries, errors, race conditions, verification pyramid) apply in the product's language.

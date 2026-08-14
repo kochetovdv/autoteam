@@ -1,73 +1,73 @@
-# Оркестрация и автономия
+# Orchestration and autonomy
 
-Человек открывает **один** чат с поручением. Оркестратор (`autoteam-orchestrator`) сам вызывает субагентов. Новый чат на каждую роль не нужен. Среда исполнения любая, где есть субагенты — метод не привязан к среде.
+The human opens **one** chat with an assignment. The orchestrator (`autoteam-orchestrator`) invokes subagents itself. No new chat per role. Any execution environment with subagents works — the method is not tied to an environment.
 
-## Поручение
+## Assignment
 
-| Смысл первого сообщения | Цикл без ожидания «делай» |
+| Meaning of the first message | Cycle without waiting for "go ahead" |
 |-------------------------|---------------------------|
-| сделай / почини / разбери | бриф → роли → приёмка → артефакт |
-| сделай и выкати | то же + `autoteam-release` после приёмки |
-| сделай из идеи рабочее решение | режим «решение»: весь цикл нон-стоп, журнал решений, борд критиков на финале |
-| идея, нет ТЗ | `autoteam-product` → `autoteam-positioning`, не код |
-| оцени объём | `autoteam-scope` |
-| как продвигать / почему не растём | `autoteam-growth` + `autoteam-analytics` + `autoteam-content` |
-| как брать деньги | `autoteam-pricing` |
-| сколько тратим / лимиты | `autoteam-budget` |
-| освой репозиторий | `autoteam-onboarding` |
+| build / fix / investigate | brief → roles → acceptance → artifact |
+| build and release | same + `autoteam-release` after acceptance |
+| turn an idea into a working solution | "solution mode": full cycle non-stop, decision journal, critic board at the finish |
+| an idea, no spec | `autoteam-product` → `autoteam-positioning`, not code |
+| estimate the scope | `autoteam-scope` |
+| how to promote / why aren't we growing | `autoteam-growth` + `autoteam-analytics` + `autoteam-content` |
+| how to charge money | `autoteam-pricing` |
+| how much are we spending / limits | `autoteam-budget` |
+| learn the repository | `autoteam-onboarding` |
 
-Бриф пишется всегда. Неизвестный репозиторий — сразу `autoteam-onboarding`. Стек: `docs/process/stack.md`.
+The brief is always written. Unknown repository — `autoteam-onboarding` right away. Stack: `docs/process/stack.md`.
 
-## Два режима
+## Two modes
 
-**Интерактивный** (человек в контуре): развилки смысла (две трактовки денег, права, контракта, безопасности, нет стека) — вопрос человеку, стоп только зависимых задач.
+**Interactive** (human in the loop): meaning-level forks (two readings of money, rights, a contract, security, no stack) — a question to the human, stop only dependent tasks.
 
-**Режим «решение»** (автономный, включается поручением «сделай решение / работай автономно»): вопросы превращаются в решения с записью в журнал (`docs/process/decisions.md` продукта, шаблон `templates/decisions.md` канона). **Спроси и продолжай:** в начале цикла человеку уходит дайджест — до 3 вопросов, где ранний ответ дешевле всего, плюс очередь действий, которые может сделать только человек (учётки, оплаты, идентификация — из реестра ресурсов `templates/resources.md`, каждое с последствием «без X пакет Y стоит после чекпойнта Z»); работа идёт на ASSUMP не дожидаясь; ответ или действие в любой момент = амендмент к журналу. ASSUMP, меняющие рынок, аудиторию или деньги, дублируются в журнал. Отсутствие ресурса — не стоп цикла: `Blocked-by-resource` пакета, остальное едет. Останавливают только жёсткие стопы: внешние деньги; право и публичные обязательства; необратимое разрушение; прод без «выкати». Результат — работающее решение целиком: запускается, проверено с evidence, развёрнуто в доступной среде (при запрете внешней среды — локальный запуск, воспроизводимый по инструкции; трактовка в журнал), задокументировано; отложенное — явный короткий список.
+**"Solution mode"** (autonomous, activated by an assignment like "build a solution / work autonomously"): questions turn into decisions recorded in the journal (the product's `docs/process/decisions.md`, canon template `templates/decisions.md`). **Ask and continue:** at the start of the cycle the human gets a digest — up to 3 questions where an early answer is cheapest, plus a queue of actions only the human can perform (accounts, payments, identification — from the resource registry `templates/resources.md`, each with the consequence "without X, package Y stalls after checkpoint Z"); work proceeds on ASSUMP without waiting; an answer or action at any moment = an amendment to the journal. ASSUMPs that change the market, the audience, or money are duplicated into the journal. A missing resource is not a cycle stop: `Blocked-by-resource` for that package, the rest keeps moving. Only hard stops halt work: external money; law and public commitments; irreversible destruction; production without "release it". The result is a working solution as a whole: it launches, is verified with evidence, is deployed in an available environment (if an external environment is forbidden — a local run reproducible from instructions; the interpretation goes into the journal), is documented; anything deferred — an explicit short list.
 
-## Неблокирующие согласования
+## Non-blocking approvals
 
-Запроси решение и **продолжай независимые** задачи. Останавливай только работы, которым это решение — вход.
+Request the decision and **continue independent** tasks. Stop only work for which that decision is an input.
 
-Стоп связанных (интерактив): две трактовки денег/права/безопасности/контракта; новое поведение продукта; новый контур архитектуры; выкатка без поручения; необратимое (wipe, массовый пересчёт без подтверждения); нет стека, а без него нельзя писать код.
+Stop dependents (interactive): two readings of money/law/security/contract; new product behavior; a new architecture boundary; release without an assignment; the irreversible (wipe, mass recomputation without confirmation); no stack when code cannot be written without one.
 
-Не стоп: документация другого модуля, другой экран, тесты, оценка другой границы, рефакторинг вне границы, черновик не в прод.
+Not a stop: documentation of another module, another screen, tests, estimating another boundary, refactoring outside the boundary, a draft not headed to prod.
 
-`Blocked`: владелец блокера, следующее действие, дата проверки.
+`Blocked`: blocker owner, next action, check date.
 
-## Как запускать субагентов
+## How to launch subagents
 
-1. Роль и один результат. Смежные роли цепочки можно объединять в одном субагенте на L1–L2 (артефакты последовательны); на L3 (данные, гонки, безопасность, деньги) — не склеивать. Автор ≠ приёмщик всегда.
-2. Модель по `docs/process/model-routing.md` **проекта**, если файл есть; иначе принципы канона.
-3. В prompt: прочитай указанный skill (+ reference при нужде), пакет контекста, формат возврата. Не историю чата.
-4. Приёмка — см. «Борд критиков». Разные семьи моделей, если среда их даёт; одна семья — пометка `same-family` в handoff.
-5. `CHANGES_REQUIRED` → снова исполнитель, максимум **2** цикла, затем человек (в режиме «решение» — фиксация в журнале и упрощение решения, не зависание).
-6. Выкатка — третий субагент, не автор кода и не приёмщик.
+1. One role, one deliverable. Adjacent roles in a chain may be merged into one subagent at L1–L2 (artifacts are sequential); at L3 (data, race conditions, security, money) — do not merge. Author ≠ acceptor, always.
+2. Model per the **project's** `docs/process/model-routing.md` if the file exists; otherwise canon principles.
+3. In the prompt: read the specified skill (+ reference if needed), the context package, the return format. Not the chat history.
+4. Acceptance — see "Critic board". Different model families if the environment provides them; one family — a `same-family` note in the handoff.
+5. `CHANGES_REQUIRED` → back to the implementer, at most **2** cycles, then the human (in "solution mode" — record in the journal and simplify the solution, don't hang).
+6. Release — a third subagent, neither the code's author nor its acceptor.
 
-Пакет контекста: роль; ревизии spec/plan/task; затронутые контракты и точки входа; in/out; запреты; команды проверки; формат возврата.
+Context package: role; spec/plan/task revisions; affected contracts and entry points; in/out; prohibitions; verification commands; return format; perimeter boundaries — what was left out and why (a conclusion of absence beyond the perimeter is a question to the orchestrator, not a finding).
 
-Параллель — только без общей изменяемой границы. **Незафиксированный общий числовой бюджет или NFR — тоже общая граница:** перед параллельным запуском оркестратор выписывает общие числа явно либо назначает одну ветку владельцем числа. Много ролей — волнами: независимые параллельно, зависимые следующей волной; пока поток ждёт сборку — другие волны работают.
+Parallelism — only without a shared mutable boundary. **An unpinned shared numeric budget or NFR is also a shared boundary:** before a parallel launch the orchestrator writes out the shared numbers explicitly or appoints one branch as the number's owner. Many roles — in waves: independent ones in parallel, dependent ones in the next wave; while one stream waits for assembly, other waves keep working.
 
-Живучесть: конец волны = чекпойнт (git-коммит продукта, если git есть; иначе запись прогресса) — обрыв цикла восстанавливается из журнала и чекпойнтов. Маркер активного цикла `docs/process/.cycle-lock` (id, время старта) защищает от двойного запуска в одной папке; живой чужой маркер — вопрос человеку, маркер старше суток — протух. Амендмент, меняющий ASSUMP, порождает задачу ревизии зависимых артефактов.
+Resilience: end of a wave = checkpoint (a git commit in the product if git exists; otherwise a progress record) — an interrupted cycle recovers from the journal and checkpoints. The active cycle marker `docs/process/.cycle-lock` (id, start time) guards against a double launch in one folder; a live foreign marker — a question to the human; a marker older than a day is stale. An amendment that changes an ASSUMP spawns a task to revise dependent artifacts.
 
-## Борд критиков
+## Critic board
 
-Состав не фиксирован: **призмы = виды провала продукта** — борд собирается из вопроса «как этот продукт может умереть», состав и обоснование — в журнал. Ядро: коммерческий, инженерный, арт (для UI; скриншоты обеих версий), пользовательский (проход демо-сценария нетерпеливым пользователем). По природе продукта: факты (клеймы → факт/ASSUMP/источник), эксплуатация («что сломается через месяц»), DX вместо арт для API/CLI, security/quality по риску.
+Composition is not fixed: **lenses = ways the product can fail** — the board is assembled from the question "how can this product die"; composition and rationale go into the journal. Core: commercial, engineering, art (for UI; screenshots of both versions), user (an impatient user walking the demo scenario). By product nature: facts (claims → fact/ASSUMP/source), operations ("what breaks in a month"), DX instead of art for API/CLI, security/quality by risk.
 
-Механика: каждый критик — отдельный субагент со свежим контекстом и мандатом «искать причины отклонить»; критики не видят вердиктов друг друга до сдачи своих; любой `CHANGES_REQUIRED` возвращает работу (до 2 циклов); исполнитель вправе оспорить замечание с evidence — арбитр оркестратор, спор в журнал; конфликт призм — тай-брейк по позиционированию (чья призма ближе к тому, за что платит ICP, та старше); бюджет приёмки ≤5 критиков по умолчанию, срезанные призмы — в журнал; модель критика ≥ модели исполнителя. Возвраты — норма и фиксируются в handoff; систематический ноль возвратов — триггер ретро. Промежуточные задачи — один профильный критик.
+Mechanics: each critic is a separate subagent with fresh context and a mandate to "look for reasons to reject"; critics don't see each other's verdicts until they submit their own; any `CHANGES_REQUIRED` sends the work back (up to 2 cycles); the implementer may contest a finding with evidence — the orchestrator arbitrates, the dispute goes into the journal; a conflict of lenses — tie-break by positioning (the lens closer to what the ICP pays for is senior); acceptance budget ≤5 critics by default, cut lenses go into the journal; the critic's model ≥ the implementer's model. Returns are the norm and are recorded in the handoff; a systematic zero returns is a retro trigger. Intermediate tasks — one specialized critic.
 
-Чек-лист приёмки включает: журнал решений не противоречит финальным артефактам (амендменты на месте).
+The acceptance checklist includes: the decision journal does not contradict the final artifacts (amendments in place); the artifact's recommendations do not contradict its own findings — a recommendation's object is not marked defective in another section, otherwise an explicit "fix X first" dependency.
 
-## Gates (человек)
+## Gates (human)
 
-Действуют в интерактивном режиме; в режиме «решение» гейты 1–3 заменяет борд критиков плюс журнал решений.
+Apply in interactive mode; in "solution mode" gates 1–3 are replaced by the critic board plus the decision journal.
 
-1. Требования утверждены — если меняется поведение.
-2. Архитектура утверждена — если новая граница, хранилище, протокол.
-3. Merge / приёмка PR — если в проекте есть PR и человек его просил.
-4. Выпуск в production — всегда человек, если нет явного «выкати» в поручении на **этот** цикл. Жёсткий стоп в обоих режимах.
+1. Requirements approved — if behavior changes.
+2. Architecture approved — if there's a new boundary, storage, protocol.
+3. Merge / PR acceptance — if the project has PRs and the human asked for it.
+4. Release to production — always the human, unless there's an explicit "release it" in the assignment for **this** cycle. Hard stop in both modes.
 
-Выкатка на staging (предпрод) ≠ объявление production.
+Release to staging (pre-prod) ≠ declaring production.
 
-## Каденсы
+## Cadences
 
-Ревью архитектуры: `docs/architecture/review.md` и `autoteam-architecture-review`. Ретро метода: по триггерам (`autoteam-retro`), не после каждого прогона.
+Architecture review: `docs/architecture/review.md` and `autoteam-architecture-review`. Method retro: by triggers (`autoteam-retro`), not after every run.

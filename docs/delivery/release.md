@@ -1,23 +1,23 @@
-# Выкатка (универсальная)
+# Release (universal)
 
-Не копируй SSH, IP и порты другого продукта. В продукте — свой runbook (`deploy/README.md` или аналог).
+Do not copy another product's SSH, IPs, and ports. The product has its own runbook (`deploy/README.md` or equivalent).
 
-## Среды
+## Environments
 
-Обычно: локальная → staging (предпрод; в продукте может называться иначе) → production. Имена как в проекте. Секреты не общие.
+Typically: local → staging (pre-production; may be named differently in the product) → production. Names as in the project. Secrets are not shared.
 
-## Патч / релиз
+## Patch / release
 
-Один согласованный срез: что вошло, какие сервисы пересобрать, миграции да/нет, smoke, откат, **не делать**.
+One agreed cut: what went in, which services to rebuild, migrations yes/no, smoke, rollback, **do not do**.
 
-Статусы патча (если ведёте файлы): `draft` → `ready` → `published`. Реализация пишет `ready`. Выкатка — другой субагент. `published` только после smoke.
+Patch statuses (if you keep files): `draft` → `ready` → `published`. Implementation writes `ready`. Release is a different subagent. `published` only after smoke.
 
-## Согласование
+## Approval
 
-«Выкати / можно» в поручении = можно на этот цикл. Нет фразы — патч `ready` и один вопрос, не зависай. Gate «объявили production» человек не закрывает патчем.
+"Release it / go ahead" in the assignment = allowed for this cycle. No such phrase — patch stays `ready` plus one question, don't stall. The "declared production" gate is not one the human closes with a patch.
 
-Запреты по умолчанию: wipe томов, force-пересчёт данных и агрегатов, тяжёлые OPTIMIZE под нагрузкой, commit-push «заодно», выдуманный scope.
+Default prohibitions: wiping volumes, force-recomputing data and aggregates, heavy OPTIMIZE under load, commit-push "while we're at it", invented scope.
 
-## Инцидент
+## Incident
 
-Короткий цикл: симптом → evidence (лог, статус, запрос) → смягчение → причина → запись в runbook. Не чини прод слепым рефакторингом. Skill: `autoteam-release`. Шаблон: `templates/incident.md`.
+Short cycle: symptom → evidence (log, status, query) → mitigation → cause → runbook entry. Do not fix production by blind refactoring. Skill: `autoteam-release`. Template: `templates/incident.md`.

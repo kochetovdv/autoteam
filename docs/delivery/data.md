@@ -1,19 +1,19 @@
-# Данные
+# Data
 
-## Выбор хранилища
+## Choosing a store
 
-Не выбирай Postgres, ClickHouse, кэш, поиск «по категории». Смотри: согласованность записи; шаблон вставок; какие запросы (точка / скан / аналитика); срок хранения; параллелизм; цена эксплуатации.
+Do not pick Postgres, ClickHouse, cache, or search "by category". Look at: write consistency; insert pattern; which queries (point / scan / analytics); retention period; concurrency; cost of operation.
 
-Нет цифр — допущение и триггер пересмотра («если >X событий/сутки — заново»). Два хранилища — два владельца правды и явное правило рассинхрона.
+No numbers — an assumption plus a revisit trigger ("if >X events/day — redo"). Two stores — two owners of truth and an explicit desync rule.
 
-## Миграции
+## Migrations
 
-Миграции: только вперёд плюс описанный откат или expand/contract; не править уже применённую на проде. Если сервер на Go — детали в `docs/delivery/go.md`. На выкатке: совместимость со старым кодом, бэкап **перед** разрушительной миграцией, кто нажимает.
+Migrations: forward-only plus a documented rollback, or expand/contract; never edit a migration already applied in production. On release: compatibility with old code, backup **before** a destructive migration, who pushes the button.
 
-## Бэкап
+## Backup
 
-Тема поставки, не «потом ops». Минимум: что бэкапим (БД с ПДн — да), как часто, как проверяем восстановление, где секрет доступа. Нет проверки восстановления — бэкапа нет.
+A delivery concern, not "ops later". Minimum: what we back up (a DB with personal data — yes), how often, how we verify restore, where the access secret lives. No restore verification — no backup.
 
-## Персональные данные
+## Personal data
 
-Категории и режим — `docs/compliance/privacy.md`. В схеме: зачем поле, срок, кто читает. Не складывай «на всякий случай».
+Categories and regime — `docs/compliance/privacy.md`. In the schema: why the field exists, retention, who reads it. Do not hoard "just in case".

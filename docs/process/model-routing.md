@@ -1,51 +1,51 @@
-# Маршрутизация моделей
+# Model routing
 
-Выбор модели — по **роли и цене ошибки**, не по «самой дорогой». Метод не привязан к конкретной среде: подставь модели, доступные в твоём раннере (Claude, Cursor, свой оркестратор).
+Choose the model by **role and cost of error**, not by "the most expensive one". The method is not tied to a specific environment: substitute the models available in your runner (Claude, Cursor, your own orchestrator).
 
-Конкретные id моделей — не истина этого репозитория. В продукте может быть свой `docs/process/model-routing.md` — его и читай.
+Specific model ids are not this repository's source of truth. A product may have its own `docs/process/model-routing.md` — read that one.
 
-## Принципы
+## Principles
 
-1. Сопоставь роль и риск: L1 рутина, L2 обычная поставка, L3 данные / гонки / безопасность / архитектура.
-2. Возьми минимально достаточную модель.
-3. Приёмка — отдельный агент; **другая семья** моделей, если среда даёт несколько.
-4. Одна семья в среде → приёмщик со свежим контекстом и ролью критика (искать причины отклонить), пометка `same-family` в handoff; решения с дорогой обратимостью — человеку через журнал. Авто-`ACCEPTED` без отдельного приёмщика запрещён всегда.
-5. Дорогая модель не назначается «на всякий случай».
-6. Если две модели обучались друг на друге — для данных и SQL это слабая пара приёмки; предпочитай явно разные семьи.
+1. Match role to risk: L1 routine, L2 ordinary delivery, L3 data / race conditions / security / architecture.
+2. Take the minimally sufficient model.
+3. Acceptance — a separate agent; a **different model family** if the environment offers several.
+4. One family in the environment → an acceptor with fresh context and a critic's role (look for reasons to reject), a `same-family` note in the handoff; decisions with costly reversibility go to the human via the journal. Auto-`ACCEPTED` without a separate acceptor is always forbidden.
+5. An expensive model is not assigned "just in case".
+6. If two models were trained on each other, they are a weak acceptance pair for data and SQL; prefer clearly different families.
 
-## Пример: одна семья, тиры (подставь id своей среды)
+## Example: one family, tiers (substitute your environment's ids)
 
-| Роль | Тир |
+| Role | Tier |
 |------|-----|
-| Рутина: копирование, сканы, форматирование | лёгкий |
-| Исполнители UI/контент/документы; оркестрация | средний |
-| L3: архитектура, данные, безопасность, деньги | старший |
-| Критики борда | старший; всегда ≥ тира исполнителя |
+| Routine: copying, scans, formatting | light |
+| UI/content/document implementers; orchestration | mid |
+| L3: architecture, data, security, money | senior |
+| Board critics | senior; always ≥ the implementer's tier |
 
-На критиках не экономить: критик слабее исполнителя — театр приёмки. Лёгкий тир на рутине — это скорость и деньги, не компромисс качества.
+Don't skimp on critics: a critic weaker than the implementer is acceptance theater. A light tier on routine is speed and money, not a quality compromise.
 
-## Роль → уровень (логика)
+## Role → level (logic)
 
-| Роль | Уровень | Смысл |
+| Role | Level | Rationale |
 |------|---------|--------|
-| Аналитик, планировщик, оркестратор | L2 | синтез артефактов |
-| Архитектор, ревью устройства | L3 | границы и риск |
-| Исполнитель UI/рутина | L1–L2 | быстрый цикл правок |
-| Исполнитель данные/гонки | L3 | сильный reasoning |
-| Приёмка | ≥ исполнителя, отдельный агент | |
-| R&D | длинный tool-loop | |
-| Выкатка | L2 | следует патчу, не выдумывает scope |
-| Онбординг | L2 | карта репо, не переписывает продукт |
-| Контент, документы | L1–L2 | факты из входа |
+| Analyst, planner, orchestrator | L2 | artifact synthesis |
+| Architect, design review | L3 | boundaries and risk |
+| UI/routine implementer | L1–L2 | fast edit cycle |
+| Data/race-conditions implementer | L3 | strong reasoning |
+| Acceptance | ≥ the implementer, separate agent | |
+| R&D | long tool-loop | |
+| Release | L2 | follows the patch, doesn't invent scope |
+| Onboarding | L2 | maps the repo, doesn't rewrite the product |
+| Content, documents | L1–L2 | facts from the input |
 
-Запись назначения (в task/handoff):
+Routing record (in task/handoff):
 
 ```text
 Routing level: L1 | L2 | L3
-Model: <id из среды проекта>
-Model family: <семья>
+Model: <id from the project's environment>
+Model family: <family>
 Task class: feature | bugfix | data | concurrency | docs | R&D | ops | release | content
 Data evidence required: yes | no
-Reviewer: <отдельный агент; семья или same-family>
+Reviewer: <separate agent; family or same-family>
 Baseline deviation reason: none | …
 ```

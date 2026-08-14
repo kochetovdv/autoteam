@@ -1,36 +1,36 @@
-# Документация: зачем, какая, когда обновлять
+# Documentation: why, what kind, when to update
 
-Это не «напиши README». Документация — часть поставки. Skill: `autoteam-docs`.
+This is not "write a README". Documentation is part of the delivery. Skill: `autoteam-docs`.
 
-## Три слоя
+## Three layers
 
-| Слой | Кто читает | Где обычно | Запрещено |
+| Layer | Who reads it | Usual location | Forbidden |
 |------|------------|------------|-----------|
-| **Бизнес / продукт** | оператор, PM, заказчик | `docs/kb/`, раздел «Документация» в UI | внутренние пути репо, коды задач как меню |
-| **Техническая** | разработчик, агент | `docs/`, ADR, runbook, OpenAPI | выдавать ADR за пользовательскую инструкцию |
-| **Процесс** | команда и агенты | `docs/process/` | путать со spec продукта |
+| **Business / product** | operator, PM, client | `docs/kb/`, the "Documentation" section in the UI | internal repo paths, task codes as menu items |
+| **Technical** | developer, agent | `docs/`, ADR, runbook, OpenAPI | passing an ADR off as a user guide |
+| **Process** | team and agents | `docs/process/` | confusing it with the product spec |
 
-## Когда обновлять (каденс)
+## When to update (cadence)
 
-Обязательно в том же PR/задаче, если изменилось:
+Mandatory in the same PR/task if any of these changed:
 
-- наблюдаемое поведение экрана или API;
-- роль, право, флаг;
-- команда в админке;
-- способ выкатки или отката;
-- смысл требования (тогда и spec).
+- observable behavior of a screen or API;
+- a role, permission, flag;
+- an admin panel command;
+- the release or rollback procedure;
+- the meaning of a requirement (then the spec too).
 
-Регулярный проход (даже без фичи):
+Regular pass (even without a feature):
 
-- активный продукт — раз в спринт / раз в 2 недели: устаревшие кнопки, расхождение UI и kb;
-- спокойный — раз в месяц вместе с архитектурным ревью.
+- active product — once a sprint / every 2 weeks: stale buttons, drift between UI and kb;
+- quiet one — once a month, together with the architecture review.
 
-**Устаревшее:** кнопка, которой нет; обещание, которое код не делает; ссылка на удалённый экран; «так было в v1». Помечай и чини в той же волне, не копи документ «на потом» без владельца.
+**Stale:** a button that doesn't exist; a promise the code doesn't keep; a link to a deleted screen; "that's how it was in v1". Flag and fix in the same wave; don't pile up a "for later" document without an owner.
 
-Владелец слоя документации — в README проекта. Нет владельца — оркестратор ставит обновление в очередь, не блокируя чужой код.
+The owner of each documentation layer — in the project README. No owner — the orchestrator queues the update without blocking others' code.
 
-## Чего не делать
+## What not to do
 
-- Не описывать классы пакетов пользователю.
-- Не выдумывать команды UI.
-- Не держать единственную правду только в чате.
+- Don't describe package classes to the user.
+- Don't invent UI commands.
+- Don't keep the only source of truth solely in chat.

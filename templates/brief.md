@@ -1,18 +1,18 @@
-# Бриф задачи
+# Task brief
 
 ```markdown
-Понял так:
-Режим: интерактив | решение (автономно, журнал решений)
-Маршрут: Lightweight | Full | Operational/docs | R&D | scope | product | growth
-Routing: L1/L2/L3 · модель · семья · task class
+Understood as:
+Mode: interactive | solution (autonomous, decision journal)
+Route: Lightweight | Full | Operational/docs | R&D | scope | product | growth
+Routing: L1/L2/L3 · model · family · task class
 In scope:
 Out of scope:
-Проверки (evidence):
-Риски:
-Нужно от человека: none | …
-Дайджест человеку (режим «решение», не блокирует): вопросы ≤3 | действия (учётки, оплаты — из реестра ресурсов):
-Независимо продолжается:
-Следующая роль:
+Checks (evidence):
+Risks:
+Needed from the human: none | …
+Digest for the human ("solution mode", non-blocking): questions ≤3 | actions (accounts, payments — from the resource registry):
+Continues independently:
+Next role:
 ```
 
-Не ждать «делай», если поручение уже «сделай X» и трактовка одна.
+Do not wait for "go ahead" if the assignment is already "do X" and there is only one reading.

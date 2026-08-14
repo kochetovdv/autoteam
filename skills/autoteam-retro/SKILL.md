@@ -1,22 +1,22 @@
 ---
 name: autoteam-retro
-description: Ретроспектива метода — что в каноне сработало, что стопало цикл, предложения правок без деталей проекта. Использовать после завершённого цикла, MVP, инцидента процесса, «почему встали».
+description: Method retrospective — what in the canon worked, what stalled the cycle, proposed edits without project details. Use after a completed cycle, an MVP, a process incident, "why did we stall".
 ---
 
-# Ретроспектива канона
+# Canon retrospective
 
-Канон autoteam — baseline: во время работы над продуктом он неизменен. Улучшения проходят только через этот навык — предложениями, которые утверждает человек. Ты не правишь канон в рабочем цикле.
+The autoteam canon is the baseline: while working on a product it is immutable. Improvements go only through this skill — as proposals the human approves. You do not edit the canon in a working cycle.
 
-**Вход.** Журнал решений, брифы и handoff прогона, места остановок, факты «скилл не сработал / не был найден / противоречил другому». **Выход.** Отчёт ретро: что сработало, что стопало, предложения правок канона (добавить / изменить / убрать) с обоснованием фактами прогона. **Запреты.** Править канон самому; тащить в предложения детали проекта (имена, стек, домены, пути продукта) — правка формулируется обезличенно, как метод; предлагать новый skill по одному случаю. **Evidence.** Каждое предложение — ссылка на конкретный факт прогона (решение из журнала, остановка, расхождение). **Стоп.** Нет. Утверждение правок — человек. **Дальше.** Утверждено → правка канона отдельной задачей, затем разнос копий по проектам.
+**Input.** Decision journal, the run's briefs and handoffs, stop points, facts of "a skill didn't work / wasn't found / contradicted another". **Output.** Retro report: what worked, what stalled, proposed canon edits (add / change / remove) justified by facts of the run. **Forbidden.** Editing the canon yourself; dragging project details into proposals (names, stack, domains, product paths) — an edit is phrased depersonalized, as method; proposing a new skill from a single case. **Evidence.** Every proposal links to a specific fact of the run (a decision from the journal, a stop, a discrepancy). **Stop.** None. Approving edits is the human's call. **Next.** Approved → canon edit as a separate task, then re-distribute the copies to projects.
 
-## Порядок
+## Procedure
 
-1. Собери факты: где цикл встал и почему; какие решения из журнала оказались неверными; какие скиллы не использовались или дублировали друг друга; где агент действовал «мимо канона» — и был прав.
-2. Раздели: дефект метода (правило мешало) | дыра метода (правила не было) | дефект исполнения (правило было, агент не выполнил — это не повод менять канон).
-3. Обезличь: из «в проекте X застряли на выборе БД» → «нет правила выбора хранилища при пустом входе». Тест: предложение читается без знания проекта.
-4. Предложения: минимальный diff формулировкой «было → станет → почему»; на удаление — правило, которое ни разу не пригодилось за N циклов или систематически нарушалось без вреда.
-5. Приоритет: сначала то, что останавливало цикл; потом качество результата; потом стиль.
+1. Gather facts: where the cycle stalled and why; which decisions from the journal turned out wrong; which skills went unused or duplicated each other; where the agent acted "outside the canon" — and was right.
+2. Separate: method defect (a rule got in the way) | method gap (there was no rule) | execution defect (the rule existed, the agent didn't follow it — not a reason to change the canon).
+3. Depersonalize: from "project X got stuck choosing a DB" to "no rule for choosing storage on empty input". Test: the proposal reads without knowing the project.
+4. Proposals: a minimal diff phrased "was → becomes → why"; for removal — a rule that was never needed in N cycles or was systematically violated with no harm.
+5. Priority: first what stopped the cycle; then result quality; then style.
 
-Каденс — по триггерам, не после каждого прогона (прогон без выводов — норма отлаженного процесса): первый прогон нового типа задачи; остановка или инцидент процесса; человек недоволен результатом; систематический ноль возвратов на приёмке; ~5 прогонов без ретро — лёгкий «пульс» (беглая сверка статистики: возвраты, замечания борда, время цикла — против деградации и стагнации).
+Cadence — by triggers, not after every run (a run with no findings is the norm for a well-tuned process): first run of a new task type; a stop or process incident; the human unhappy with the result; systematic zero returns at acceptance; ~5 runs without a retro — a light "pulse" (a quick stats check: returns, critic board remarks, cycle time — against degradation and stagnation).
 
-Артефакт: `docs/process/retro-YYYY-MM-DD.md` в **продукте**; утверждённые правки — в канон отдельной задачей.
+Artifact: `docs/process/retro-YYYY-MM-DD.md` in the **product**; approved edits go into the canon as a separate task.

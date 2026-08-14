@@ -1,18 +1,20 @@
-# Проверки качества (QA)
+# Quality checks (QA)
 
-TDD — сначала падающая проверка, потом код. Это не замена пирамиды.
+TDD — a failing check first, then code. This does not replace the pyramid.
 
-| Вид | Когда обязателен | Когда N/A |
+| Kind | When mandatory | When N/A |
 |-----|------------------|-----------|
-| Unit | правила, расчёты, гонки в памяти | чистый макет CSS |
-| Integration | БД, очередь, файлы | нет I/O |
-| Contract | меняется API/событие между частями | внутренний рефактор без схемы |
-| E2E | критичный пользовательский путь | правка копирайта |
+| Unit | rules, calculations, in-memory race conditions | pure CSS layout |
+| Integration | DB, queue, files | no I/O |
+| Contract | an API/event between parts changes | internal refactor without schema changes |
+| E2E | critical user path | copy edit |
 
-Негативные случаи, права, идемпотентность — если есть деньги, ПДн, роли, повтор запроса.
+Negative cases, permissions, idempotency — whenever money, personal data, roles, or request retries are involved.
 
-Evidence: команда + вывод. «В UI стало лучше» без запроса — не сдача для данных.
+Evidence: command + output. "The UI looks better" without a query is not sign-off for data.
 
-Состояния, недостижимые на реальных данных, допустимо проверять через временную модификацию данных — с пометкой в отчёте: что менялось, как, оригинал восстановлен. Немаркированная модификация данных в evidence запрещена.
+States unreachable on real data may be checked via temporary data modification — with a note in the report: what was changed, how, original restored. Unmarked data modification in evidence is forbidden.
 
-Skill поставки: `autoteam-delivery`. Гонки: `autoteam-quality`. Если сервер на Go — детали в `docs/delivery/go.md`.
+A finding of the "data loss or corruption" class: reading code is not enough — either reproduce it, or explicitly mark "mechanism confirmed, scale not measured" and queue a run for the human.
+
+Delivery skill: `autoteam-delivery`. Race conditions: `autoteam-quality`.

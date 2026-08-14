@@ -1,7 +1,7 @@
-# Субагенты и модели
+# Subagents and models
 
-Подробности канона метода: `docs/process/orchestration.md`, `docs/process/model-routing.md`, `docs/process/stack.md`.
+Method canon details: `docs/process/orchestration.md`, `docs/process/model-routing.md`, `docs/process/stack.md`.
 
-Приёмка тем же агентом, что писал код, — недействительна. Одна семья моделей в среде — критик со свежим контекстом и пометка same-family.
+Acceptance by the same agent that wrote the code is invalid. One model family in the environment — a critic with fresh context and a same-family flag.
 
-L1 (подпись, формат): родитель может сделать diff, `ACCEPTED` всё равно ставит отдельный критик.
+L1 (signature, format): the parent may produce the diff; `ACCEPTED` is still set by a separate critic.

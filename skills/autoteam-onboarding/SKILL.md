@@ -1,26 +1,27 @@
 ---
 name: autoteam-onboarding
-description: Онбординг агента в новый репозиторий — карта, стек, секреты не читать, overlay, первый бриф. Использовать при новом клоне, «освойся», первом чате в неизвестном репо.
+description: Agent onboarding into a new repository — map, stack, do not read secrets, overlay, first brief. Use on a fresh clone, on "get familiar", on the first chat in an unknown repo.
 ---
 
-# Онбординг агента в репозиторий
+# Agent onboarding into a repository
 
-Цель: через один проход понять, **как здесь работать**, не переписывая продукт.
+Goal: in one pass understand **how to work here**, without rewriting the product.
 
-**Вход.** Корень текущего репозитория. **Выход.** Карта: стек, overlay, контракты, как проверяют и выкатывают, дыры, первый безопасный шаг. **Запреты.** Читать значения секретов; менять стек; «генеральная уборка»; копировать секреты в чат или другой репозиторий. **Evidence.** Факты из файлов (lockfile, README, ADR), не догадка. **Стоп.** Нет, кроме секрета в git — тогда Blocker этой находки. **Дальше.** Поручение → `autoteam-orchestrator` или роль из каталога.
+**Input.** The root of the current repository. **Output.** A map: stack, overlay, contracts, how things are checked and released, holes, first safe step. **Forbidden.** Reading secret values; changing the stack; a "spring cleaning"; copying secrets into chat or another repository; recording an environment or product limitation without empirical verification — absence of observation is not observation of absence: a limitation is recorded together with the command that verified it; a tool failure is a property of the environment, not of the product. **Evidence.** Facts from files (lockfile, README, ADR), not guesses. **Stop.** None, except a secret in git — then a Blocker for that finding. **Next.** Assignment → `autoteam-orchestrator` or a role from the catalog.
 
-## Порядок
+## Order
 
-1. Корень: README, `docs/CURRENT.md` или аналог, `docs/process/` если есть.
-2. Стек по факту (lockfile, манифест, compose, ADR). Зафиксируй факт. Нет стека — в карте «стек не задан», не назначай язык. Правило: канон метода `docs/process/stack.md`.
-3. Overlay агентной среды: конфиг-каталоги в корне (`.claude/`, `.cursor/`, `CLAUDE.md`, `AGENTS.md` и аналоги), свой `docs/process/model-routing.md`.
-3а. Копия канона autoteam в продукте — кэш: при доступном каноне обнови её целиком при старте цикла (перезапиши, не сверяй по кусочкам), зафиксируй в handoff. Канон недоступен — работай по копии. Работать по устаревшей копии при доступном каноне — ошибка.
-4. Секреты: знай путь (`secrets/`, `.env.example`), **не** выводи значения, не коммить.
-4а. Инвентаризация ресурсов: какие учётки, доступы, среды и данные у продукта уже есть (по `.env.example`, deploy, runbook, docs — не читая значений) → реестр `docs/process/resources.md` продукта, шаблон `templates/resources.md` канона.
-5. Контракты: OpenAPI / AsyncAPI / SQL init / protobuf — что есть.
-6. Как проверяют: тест-команды из README.
-7. Как выкатывают: `deploy/`, runbook продукта. Метод — `autoteam-release`, не хосты другого продукта.
-8. Каденс ревью и документация: есть ли `docs/architecture/reviews/`, kb.
-9. Верни карту: что канон продукта, что дыра, какой первый безопасный шаг.
+1. Root: README, `docs/CURRENT.md` or equivalent, `docs/process/` if present.
+2. Stack as-is (lockfile, manifest, compose, ADR). Record the fact. No stack — put "stack not set" in the map, do not assign a language. Rule: method canon `docs/process/stack.md`.
+3. Agent environment overlay: config directories in the root (`.claude/`, `.cursor/`, `CLAUDE.md`, `AGENTS.md` and equivalents), the product's own `docs/process/model-routing.md`.
+3a. A copy of the autoteam canon in the product is a cache: when the canon is available, refresh it wholesale at cycle start (overwrite, do not diff piecemeal), record it in the handoff. Canon unavailable — work from the copy. Working from a stale copy while the canon is available is an error.
+4. Secrets: know the path (`secrets/`, `.env.example`), do **not** output values, do not commit.
+4a. Resource inventory: which accounts, accesses, environments, and data the product already has (from `.env.example`, deploy, runbook, docs — without reading values) → the product's `docs/process/resources.md` registry, template `templates/resources.md` of the canon.
+5. Contracts: OpenAPI / AsyncAPI / SQL init / protobuf — what exists.
+6. How things are checked: test commands from the README.
+7. How things are released: `deploy/`, the product's runbook. The method — `autoteam-release`, not another product's hosts.
+8. Review cadence and documentation: is there `docs/architecture/reviews/`, kb.
+8a. Product artifact conventions: before creating an artifact in the product's format, read neighboring instances of the same type (numbering, statuses, mandatory sections, entry point). A format derived from the README that diverges from the actual files is an artifact defect.
+9. Return the map: what is the product's canon, what is a hole, what is the first safe step.
 
-Если в продукте нет короткой карты для следующих агентов — напиши `docs/process/agent-onboarding.md` в **этом** репозитории. Не жди просьбы.
+If the product has no short map for the next agents — write `docs/process/agent-onboarding.md` in **this** repository. Do not wait to be asked.

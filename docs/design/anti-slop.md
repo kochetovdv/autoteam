@@ -1,11 +1,11 @@
-# UI не «ИИ-макет»
+# UI that isn't an "AI mockup"
 
-Модель без ограничений рисует среднее: Inter, фиолетовый градиент, три карточки, shadcn из коробки. Это сигнал «сделано генератором». Skill: `autoteam-ui`.
+An unconstrained model draws the average: Inter, a purple gradient, three cards, out-of-the-box shadcn. That's the "made by a generator" signal. Skill: `autoteam-ui`.
 
-Запрет default: Inter/Roboto/Open Sans как единственная пара; фиолетово-синий градиент и неон на чёрном; карточки в карточках; блюр «для красоты»; скелет «герой + 3 фичи + CTA» на любой лендинг.
+Banned defaults: Inter/Roboto/Open Sans as the only pair; purple-blue gradient and neon on black; cards inside cards; blur "for beauty"; the "hero + 3 features + CTA" skeleton on every landing page.
 
-Порядок: характер (3–5 слов, отрасль важнее моды) → референсы (что копировать: сетка/тип/плотность; бренд чужой не копировать) → токены → каркас состояний → сборка → проверка «узнаётся ли как ИИ». Если да — меняй тип **и** сетку, не только цвет кнопки.
+Order: character (3–5 words, industry over fashion) → references (what to copy: grid/type/density; don't copy someone else's brand) → tokens → skeleton of states → assembly → the "is it recognizable as AI" check. If yes — change the type **and** the grid, not just the button color.
 
-Админка: плотность и честные таблицы. Лендинг: один оффер. Продукт: честные пустые состояния. Внутренний инструмент: плотность важнее маркетинга. Состав клиентов — решение проекта, см. `docs/process/stack.md`; при React — `docs/delivery/react.md`.
+Admin panel: density and honest tables. Landing page: one offer. Product: honest empty states. Internal tool: density over marketing. The client lineup is a project decision, see `docs/process/stack.md`.
 
-Anti-slop — предохранитель, не вся планка. Позитивное ремесло (референсы, токены, типографика, motion, жанровая планка) — skill `autoteam-ui`.
+Anti-slop is a safety fuse, not the whole bar. The positive craft (references, tokens, typography, motion, the genre bar) — skill `autoteam-ui`.

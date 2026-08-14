@@ -1,30 +1,30 @@
 ---
 name: autoteam-security
-description: Безопасность — секреты, аутентификация и сессия, роли и tenant, границы доверия, зависимости, приватность по юрисдикции. Использовать при логине, правах, ПДн, секретах, платежах, «дырах».
+description: Security — secrets, authentication and session, roles and tenant, trust boundaries, dependencies, privacy by jurisdiction. Use for login, permissions, personal data, secrets, payments, "holes".
 ---
 
-# Безопасность
+# Security
 
-Не путай скрытую кнопку и проверку на сервере.
+Don't confuse a hidden button with a server-side check.
 
-**Вход.** Фича с логином, правами, ПДн, деньгами или секретами. **Выход.** Модель сессии/ролей, карта приватности если новые ПДн, правки проверок на сервере. **Запреты.** Читать значения секретов; выдумывать механизм auth против ADR; назначать правовой режим «по привычке» без карты юрисдикций. **Evidence.** Матрица роль×действие×ресурс; проверка в API, не в UI. **Стоп.** Дыра матрицы; выкатка нового сбора ПДн без карты — стоп этой задачи, не всего борда. **Дальше.** Код → `autoteam-delivery`. Выкатка → `autoteam-release`.
+**Input.** A feature involving login, permissions, personal data, money, or secrets. **Output.** Session/role model, privacy map if new personal data, fixes to server-side checks. **Forbidden.** Reading secret values; inventing an auth mechanism against the ADR; assigning a legal regime "by habit" without a jurisdiction map. **Evidence.** Role×action×resource matrix; the check lives in the API, not the UI. **Stop.** A hole in the matrix; releasing new personal-data collection without a map — stop for this task, not the whole board. **Next.** Code → `autoteam-delivery`. Release → `autoteam-release`.
 
-## Секреты
+## Secrets
 
-Не в git, не в логах, не в клиентском бандле. Пример — `.env.example` без значений. Ротация — владелец.
+Not in git, not in logs, not in the client bundle. Example — `.env.example` with no values. Rotation has an owner.
 
-## Аутентификация и сессия
+## Authentication and session
 
-Явная модель из ADR: сессия на сервере, токен, SSO — что выбрано. Срок, logout, cookie flags по HTTPS. Не выдумывай механизм, если в проекте уже выбран другой.
+An explicit model from the ADR: server-side session, token, SSO — whichever was chosen. Lifetime, logout, cookie flags over HTTPS. Don't invent a mechanism if the project has already chosen another.
 
-## Роли и tenant
+## Roles and tenant
 
-Матрица: роль × действие × ресурс. Проверка в API. Арендатор (tenant) не читает чужие строки. Действие от имени — аудит, если деньги, ПДн, необратимое.
+Matrix: role × action × resource. Check in the API. A tenant does not read others' rows. Acting on someone's behalf — audit if money, personal data, or irreversible.
 
-## Границы доверия
+## Trust boundaries
 
-Все входы проверять: параметры, файлы, webhooks, заголовки. IDOR (чужой id в URL). Массовые операции. Инъекции — параметризованные запросы, не конкатенация. Деньги: суммы и статусы считает сервер; платёжные события — только по подписи провайдера. Зависимости: известные дыры в lockfile не игнорировать при выкатке. Полный пентест — не этот skill (`docs/process/gaps.md`).
+Validate all inputs: parameters, files, webhooks, headers. IDOR (someone else's id in the URL). Bulk operations. Injections — parameterized queries, not concatenation. Money: the server computes amounts and statuses; payment events only by the provider's signature. Dependencies: don't ignore known holes in the lockfile at release. A full pentest is not this skill (`docs/process/gaps.md`).
 
-## Приватность
+## Privacy
 
-Метод: категории данных → где субъекты и обработка → применимый режим **выводится из карты юрисдикций**, не назначается заранее. Несколько рынков — несколько режимов в одной карте. Справочник режимов: `docs/compliance/privacy.md`; чеклист: `templates/privacy-checklist.md`. В схеме данных: зачем поле, срок, кто читает.
+Method: data categories → where subjects and processing are → the applicable regime **is derived from the jurisdiction map**, not assigned upfront. Multiple markets — multiple regimes in one map. Regime reference: `docs/compliance/privacy.md`; checklist: `templates/privacy-checklist.md`. In the data schema: why the field, retention, who reads it.

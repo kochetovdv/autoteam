@@ -1,9 +1,9 @@
-# Продукт из идеи
+# Product from an idea
 
-Мягкий вход (письмо, слайды) — норма. Не выдавай догадку за факт. Skill: `autoteam-product`.
+A soft entry (an email, slides) is normal. Do not pass a guess off as fact. Skill: `autoteam-product`.
 
-Порядок: кто страдает → результат в жизни, не в экране → картина «как могло бы выглядеть» (помечена как предложение) → in/out первой поставки → сценарии → риски чужих систем → вопросы Blocker.
+Order: who suffers → the outcome in their life, not on a screen → a picture of "what it could look like" (marked as a proposal) → in/out of the first delivery → scenarios → risks from other people's systems → Blocker questions.
 
-Дальше позиционирование (`autoteam-positioning`), spec (`autoteam-requirements`) или скоуп (`autoteam-scope`). Код не начинай, пока нет ценности и границ. Валидация — петля: цифры (`autoteam-analytics`) и обратная связь возвращаются в картину.
+Then positioning (`autoteam-positioning`), spec (`autoteam-requirements`), or scope (`autoteam-scope`). Do not start code until value and boundaries exist. Validation is a loop: numbers (`autoteam-analytics`) and feedback flow back into the picture.
 
-Unit-экономика: `docs/product/unit-economics.md` (живую ведёт `autoteam-pricing`). Вход в чужой домен: `docs/product/domains.md`.
+Unit economics: `docs/product/unit-economics.md` (the live version is kept by `autoteam-pricing`). Entering an unfamiliar domain: `docs/product/domains.md`.

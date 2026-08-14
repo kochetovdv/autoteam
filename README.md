@@ -1,80 +1,82 @@
 # autoteam
 
-Библиотека навыков для автономной команды агентов: **как думать и делать** от идеи до денег — проработать и позиционировать идею, спроектировать продукт, создать его и довести до выручки. Baseline-метод: копируется целиком в любой проект и любую агентную среду (Claude, Cursor, свой раннер), не привязан к заказчику, стеку или инструменту.
+A skill library for an autonomous agent team: **how to think and how to build** from idea to revenue — work through and position the idea, design the product, build it, and take it to revenue. A baseline method: copied wholesale into any project and any agent environment (Claude, Cursor, your own runner), not tied to a customer, stack, or tool.
 
-Канон — этот репозиторий: `skills/`, `docs/`, `templates/`. Меняешь канон здесь, затем разносишь копии. Не оставляй две разные версии.
+The canon is this repository: `skills/`, `docs/`, `templates/`. Change the canon here, then propagate the copies. Never leave two diverging versions.
 
-## Слои: метод и продукт
+English is the canonical language. Русская версия: [ru/](ru/README.md) — a maintained locale, updated in the same commit as the canon; when in doubt, English wins.
 
-| Слой | Вопрос | Где |
+## Layers: method and product
+
+| Layer | Question | Where |
 |------|--------|-----|
-| **Метод (этот репозиторий)** | Как считать, проектировать, писать, ревьюить, выкатывать, растить | `skills/`, `docs/`, `templates/` |
-| **Текущий продукт** | Стек, пути, overlay, шаблон выхода если он есть | репозиторий, в котором идёт работа |
+| **Method (this repository)** | How to reason, design, write, review, release, grow | `skills/`, `docs/`, `templates/` |
+| **Current product** | Stack, paths, overlay, output template if one exists | the repository where the work happens |
 
-Шаблон выхода продукта (если есть) задаёт *куда положить* результат. Он не подменяет метод.
+The product's output template (if any) defines *where to put* the result. It does not replace the method.
 
-## Как подключить
+## How to plug in
 
-1. Канон: папки `skills/autoteam-<имя>/` (внутри `SKILL.md`, при нужде `reference.md`).
-2. Скопируй нужные папки в каталог скиллов своей агентной среды — целиком, без правок. Копия — кэш: при старте цикла в продукте с доступным каноном онбординг перезаписывает её свежей.
-3. В конкретном продукте можно добавить тонкий overlay (пути, запреты, свой `docs/process/model-routing.md`, шаблон выхода) в конфиг-каталог среды этого репозитория. Overlay не переписывает метод.
+1. Canon: folders `skills/autoteam-<name>/` (containing `SKILL.md`, and `reference.md` where needed).
+2. Copy the folders you need into your agent environment's skills directory — wholesale, no edits. The copy is a cache: at cycle start in a product with the canon available, onboarding overwrites it with a fresh copy.
+3. In a specific product you may add a thin overlay (paths, prohibitions, your own `docs/process/model-routing.md`, output template) in that repository's environment config directory. The overlay does not rewrite the method.
 
-Язык для человека и отчётов: простой русский. Технический термин при первом появлении поясняй. Код и имена API не переводи.
+The language of reports and questions to the human is the project human's language (by default, the language of the assignment). Explain each technical term on first use. Do not translate code or API names.
 
-## Стек
+## Stack
 
-Стек берётся из текущего репозитория / ADR. Нет стека — зафиксировать с человеком (в режиме «решение» — выбрать минимальный достаточный и записать в журнал). Подробно: `docs/process/stack.md`.
+The stack comes from the current repository / ADR. No stack — pin it down with the human (in "solution mode" — pick the minimal sufficient one and record it in the journal). Details: `docs/process/stack.md`.
 
-Состав клиентов (веб / адаптив / PWA / кроссплатформа / native) — решение конкретного проекта: новую платформу молча не подключай; есть требование — явная развилка и цена.
+The client mix (web / responsive / PWA / cross-platform / native) is a per-project decision: never add a new platform silently; if there is a requirement — an explicit fork with its cost.
 
-## Карта: ситуация → skill
+## Map: situation → skill
 
-| Ситуация | Skill |
+| Situation | Skill |
 |----------|--------|
-| Неясно, с чего начать | `autoteam-catalog` |
-| Несколько ролей, автономия, субагенты | `autoteam-orchestrator` |
-| Новый репозиторий, «агент, освойся» | `autoteam-onboarding` |
-| Бизнес-идея, нет ТЗ, валидация спроса | `autoteam-product` |
-| Кому и против чего продаём, оффер, нейминг | `autoteam-positioning` |
-| Тарифы, цена, платежи, окупаемость | `autoteam-pricing` |
-| Затраты, лимиты, ROI трат | `autoteam-budget` |
-| Что меряем, воронка, дашборд | `autoteam-analytics` |
-| Каналы, конверсия, удержание, SEO/GEO | `autoteam-growth` |
-| Статьи, посты, письма, тексты | `autoteam-content` |
-| Есть ТЗ / spec | `autoteam-requirements` |
-| Объём, пробелы входа, порядок MVP | `autoteam-scope` |
-| Как устроить систему, ADR | `autoteam-architecture` |
-| Регулярное или срочное ревью устройства | `autoteam-architecture-review` |
-| Фича, баг, тесты, контракт | `autoteam-delivery` |
-| Гонки, отказы, производительность | `autoteam-quality` |
-| Секреты, сессия, угрозы, роли | `autoteam-security` |
-| Первоклассный UI: лендинг, SaaS, админка | `autoteam-ui` |
-| Презентация, таблица, деловой текст | `autoteam-documents` |
-| Документация продукта и кода, когда обновлять | `autoteam-docs` |
-| Выкатка, среды, инцидент | `autoteam-release` |
-| Эксперимент с гипотезой, спайк | `autoteam-research` |
-| Разбор прогона, правки метода | `autoteam-retro` |
+| Unclear where to start | `autoteam-catalog` |
+| Multiple roles, autonomy, subagents | `autoteam-orchestrator` |
+| New repository, "agent, find your bearings" | `autoteam-onboarding` |
+| Business idea, no spec, demand validation | `autoteam-product` |
+| Who we sell to and against what, offer, naming | `autoteam-positioning` |
+| Plans, pricing, payments, payback | `autoteam-pricing` |
+| Costs, limits, ROI of spend | `autoteam-budget` |
+| What we measure, funnel, dashboard | `autoteam-analytics` |
+| Channels, conversion, retention, SEO/GEO | `autoteam-growth` |
+| Articles, posts, emails, copy | `autoteam-content` |
+| There is a spec | `autoteam-requirements` |
+| Scope, input gaps, MVP ordering | `autoteam-scope` |
+| How to structure the system, ADR | `autoteam-architecture` |
+| Regular or urgent review of the system's structure | `autoteam-architecture-review` |
+| Feature, bug, tests, contract | `autoteam-delivery` |
+| Race conditions, failures, performance | `autoteam-quality` |
+| Secrets, sessions, threats, roles | `autoteam-security` |
+| First-class UI: landing page, SaaS, admin panel | `autoteam-ui` |
+| Presentation, spreadsheet, business writing | `autoteam-documents` |
+| Product and code documentation, when to update | `autoteam-docs` |
+| Release, environments, incident | `autoteam-release` |
+| Hypothesis-driven experiment, spike | `autoteam-research` |
+| Run debrief, method fixes | `autoteam-retro` |
 
-Петля «идея → деньги»: `product` → `positioning` → `scope`/`requirements` → `architecture` → `delivery` → `release` → `analytics` → `growth`/`content`/`pricing`/`budget` → обратно в `product`. Не водопад: цифры и обратная связь меняют картину.
+The "idea → revenue" loop: `product` → `positioning` → `scope`/`requirements` → `architecture` → `delivery` → `release` → `analytics` → `growth`/`content`/`pricing`/`budget` → back to `product`. Not a waterfall: numbers and feedback change the picture.
 
-Подробности процессов: `docs/process/`. Ремесло поставки: `docs/delivery/` (язык — только если он уже в продукте).
+Process details: `docs/process/`. Delivery craft: `docs/delivery/` (language-specific only if that language is already in the product).
 
-## Автономия и режим «решение»
+## Autonomy and "solution mode"
 
-Человек даёт одно поручение. Оркестратор сам запускает субагентов волнами. Критичное согласование не замораживает независимый поток.
+The human gives one assignment. The orchestrator launches subagents in waves on its own. A critical approval does not freeze an independent stream.
 
-Поручение «сделай из идеи рабочее решение» включает режим «решение»: цикл идёт нон-стоп, каждый вопрос, который ушёл бы человеку, становится записью в журнале решений (`templates/decisions.md`), результат — работающее решение целиком, а не MVP с гейтами и todo. Жёстких стопов три: внешние деньги; право и публичные обязательства; необратимое разрушение. Прод — только при явном «выкати». Подробно: `docs/process/orchestration.md`.
+The assignment "turn the idea into a working solution" enables "solution mode": the cycle runs non-stop, every question that would have gone to the human becomes an entry in the decision journal (`templates/decisions.md`), and the result is a complete working solution — not an MVP with gates and todos. There are three hard stops: external money; law and public commitments; irreversible destruction. Production — only on an explicit "release it". Details: `docs/process/orchestration.md`.
 
-Неизвестный репозиторий — сначала `autoteam-onboarding`. Секреты не читать и не копировать. Приёмка кода — отдельным агентом; другой семьёй моделей, если среда её даёт.
+Unknown repository — `autoteam-onboarding` first. Do not read or copy secrets. Code acceptance — by a separate agent; a different model family if the environment provides one.
 
-## Каденс архитектурного ревью
+## Architecture review cadence
 
-- Активная разработка: раз в неделю **или** каждые ~8 закрытых задач (что раньше).
-- Спокойный продукт: раз в месяц.
-- Вне очереди: инцидент с данными/гонкой/границей; новое хранилище или сервис.
+- Active development: once a week **or** every ~8 closed tasks (whichever comes first).
+- Quiet product: once a month.
+- Out of band: an incident involving data/a race condition/a boundary; a new store or service.
 
-Ревью **не** останавливает чужие задачи. Стоп только у работ, которые упираются в Blocker. Шаблон: `templates/architecture-review.md`. Skill: `autoteam-architecture-review`.
+The review does **not** stop other tasks. Only work that runs into a Blocker stops. Template: `templates/architecture-review.md`. Skill: `autoteam-architecture-review`.
 
-## Чего здесь нет
+## What is not here
 
-Честный список дыр: [`docs/process/gaps.md`](docs/process/gaps.md).
+An honest list of holes: [`docs/process/gaps.md`](docs/process/gaps.md).

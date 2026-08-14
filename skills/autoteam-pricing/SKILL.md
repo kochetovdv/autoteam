@@ -1,22 +1,22 @@
 ---
 name: autoteam-pricing
-description: Монетизация — модель дохода, тарифы, цена, триал, платёжный контур, живая unit-экономика. Использовать при «как берём деньги», тарифах, подписке, платежах, окупаемости.
+description: Monetization — revenue model, plans, price, trial, payment flow, live unit economics. Use on "how do we charge money", plans, subscription, payments, payback.
 ---
 
-# Монетизация
+# Monetization
 
-«До денег» = продукт умеет брать деньги и экономика сходится. Цену утверждает человек; ты готовишь решение.
+"To revenue" = the product can take money and the economics adds up. The human approves the price; you prepare the decision.
 
-**Вход.** Позиционирование, ICP, себестоимость (инфраструктура, модели, комиссии), цены альтернатив. **Выход.** Модель дохода, сетка тарифов, цена с обоснованием, механика триала, план платёжного контура, unit-экономика. **Запреты.** Публиковать цены без человека; «бесплатно пока» без даты пересмотра; больше 3 тарифов на старте; прятать себестоимость. **Evidence.** Цена конкурента — ссылка и дата; себестоимость — расчёт, не ощущение. **Стоп.** Экономика не сходится ни в одном сценарии — Blocker монетизации, вердикт человеку. Выбор платёжного провайдера — по рынку и юрисдикции, финал человек. **Дальше.** Платёжный код → `autoteam-delivery` (+ `autoteam-security`: деньги = аудит). Страница цен → `autoteam-ui`. Метрики выручки → `autoteam-analytics`. Затраты и лимиты → `autoteam-budget`.
+**Input.** Positioning, ICP, cost base (infrastructure, models, fees), alternatives' prices. **Output.** Revenue model, plan grid, price with rationale, trial mechanics, payment flow plan, unit economics. **Forbidden.** Publishing prices without the human; "free for now" without a revision date; more than 3 plans at the start; hiding the cost base. **Evidence.** A competitor's price — link and date; the cost base — a calculation, not a feeling. **Stop.** The economics does not add up in any scenario — a monetization Blocker, verdict to the human. Payment provider choice — by market and jurisdiction, final call the human. **Next.** Payment code → `autoteam-delivery` (+ `autoteam-security`: money = audit). Pricing page → `autoteam-ui`. Revenue metrics → `autoteam-analytics`. Spend and limits → `autoteam-budget`.
 
-## Порядок
+## Order
 
-1. Модель: подписка / разовая / usage-based / комиссия / freemium. Из ICP и характера ценности, не из моды.
-2. Метрика ценности: за что платят (место, проект, объём, результат). Правильная растёт вместе с пользой клиента.
-3. Сетка: до 3 тарифов, каждый под сегмент ICP. Что в каждом и чего нет — явно.
-4. Цена: вилка от ценности (что экономит/приносит клиенту) и от альтернатив; себестоимость — пол, не логика цены.
-5. Триал / free tier: даёт попробовать ценность, упирается в оплату в понятном месте. Дата пересмотра.
-6. Платёжный контур: провайдер по рынку, подписочный цикл, отказ оплаты, возвраты, налоги — задачи с владельцем, не сноски.
-7. Unit-экономика живая: `docs/product/unit-economics.md` канона. CAC, вклад, churn — из `autoteam-analytics`, не из головы. Пересчёт при смене цены или канала.
+1. Model: subscription / one-time / usage-based / commission / freemium. From the ICP and the nature of the value, not from fashion.
+2. Value metric: what they pay for (seat, project, volume, outcome). The right one grows with the customer's benefit.
+3. Grid: up to 3 plans, each for an ICP segment. What each includes and excludes — explicit.
+4. Price: a range from value (what it saves or earns the customer) and from alternatives; the cost base is a floor, not the pricing logic.
+5. Trial / free tier: lets them try the value, hits the paywall in an understandable place. Revision date.
+6. Payment flow: provider by market, subscription cycle, failed payments, refunds, taxes — tasks with owners, not footnotes.
+7. Live unit economics: `docs/product/unit-economics.md` of the canon. CAC, contribution, churn — from `autoteam-analytics`, not from the head. Recalculate on a price or channel change.
 
-Артефакт: `docs/product/pricing.md` в **продукте**. Цена — гипотеза с датой пересмотра, не константа.
+Artifact: `docs/product/pricing.md` in the **product**. The price is a hypothesis with a revision date, not a constant.

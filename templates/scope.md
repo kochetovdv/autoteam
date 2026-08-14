@@ -1,34 +1,34 @@
-# Скоуп
+# Scope
 
-## Вход
+## Input
 
-- Источники (один раз):
-- Картина решения (Firm / Assumed):
+- Sources (once):
+- Solution picture (Firm / Assumed):
 
-## Пробелы (все категории: закрыто или риск)
+## Gaps (all categories: closed or a risk)
 
 1. Evidence
-2. Критерии сдачи (измеримо)
-3. Нагрузка
-4. Вариативность
+2. Acceptance criteria (measurable)
+3. Load
+4. Variability
 5. R&D
-6. Границы чужих систем
-7. Права и персональные данные (режим по карте юрисдикций)
-8. Сопровождение после запуска
-9. Ресурсы: учётки, доступы, инфраструктура, данные, действия человека (реестр `resources.md`)
+6. Boundaries of external systems
+7. Permissions and personal data (regime per the jurisdiction map)
+8. Post-launch support
+9. Resources: accounts, access, infrastructure, data, human actions (registry `resources.md`)
 
-## Допущения
+## Assumptions
 
 ASSUMP-* |
 
-## Декомпозиция
+## Decomposition
 
-Этап → модуль → пакет. Один пакет — один результат. R&D отдельно с порогом.
+Stage → module → package. One package — one result. R&D separate, with a threshold.
 
-## Порядок поставки
+## Delivery order
 
-MVP (первая ценность) | далее | сознательно нет
+MVP (first value) | next | deliberately not
 
-## Трассировка
+## Traceability
 
-Пункт входа → пакет. Firm | Assumed | Excluded | Blocked | Optional.
+Input item → package. Firm | Assumed | Excluded | Blocked | Optional.

@@ -1,5 +1,5 @@
-# Стили и данные
+# Styles and data
 
-Полные таблицы канона метода: `docs/architecture/styles.md`, `docs/delivery/data.md`. Если сервер на Go — пакеты как модули в `docs/delivery/go.md`.
+Full method canon tables: `docs/architecture/styles.md`, `docs/delivery/data.md`. Stack-specific craft is in the product overlay.
 
-Выбор БД: согласованность, запросы, срок хранения, параллелизм, эксплуатация — не «популярная СУБД потому что все так делают».
+DB choice: consistency, queries, retention period, concurrency, operations — not "a popular DBMS because everyone does it".

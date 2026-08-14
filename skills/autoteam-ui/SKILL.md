@@ -1,33 +1,33 @@
 ---
 name: autoteam-ui
-description: Первоклассные интерфейсы — лендинги, SaaS, B2B, админки; дизайн-токены, типографика, motion, WebGL по месту. Использовать при UI, UX, лендинге, макете, редизайне.
+description: First-class interfaces — landing pages, SaaS, B2B, admin panels; design tokens, typography, motion, WebGL where it belongs. Use for UI, UX, a landing page, a mockup, a redesign.
 ---
 
-# Интерфейсы
+# Interfaces
 
-Планка — лучшие продукты индустрии, не «не хуже генератора». Стек UI — из продукта / ADR; нет стека — вопрос человеку.
+The bar is the industry's best products, not "no worse than a generator". The UI stack comes from the product / ADR; no stack — a question for the human.
 
-**Вход.** Экран/поток, характер продукта, референсы если есть, стек UI. **Выход.** Работающий интерфейс: токены, состояния, motion. **Запреты.** ИИ-default (`docs/design/anti-slop.md`); копировать чужой бренд; тяжёлые эффекты, блокирующие контент; анимация ради анимации. **Evidence.** Все состояния экрана (пусто/загрузка/ошибка/успех); a11y минимум; скорость не деградирует. **Стоп.** Нет стека UI — вопрос. Нет референса — не жди: направление по характеру, код сразу, альтернатива текстом. **Дальше.** Поставка → `autoteam-delivery`. Публичная страница → `autoteam-growth`. UI на React → `docs/delivery/react.md`.
+**Input.** Screen/flow, product character, references if any, UI stack. **Output.** A working interface: tokens, states, motion. **Forbidden.** AI defaults (`docs/design/anti-slop.md`); copying someone else's brand; heavy effects that block content; animation for animation's sake. **Evidence.** All screen states (empty/loading/error/success); a11y minimum; speed does not degrade. **Stop.** No UI stack — ask. No reference — don't wait: direction from character, code right away, alternative in text. **Next.** Delivery → `autoteam-delivery`. Public page → `autoteam-growth`. Stack-specific UI craft — product overlay.
 
-## Планка по жанру
+## The bar by genre
 
-Лендинг: один оффер; композиция, типографика и скорость продают сами. **Флагманский сайт технологической компании / витрина**: планка — лучшие сайты индустрии сегодня, не «аккуратная брошюра»; scroll-хореография, выразительный hero, осмысленный motion — вход в жанр, а не опция; WebGL/canvas — где поднимает уровень. Аскетизм стека не оправдание: стек выбирается «минимальный, дающий планку жанра», бюджет веса и сборка — из жанра. SaaS-продукт: ясность потока, пустые состояния ведут к ценности, плотность по задаче. B2B/админка: плотность, таблицы как инструмент, фильтры в URL, массовые операции. Внутренний инструмент: скорость оператора важнее маркетинга.
+Landing page: one offer; composition, typography, and speed sell on their own. **Flagship tech-company site / showcase**: the bar is today's best industry sites, not "a tidy brochure"; scroll choreography, an expressive hero, meaningful motion are the price of entry to the genre, not an option; WebGL/canvas — where it raises the level. Stack asceticism is no excuse: pick the stack as "the minimum that delivers the genre bar"; weight budget and build come from the genre. SaaS product: flow clarity, empty states lead to value, density per task. B2B/admin panel: density, tables as a tool, filters in the URL, bulk operations. Internal tool: operator speed over marketing.
 
-Мобильный чек-лист (обязателен для публичного UI): навигация схлопывается осмысленно (гамбургер/шторка при переполнении), тач-таргеты ≥44px, первый экран продаёт без скролла, нет горизонтального скролла; на приёмке — скриншот мобильной версии через арт-призму, не только формальная проверка ширины.
+Mobile checklist (mandatory for public UI): navigation collapses meaningfully (hamburger/drawer on overflow), touch targets ≥44px, the first screen sells without scrolling, no horizontal scroll; at acceptance — a mobile screenshot through the art lens, not just a formal width check.
 
-## Ремесло
+## Craft
 
-1. Характер: 3–5 слов, отрасль важнее моды. Из позиционирования, если оно есть.
-2. Референсы — привычка, не разовый шаг: перед каждым значимым экраном смотри, как эту задачу решают лучшие в классе сейчас. Копируй уровень (сетка, тип, плотность, ритм), не бренд.
-3. Токены: цвет, тип-шкала, отступы, радиусы, тени — система, не по месту. UI-kit можно, но поверх токенов проекта.
-4. Типографика: шкала, ритм, контраст размеров — половина «дорогого» вида. Шрифт с характером, не первый системный.
-5. Состояния: пусто / загрузка / ошибка / успех / частично — спроектированы, не «потом».
-6. Motion: микро-взаимодействия с назначением (отклик, связь, вход). 150–300ms, easing, `prefers-reduced-motion`. Дорогое впечатление — уместность, не количество.
-7. Спецэффекты (WebGL, canvas, 3D, шейдеры) — там, где поднимают планку жанра (флагманский лендинг, дата-виз). Всегда: fallback, бюджет производительности, контент не ждёт эффект.
-8. Сборка → проверка: узнаётся как «сделано генератором»? Меняй тип **и** сетку, не только цвет.
+1. Character: 3–5 words, industry over fashion. From positioning, if it exists.
+2. References are a habit, not a one-off step: before every significant screen, look at how the best in class solve this task today. Copy the level (grid, type, density, rhythm), not the brand.
+3. Tokens: color, type scale, spacing, radii, shadows — a system, not ad hoc. A UI kit is fine, but on top of the project's tokens.
+4. Typography: scale, rhythm, size contrast — half of the "expensive" look. A typeface with character, not the first system font.
+5. States: empty / loading / error / success / partial — designed, not "later".
+6. Motion: micro-interactions with a purpose (feedback, connection, entrance). 150–300ms, easing, `prefers-reduced-motion`. An expensive impression comes from appropriateness, not quantity.
+7. Special effects (WebGL, canvas, 3D, shaders) — where they raise the genre bar (flagship landing, data viz). Always: fallback, performance budget, content doesn't wait for the effect.
+8. Build → check: is it recognizable as "made by a generator"? Change type **and** grid, not just color.
 
-a11y минимум: фокус видим, `type=button`, контраст, не только цвет, клавиатура на критичном пути.
+a11y minimum: visible focus, `type=button`, contrast, not color alone, keyboard on the critical path.
 
-## Клиенты
+## Clients
 
-Веб / адаптив / PWA / native — решение проекта, явное и с ценой. Новую платформу молча не подключай.
+Web / responsive / PWA / native — a project decision, explicit and with its cost. Don't silently add a new platform.

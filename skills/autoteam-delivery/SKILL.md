@@ -1,24 +1,26 @@
 ---
 name: autoteam-delivery
-description: Поставка кода contract-first и test-first — SDD, TDD, DDD по нужде, пирамида QA, субагенты, независимая приёмка. Использовать при фиче, баге, PR, декомпозиции.
+description: Contract-first and test-first code delivery — SDD, TDD, DDD as needed, the QA pyramid, subagents, independent acceptance. Use for a feature, bug, PR, decomposition.
 ---
 
-# Поставка
+# Delivery
 
-Подходы совмещаются: SDD (смысл утверждён) · TDD (сначала падающая проверка) · contract-first (сначала схема на границе) · DDD только при разных языках бизнеса.
+The approaches combine: SDD (meaning approved) · TDD (failing check first) · contract-first (schema at the boundary first) · DDD only with different business languages.
 
-**Вход.** Бриф, spec/plan, стек продукта. **Выход.** Минимальный diff, evidence проверок, статус для приёмки. **Запреты.** Писать код без падающей проверки там, где есть правило; менять контракт молча; принимать свой diff; выкатывать самим. **Evidence.** Команда + вывод. **Стоп.** Две трактовки контракта; нет стека для кода — вопрос. **Дальше.** Приёмка — другой субагент. Гонки → `autoteam-quality`. Секреты/роли → `autoteam-security`. Экраны → `autoteam-ui`. Поведение/API → `autoteam-docs` в том же цикле. Выкатка → `autoteam-release`.
+**Input.** Brief, spec/plan, product stack. **Output.** Minimal diff, evidence of checks, status for acceptance. **Forbidden.** Writing code without a failing check where a rule exists; changing a contract silently; accepting your own diff; releasing yourself. **Evidence.** Command + output. **Stop.** Two readings of a contract; no stack to code against — a question. **Next.** Acceptance — a different subagent. Race conditions → `autoteam-quality`. Secrets/roles → `autoteam-security`. Screens → `autoteam-ui`. Behavior/API → `autoteam-docs` in the same cycle. Release → `autoteam-release`.
 
-Короткий маршрут: известное ожидание, бриф, тест, приёмка. Полный: меняются поведение, контракт, данные, безопасность.
+Short route: known expectation, brief, test, acceptance. Full: behavior, contract, data, or security changes.
 
-Стек: `docs/process/stack.md`. Ремесло: `docs/delivery/README.md` канона метода — qa.md всегда; go.md / react.md только если продукт на этом стеке.
+Stack: `docs/process/stack.md`. Craft: `docs/delivery/README.md` of the method canon — qa.md always; stack-specific craft (rules of a concrete language/framework) — product overlay, not canon.
 
-## Цикл
+## Cycle
 
-Бриф → субагент-исполнитель (контракт и падающая проверка → минимальный diff) → субагент-приёмщик другой семьи → до 2 циклов правок → выкатка только по `autoteam-release` и поручению.
+Brief → implementer subagent (contract and failing check → minimal diff) → critic subagent from a different family → up to 2 fix cycles → release only per `autoteam-release` and an assignment.
 
-Родитель L2/L3 не пишет тот же diff. Атомарность: один результат, без «и заодно».
+An L2/L3 parent does not write the same diff. Atomicity: one result, no "and while we're at it".
 
-## QA (не лозунг)
+## QA (not a slogan)
 
-Unit — правила. Integration — БД/очередь. Contract — смена API между частями. E2E — критичный путь. N/A с причиной. Evidence = команда + вывод.
+Unit — rules. Integration — DB/queue. Contract — API changes between parts. E2E — the critical path. N/A with a reason. Evidence = command + output.
+
+Someone else's test is never changed or weakened silently: a separate artifact section states what property the test guarded, why it is no longer relevant, and which alternative was rejected. Without this section, acceptance must reject.
