@@ -7,7 +7,7 @@ description: Method retrospective — what in the canon worked, what stalled the
 
 The autoteam canon is the baseline: while working on a product it is immutable. Improvements go only through this skill — as proposals the human approves. You do not edit the canon in a working cycle.
 
-**Input.** Decision journal, the run's briefs and handoffs, stop points, facts of "a skill didn't work / wasn't found / contradicted another". **Output.** Retro report: what worked, what stalled, proposed canon edits (add / change / remove) justified by facts of the run. **Forbidden.** Editing the canon yourself; dragging project details into proposals (names, stack, domains, product paths) — an edit is phrased depersonalized, as method; proposing a new skill from a single case. **Evidence.** Every proposal links to a specific fact of the run (a decision from the journal, a stop, a discrepancy). **Stop.** None. Approving edits is the human's call. **Next.** Approved → canon edit as a separate task, then re-distribute the copies to projects.
+**Input.** Decision journal, the run's briefs and handoffs, stop points, facts of "a skill didn't work / wasn't found / contradicted another", and **the human's outside observations** (hangs, agent-environment conflicts, lost files) — the cycle cannot see these by definition, ask explicitly. **Output.** Retro report: what worked, what stalled, proposed canon edits (add / change / remove) justified by facts of the run. **Forbidden.** Editing the canon yourself; dragging project details into proposals (names, stack, domains, product paths) — an edit is phrased depersonalized, as method; proposing a new skill from a single case. **Evidence.** Every proposal links to a specific fact of the run (a decision from the journal, a stop, a discrepancy). **Stop.** None. Approving edits is the human's call. **Next.** Approved → canon edit as a separate task, then re-distribute the copies to projects.
 
 ## Procedure
 
@@ -16,6 +16,8 @@ The autoteam canon is the baseline: while working on a product it is immutable. 
 3. Depersonalize: from "project X got stuck choosing a DB" to "no rule for choosing storage on empty input". Test: the proposal reads without knowing the project.
 4. Proposals: a minimal diff phrased "was → becomes → why"; for removal — a rule that was never needed in N cycles or was systematically violated with no harm.
 5. Priority: first what stopped the cycle; then result quality; then style.
+
+Proposal channel: if the canon is a public repository, the environment can file issues, and the assignment/overlay permits it — each proposal becomes a separate issue in the canon repository ("was → becomes → why" format, `retro-proposal` label, no project details). No channel or no permission — ready-to-paste issue texts go into the human action queue. An issue in a public repository is a public action in the human's name: never file without explicit permission. An issue is a proposal, not an edit: the canon changes only after the human approves.
 
 Cadence — by triggers, not after every run (a run with no findings is the norm for a well-tuned process): first run of a new task type; a stop or process incident; the human unhappy with the result; systematic zero returns at acceptance; ~5 runs without a retro — a light "pulse" (a quick stats check: returns, critic board remarks, cycle time — against degradation and stagnation).
 

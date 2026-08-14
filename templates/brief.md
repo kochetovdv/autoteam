@@ -5,6 +5,7 @@ Understood as:
 Mode: interactive | solution (autonomous, decision journal)
 Route: Lightweight | Full | Operational/docs | R&D | scope | product | growth
 Routing: L1/L2/L3 · model · family · task class
+Canon: <tag/commit the cycle started on>
 In scope:
 Out of scope:
 Checks (evidence):

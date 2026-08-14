@@ -5,6 +5,7 @@
 Режим: интерактив | решение (автономно, журнал решений)
 Маршрут: Lightweight | Full | Operational/docs | R&D | scope | product | growth
 Routing: L1/L2/L3 · модель · семья · task class
+Канон: <тег/коммит, на котором стартовал цикл>
 In scope:
 Out of scope:
 Проверки (evidence):

@@ -9,7 +9,9 @@ Mode: solution (autonomous, decision journal) | interactive.
 
 Cycle start:
 1. Copy the canon into the project: skills → .claude/skills/, docs and templates → autoteam/.
-   Copy already exists — overwrite it entirely: the copy is a cache.
+   Copy already exists — overwrite it entirely: the copy is a cache. If the canon has
+   a git remote and the network is up — git pull the canon first; record the canon
+   version in the brief.
 2. Onboarding: repository map (if it's not empty), resource inventory
    → registry docs/process/resources.md.
 3. git: exists — work in it; doesn't — initialize. Checkpoint commit at the end
