@@ -13,3 +13,4 @@ Rules:
 - A resource with a limit shared across products (LLM account, hosting account) is marked "shared"; dividing the shared — the human's call.
 - The "expiry" field (domain, certificate, plan) is checked by the operations lens at acceptance.
 - Secret created — the registry holds a pointer to the vault; the value goes neither into git nor into chat (`autoteam-security`).
+- **Perimeter narrowing** (a tool failure, an unreachable part of the repository, an interrupted export) is an event, not a line: an open `Blocked-by-resource` item with an owner and a re-check date. While the item is open, every dependent conclusion is phrased "the unread part was not searched", never "not found". Open narrowings are re-checked at every checkpoint (it is cheap). Access restored — the item is closed by revising dependent conclusions, never silently.

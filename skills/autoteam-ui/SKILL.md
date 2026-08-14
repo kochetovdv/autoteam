@@ -13,7 +13,7 @@ The bar is the industry's best products, not "no worse than a generator". The UI
 
 Landing page: one offer; composition, typography, and speed sell on their own. **Flagship tech-company site / showcase**: the bar is today's best industry sites, not "a tidy brochure"; scroll choreography, an expressive hero, meaningful motion are the price of entry to the genre, not an option; WebGL/canvas — where it raises the level. Stack asceticism is no excuse: pick the stack as "the minimum that delivers the genre bar"; weight budget and build come from the genre. SaaS product: flow clarity, empty states lead to value, density per task. B2B/admin panel: density, tables as a tool, filters in the URL, bulk operations. Internal tool: operator speed over marketing.
 
-Mobile checklist (mandatory for public UI): navigation collapses meaningfully (hamburger/drawer on overflow), touch targets ≥44px, the first screen sells without scrolling, no horizontal scroll; at acceptance — a mobile screenshot through the art lens, not just a formal width check.
+Mobile checklist (mandatory for public UI): navigation collapses meaningfully (hamburger/drawer on overflow), touch targets ≥44px, the first screen sells without scrolling, no horizontal scroll; at acceptance — a mobile screenshot through the art lens, not just a formal width check. For interfaces with choreography and motion, art acceptance submits a scroll recording (video/gif), not only static screenshots — stills hide half the work.
 
 ## Craft
 

@@ -15,6 +15,8 @@ Evidence: command + output. "The UI looks better" without a query is not sign-of
 
 States unreachable on real data may be checked via temporary data modification — with a note in the report: what was changed, how, original restored. Unmarked data modification in evidence is forbidden.
 
+Settings: "it is read" ≠ "it works". A setting is verified by the end-to-end path "changed it → saw a different result at an observable output, within a known time", including already-computed data (see derived data in data.md). A setting with no observable effect is dead — that is a finding.
+
 A finding of the "data loss or corruption" class: reading code is not enough — either reproduce it, or explicitly mark "mechanism confirmed, scale not measured" and queue a run for the human.
 
 Delivery skill: `autoteam-delivery`. Race conditions: `autoteam-quality`.

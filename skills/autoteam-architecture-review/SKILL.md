@@ -15,7 +15,7 @@ Trigger: new context, service, store, broker, permission change, load growth.
 
 Independent tasks continue. Stop — only a Blocker within their boundary.
 
-Order: code and ADR audit → map of dependencies and data → measurements (boundaries, record owner, race conditions, roles on the server, failures/logs, KISS, debt with a date) → comparison with the previous report → file.
+Order: code and ADR audit → map of dependencies and data → measurements (boundaries, record owner, race conditions, roles on the server, failures/logs, KISS, dead and unreachable branches — traps for future changes, debt with a date) → comparison with the previous report → file.
 
 Artifact: `docs/architecture/reviews/YYYY-MM-DD.md` in the **product**. Method canon template: `templates/architecture-review.md`.
 

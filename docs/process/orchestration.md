@@ -47,7 +47,7 @@ Context package: role; spec/plan/task revisions; affected contracts and entry po
 
 Parallelism — only without a shared mutable boundary. **An unpinned shared numeric budget or NFR is also a shared boundary:** before a parallel launch the orchestrator writes out the shared numbers explicitly or appoints one branch as the number's owner. Many roles — in waves: independent ones in parallel, dependent ones in the next wave; while one stream waits for assembly, other waves keep working.
 
-Resilience: end of a wave = checkpoint (a git commit in the product if git exists; otherwise a progress record) — an interrupted cycle recovers from the journal and checkpoints. The active cycle marker `docs/process/.cycle-lock` (id, start time) guards against a double launch in one folder; a live foreign marker — a question to the human; a marker older than a day is stale. An amendment that changes an ASSUMP spawns a task to revise dependent artifacts.
+Resilience: end of a wave = checkpoint (a git commit in the product if git exists; otherwise a progress record) — an interrupted cycle recovers from the journal and checkpoints; at each checkpoint, open perimeter narrowings are re-checked (`templates/resources.md`). The active cycle marker `docs/process/.cycle-lock` (id, start time) guards against a double launch in one folder; a live foreign marker — a question to the human; a marker older than a day is stale. An amendment that changes an ASSUMP spawns a task to revise dependent artifacts.
 
 ## Critic board
 
@@ -55,7 +55,7 @@ Composition is not fixed: **lenses = ways the product can fail** — the board i
 
 Mechanics: each critic is a separate subagent with fresh context and a mandate to "look for reasons to reject"; critics don't see each other's verdicts until they submit their own; any `CHANGES_REQUIRED` sends the work back (up to 2 cycles); the implementer may contest a finding with evidence — the orchestrator arbitrates, the dispute goes into the journal; a conflict of lenses — tie-break by positioning (the lens closer to what the ICP pays for is senior); acceptance budget ≤5 critics by default, cut lenses go into the journal; the critic's model ≥ the implementer's model. Returns are the norm and are recorded in the handoff; a systematic zero returns is a retro trigger. Intermediate tasks — one specialized critic.
 
-The acceptance checklist includes: the decision journal does not contradict the final artifacts (amendments in place); the artifact's recommendations do not contradict its own findings — a recommendation's object is not marked defective in another section, otherwise an explicit "fix X first" dependency.
+The acceptance checklist includes: the decision journal does not contradict the final artifacts (amendments in place); the artifact's recommendations do not contradict its own findings — a recommendation's object is not marked defective in another section, otherwise an explicit "fix X first" dependency; every conclusion of absence carries its search area, and conclusions resting on an open perimeter narrowing are marked incomplete.
 
 ## Gates (human)
 

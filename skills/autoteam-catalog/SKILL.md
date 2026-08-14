@@ -20,7 +20,7 @@ The `docs/` and `templates/` paths below are the method's canon, if the autoteam
 5. Code acceptance — a different agent and a different model family. Do not read secrets.
 6. Unknown repo — `autoteam-onboarding`. Design review cadence — `autoteam-architecture-review`, without blocking others' flow.
 7. Language of reports and questions — the project human's language (default: the assignment's language); terms come with a gloss. Do not translate code or API names.
-8. Evidence is symmetric: a claim of absence ("there is no X", "Y is impossible") requires a verification command just like a claim of presence. Absence of observation ≠ observation of absence; an environment failure is recorded as an environment failure.
+8. Evidence is symmetric: a claim of absence ("there is no X", "Y is impossible") requires a verification command just like a claim of presence. Absence of observation ≠ observation of absence; an environment failure is recorded as an environment failure. A conclusion of absence is valid only with the search area stated: "not found" without "searched in: X" is a phrasing defect the reviewer must return.
 
 A project overlay (the environment's config directory in the product repository: paths, output template) does not rewrite the method.
 
