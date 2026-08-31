@@ -9,6 +9,10 @@ Works with `autoteam-delivery`. Don't inflate abstractions: KISS — the simples
 
 **Input.** Diff, flaky bug, queue/status/money, a speed complaint. **Output.** Findings or fixes with a reproducing test. **Forbidden.** Masking data corruption as "busy" without a log; swallowing errors; optimizing without measurement; duplicating security. **Evidence.** Reproduce or refute with a test; for performance — before/after measurement. **Stop.** A race condition or data loss involving money — Blocker for this task. **Next.** Roles/trust boundaries → `autoteam-security`. A workaround without a date → `autoteam-architecture-review` queue.
 
+## Hierarchy of strength
+
+In descending order of strength: make the error class **impossible** (a type, an invariant in the schema or the query) → make the error **harmless** (a safeguard, degradation instead of a wrong answer) → catch it with a **test** → catch it in **review** → catch it in **production**. Before writing a third test for an error class — try one level up: the upper levels are cheaper and are never forgotten. Green tests bound the risk of covered code, not of changed code: a defect in an uncovered layer is invisible to the whole suite by construction — a safeguard insures it, not a seventh check.
+
 ## Correctness and race conditions
 
 A flaky bug ("sometimes it doesn't work") is almost always a race condition or timing: two implementers read-modify-write the same thing (cursor, balance, status, job owner). Reproduce or refute with a test. One record owner for the duration of the operation. Retrying a request is safe (idempotency). Integrity: a transaction where two writes must live together; an invariant is checked by code, not by hope.

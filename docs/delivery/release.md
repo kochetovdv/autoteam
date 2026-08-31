@@ -18,6 +18,10 @@ Patch statuses (if you keep files): `draft` → `ready` → `published`. Impleme
 
 Default prohibitions: wiping volumes, force-recomputing data and aggregates, heavy OPTIMIZE under load, commit-push "while we're at it", invented scope.
 
+Release ships as one cut from the integration branch. "One branch = one fix" is a review rule, not a release rule: releasing from feature branches breeds intermediate production states and artifact statuses that drift apart. Patch/release statuses live in one place — on the integration branch.
+
+The developer's local tree is untouchable for the release agent: pre-flight `git status --porcelain` before any branch switch; destructive local operations (`reset --hard`, `clean`, `checkout --`/`restore`) are forbidden; `stash push --include-untracked` is the only allowed way to "move things aside". An agent may fail to follow a written rule — the mechanical protection is a separate worktree for releasing.
+
 ## Incident
 
 Short cycle: symptom → evidence (log, status, query) → mitigation → cause → runbook entry. Do not fix production by blind refactoring. Skill: `autoteam-release`. Template: `templates/incident.md`.

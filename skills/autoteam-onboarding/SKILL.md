@@ -19,6 +19,7 @@ Goal: in one pass understand **how to work here**, without rewriting the product
 4. Secrets: know the path (`secrets/`, `.env.example`), do **not** output values, do not commit.
 4a. Resource inventory: which accounts, accesses, environments, and data the product already has (from `.env.example`, deploy, runbook, docs — without reading values) → the product's `docs/process/resources.md` registry, template `templates/resources.md` of the canon.
 5. Contracts: OpenAPI / AsyncAPI / SQL init / protobuf — what exists.
+5a. Domain and algorithm specifications (docs, ADRs, documents referenced by code comments) — into the map as sources of truth. An explicit reference from code to a document is a mandatory edge: saw it — open it; didn't open it — that is a recorded perimeter narrowing, not silence.
 6. How things are checked: test commands from the README.
 7. How things are released: `deploy/`, the product's runbook. The method — `autoteam-release`, not another product's hosts.
 8. Review cadence and documentation: is there `docs/architecture/reviews/`, kb.

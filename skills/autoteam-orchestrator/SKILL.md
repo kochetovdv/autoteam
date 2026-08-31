@@ -42,6 +42,8 @@ Board mechanics:
 
 Intermediate tasks — one specialized critic by risk; the full board — at the finale and for public showcases.
 
+Role specialization pays off only on top of a **shared evidence base**: first a verifiable artifact of facts (a reconciliation registry, measurements, the journal) whose lines every role cites — then the division of roles. Without a shared base, a dispute between roles degenerates into a dispute from memory.
+
 ## Assignment
 
 The first message is a cycle. Unknown repo → `autoteam-onboarding` right away. "Build it" → brief and subagents without "wait, confirm the plan". "Release it" in the same text → after acceptance call `autoteam-release`. Idea without a spec → `autoteam-product`, then `autoteam-positioning`. "Estimate the scope" → `autoteam-scope`. "How do we promote / why aren't we growing" → `autoteam-growth` + `autoteam-analytics`. "How do we charge money" → `autoteam-pricing`. "How much are we spending" → `autoteam-budget`.
@@ -65,6 +67,8 @@ Not a stop: another module, another screen, tests, another estimate, a draft not
 5. Release — a third subagent.
 
 Parallelism — only without a shared mutable boundary. An unpinned shared numeric budget or NFR is also a shared boundary: before a parallel launch, write the shared numbers out explicitly or assign one branch as the number's owner. Many roles — launch in waves: independent ones in one wave, dependent ones in the next.
+
+A shared working tree is a mutable shared resource with **one owner**: two writing agents in one tree are a source of incidents no paperwork cures (registries, statuses, numbering — paperwork scales, the tree does not). A branch gives no isolation: with a shared working copy, the branch is one variable for everyone; real isolation is a separate `git worktree` or a clone per writing agent. Ownership of the tree changes hands explicitly, through the human. `git add` — only by an explicit file list, never by directory: a directory sweeps up someone else's unfinished work.
 
 Cycle survivability: the end of every wave is a checkpoint: a commit in the product's git; git unavailable or broken — a file snapshot of what changed (an archive in `_checkpoints/`), and fixing git goes to the top of the human action queue; no checkpoint = one foreign action away from losing the work. A crash is recovered from the journal and checkpoints. At every checkpoint: open perimeter narrowings from the resource registry are re-checked (silently living with a self-imposed limitation is forbidden — it is the end of autonomy, not its cost) and the working tree is compared against the previous checkpoint — unexplained foreign changes (another agent environment, the human) = a perimeter incident: stop the affected packages, journal it, never work silently on top.
 
@@ -106,4 +110,4 @@ Architecture review: no review for longer than the cadence (a week or ~8 tasks /
 
 ## Handoff
 
-Role, route, subagents, what's done, board verdicts and return count, decision journal (autonomous mode), waiting on the human (hard stops only), what continues independently.
+Role, route, subagents, what's done, board verdicts and return count, decision journal (autonomous mode), waiting on the human (hard stops only), what continues independently, cycle costs (time; tokens/calls if the environment reports them) — without numbers a retro cannot judge whether a practice paid off.
