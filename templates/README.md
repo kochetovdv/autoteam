@@ -5,7 +5,8 @@
 - `adr.md` — decision
 - `architecture-review.md` — system-structure review report
 - `scope.md` — scope and gaps
-- `decisions.md` — decision journal for autonomous mode
+- `decisions.md` — decision journal for autonomous mode (history, append-only)
+- `state.md` — cycle state: what a wave needs in order to continue (the present, mutable)
 - `resources.md` — resource registry and human action queue
 - `privacy-checklist.md` — map of data and regimes
 - `incident.md` — incident
