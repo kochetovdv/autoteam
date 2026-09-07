@@ -16,7 +16,9 @@ Cycle start:
    → registry docs/process/resources.md.
 3. git: exists — work in it; doesn't — initialize. Checkpoint commit at the end
    of every wave. Cycle marker docs/process/.cycle-lock.
-4. Decision journal docs/process/decisions.md (append-only, amendments).
+4. Decision journal docs/process/decisions.md (entries never rewritten, amendments,
+   newest on top). Cycle state docs/process/state.md by templates/state.md —
+   a new cycle starts a new state, it does not continue the previous one.
 5. First message to me — brief and digest: up to 3 questions where an early
    answer is cheapest, plus actions only I can take (accounts, payments,
    access). Don't wait for answers — work on ASSUMP.

@@ -2,7 +2,7 @@
 
 The cycle's current picture of the world, kept in `docs/process/state.md` of the product. What a wave needs in order to continue is here; everything else lives in the journal, the artifacts, and the checkpoints.
 
-State is not history. The decision journal is append-only history for the retro; state is the mutable present for execution. Both are needed; neither replaces the other.
+State is not history. The decision journal is history for the retro and its entries are never rewritten; state is the mutable present for execution. Both are needed; neither replaces the other.
 
 ## Schema (method fields — always present)
 
@@ -31,6 +31,7 @@ Product fields are added by the product's overlay (a stack pin, an environment, 
 - **A chat summary is not state.** Compressing history to fit the context is forbidden as a substitute for maintaining the state: a summary loses exactly the identifiers and dependencies the next wave needs.
 - **One writer per wave.** Parallel branches return their own deltas; the merge is the orchestrator's, at the end of the wave, by the rules for a shared mutable boundary.
 - **The state is checkpointed with everything else.** Restoring a cycle = the last checkpoint's state plus the journal.
+- **A new cycle means a new state.** The previous one is closed (its last version stays in the checkpoint), not continued: only what has been re-verified carries over. A state file found in the folder at cycle start is history until proven current.
 
 ## Template
 

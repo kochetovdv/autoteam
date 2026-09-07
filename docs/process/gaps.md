@@ -18,5 +18,6 @@ Deliberate gaps. Do not inflate them into "just in case" skills.
 | UI localization into many languages as a process | no |
 | Onboarding **people** into a company | no; there is onboarding an **agent** into a repository |
 | Cross-project orchestration (shared accounts, limits, and resources across products) | no; a resource with a shared limit is marked "shared" in the registry, the split is the human's call |
+| Knowledge transfer between products (what one product's cycles learned, reused in another) | no; the method lives within one product's boundaries — the journal, the state, and the registries belong to their product |
 
 When a topic becomes recurring work — a separate skill or docs, not before.

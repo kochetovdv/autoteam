@@ -11,7 +11,7 @@ Goal: in one pass understand **how to work here**, without rewriting the product
 
 ## Order
 
-1. Root: README, `docs/CURRENT.md` or equivalent, `docs/process/` if present.
+1. Root: README, `docs/CURRENT.md` or equivalent, `docs/process/` if present. The repository is empty or holds nothing but a copy of the canon — a finding, not an error: do not invent a map, and if there is no assignment either, go to cold start (`autoteam-catalog`). A state file left from a previous cycle is history, not the present: close it, do not continue it.
 2. Stack as-is (lockfile, manifest, compose, ADR). Record the fact. No stack — put "stack not set" in the map, do not assign a language. Rule: method canon `docs/process/stack.md`.
 3. Agent environment overlay: config directories in the root (`.claude/`, `.cursor/`, `CLAUDE.md`, `AGENTS.md` and equivalents), the product's own `docs/process/model-routing.md`.
 3a. A copy of the autoteam canon in the product is a cache: when the canon is available, refresh it wholesale at cycle start (overwrite, do not diff piecemeal), record it in the handoff. If the canon has a remote source (git remote) and the network is up — update the canon itself first (`git pull`), then copy. The canon version (tag/commit) the cycle started on goes into the brief; the canon is never updated mid-cycle. Canon unavailable — work from the copy. Working from a stale copy while the canon is available is an error.

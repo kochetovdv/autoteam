@@ -11,7 +11,7 @@ The autoteam canon is the baseline: while working on a product it is immutable. 
 
 ## Procedure
 
-0. A retro is a task **over the trajectory**: it reads the journal, the handoffs, and the checkpoints — the state alone is not enough by construction, because the state deliberately keeps only what the next wave needs. This is why the journal stays append-only.
+0. A retro is a task **over the trajectory**: it reads the journal, the handoffs, and the checkpoints — the state alone is not enough by construction, because the state deliberately keeps only what the next wave needs. This is why journal entries are never rewritten.
 1. Gather facts: where the cycle stalled and why; what fell out of the state and had to be rediscovered; where a wave's context grew instead of the state (a sign the state is under-maintained); which decisions from the journal turned out wrong; which skills went unused or duplicated each other; where the agent acted "outside the canon" — and was right.
 2. Separate: method defect (a rule got in the way) | method gap (there was no rule) | execution defect (the rule existed, the agent didn't follow it — not a reason to change the canon).
 3. Depersonalize: from "project X got stuck choosing a DB" to "no rule for choosing storage on empty input". Test: the proposal reads without knowing the project.

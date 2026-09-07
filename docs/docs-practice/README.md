@@ -29,6 +29,12 @@ Regular pass (even without a feature):
 
 The owner of each documentation layer — in the project README. No owner — the orchestrator queues the update without blocking others' code.
 
+## Order in files
+
+Files that grow by entries: newest on top. The test is not importance but truncation — a long file is read partially (a read limit, a grep, a context window), and the tail is what gets cut: with the newest at the bottom a partial read loses the current truth, with the newest on top it loses history, which has other homes (git, checkpoints, retro). Discriminator: can entry #7 be read without entry #6? Then it is a log — newest on top. If order carries meaning (steps, sections, dependency: a brief, a scope, a spec, the body of an ADR, a checklist, a runbook), the file stays as written. Registries keyed by an ID keep ID order — lookup there beats recency, and time already lives in the "expiry" and "re-check" fields. A log states its order in one line under its heading: otherwise the next writer appends at the bottom and the file ends up mixed, which is worse than either convention.
+
+Rewritten in place or never rewritten — two different classes, do not mix them. A registry of the present (gaps, resources, state) is edited in place: a row that stopped being true is replaced, and git holds its history. A log is never rewritten: a superseded entry gets an amendment. Do not carry amendment bookkeeping into a registry — "superseded by" rows there breed noise instead of showing what is true now.
+
 ## What not to do
 
 - Don't describe package classes to the user.

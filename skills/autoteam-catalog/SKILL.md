@@ -13,7 +13,7 @@ The `docs/` and `templates/` paths below are the method's canon, if the autoteam
 
 ## Standard (all skills)
 
-1. Autonomy: one assignment → work until a real stop. Stops: money, law, security, the irreversible, two readings of a contract. Do not ask at every step. Solution mode ("build a working solution") — questions become the decision journal, only hard stops remain: `autoteam-orchestrator`.
+1. Autonomy: one assignment → work until a real stop. Stops: money, law, security, the irreversible, two readings of a contract. Do not ask at every step: the ban is on **blocking** on questions, not on asking them — the cycle-start digest is mandatory, and with no assignment at all see cold start. Solution mode ("build a working solution") — questions become the decision journal, only hard stops remain: `autoteam-orchestrator`.
 2. Stack: the current repository / ADR. No stack — a question to the human, do not invent one. `docs/process/stack.md`.
 3. The method, not the client's mockup. An output template only if it already exists in the product.
 4. Sign-off does not stop independent tasks (`Blocked` vs can continue).
@@ -28,6 +28,7 @@ A project overlay (the environment's config directory in the product repository:
 
 | Situation | Skill |
 |----------|--------|
+| No assignment yet (empty repo, "what can you do") | cold start, below |
 | Unclear / multiple jobs | `autoteam-orchestrator` |
 | New repository | `autoteam-onboarding` |
 | Idea without a spec | `autoteam-product` |
@@ -50,6 +51,22 @@ A project overlay (the environment's config directory in the product repository:
 | Release, environments, incident | `autoteam-release` |
 | Experiment, spike, feasibility | `autoteam-research` |
 | Run debrief, method fixes | `autoteam-retro` |
+
+## Cold start (no assignment)
+
+No assignment is not a cycle. An ASSUMP substitutes for a missing *detail* of an assignment, never for the assignment itself: inventing what the product is breaks the ban on invented facts and risks building the wrong thing well. An empty repository is a finding, not an error — do not invent a map of it.
+
+Ask in one message, then wait. This is the one legitimate wait, and it is recorded ("waiting for an assignment since X") — so "silence is a failure" is not violated:
+
+1. What we are building or fixing, and for whom — in the human's own words, with whatever links and facts exist.
+2. Mode: solution (autonomous, decision journal) or interactive.
+3. Production this cycle: closed, or "release it" allowed.
+4. The working folder, and where the canon lives.
+5. What already exists: a spec, someone else's code, data, accounts, access.
+
+Offer the ready-made text: `templates/kickoff.md` of the canon — the human pastes it as the first message and fills the task in inside it.
+
+Keyed on the **absence of an assignment**, not on the emptiness of the folder: the same stall happens in a full repository when the human has said nothing. Cap: 5 questions, one message — a cold start is not an interrogation, and it is not a licence to ask again once the assignment exists.
 
 The "idea → revenue" chain: `product` → `positioning` → `requirements`/`scope` → `architecture` → `delivery` (+`quality`/`security`/`ui`) → `release` → `analytics` → `growth`/`content` → `pricing`/`budget`. The orchestrator leads; stages iterate, not a waterfall.
 

@@ -33,6 +33,7 @@ The client mix (web / responsive / PWA / cross-platform / native) is a per-proje
 
 | Situation | Skill |
 |----------|--------|
+| No assignment yet: an empty folder, a fresh copy of the canon, "what can you do" | cold start: `autoteam-catalog` |
 | Unclear where to start | `autoteam-catalog` |
 | Multiple roles, autonomy, subagents | `autoteam-orchestrator` |
 | New repository, "agent, find your bearings" | `autoteam-onboarding` |
