@@ -20,7 +20,7 @@ Default prohibitions: wiping volumes, force-recomputing data and aggregates, hea
 
 Release ships as one cut from the integration branch. "One branch = one fix" is a review rule, not a release rule: releasing from feature branches breeds intermediate production states and artifact statuses that drift apart. Patch/release statuses live in one place — on the integration branch.
 
-The developer's local tree is untouchable for the release agent: pre-flight `git status --porcelain` before any branch switch; destructive local operations (`reset --hard`, `clean`, `checkout --`/`restore`) are forbidden; `stash push --include-untracked` is the only allowed way to "move things aside". An agent may fail to follow a written rule — the mechanical protection is a separate worktree for releasing.
+The release agent uses a separate owned release workspace. Do not switch, stash, clean, or restore the developer's tree. Automatic stash of untracked files can put secrets into Git objects. Inspect status without reading secret values; preserve authorized changes and evidence before releasing only the owned workspace. Follow [resource lifecycle](../process/resource-lifecycle.md).
 
 ## Incident
 

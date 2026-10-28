@@ -1,26 +1,33 @@
 ---
 name: autoteam-delivery
-description: Contract-first and test-first code delivery — SDD, TDD, DDD as needed, the QA pyramid, subagents, independent acceptance. Use for a feature, bug, PR, decomposition.
+description: Deliver a feature, fix or bounded change through reconciled requirements, contract-first and test-first implementation, evidence and independent acceptance. Use for code delivery and implementation decomposition.
 ---
 
 # Delivery
 
-The approaches combine: SDD (meaning approved) · TDD (failing check first) · contract-first (schema at the boundary first) · DDD only with different business languages.
+Combine SDD (agreed meaning), TDD (a meaningful failing check before the fix), contract-first (schema before a changed boundary) and DDD where business languages differ. Match the route and artifacts to risk; a minor change does not require a large specification.
 
-**Input.** Brief, spec/plan, product stack. **Output.** Minimal diff, evidence of checks, status for acceptance. **Forbidden.** Writing code without a failing check where a rule exists; changing a contract silently; accepting your own diff; releasing yourself. **Evidence.** Command + output. **Stop.** Two readings of a contract; no stack to code against — a question. **Next.** Acceptance — a different subagent. Race conditions → `autoteam-quality`. Secrets/roles → `autoteam-security`. Screens → `autoteam-ui`. Behavior/API → `autoteam-docs` in the same cycle. Release → `autoteam-release`.
+**Input.** Brief, authoritative P-record, pinned requirements/plan/contracts and product stack. **Output.** Minimal candidate diff, versioned evidence and automatic handoff for independent acceptance. **Boundaries.** Do not change a contract or specification silently, accept your own contribution, or infer release permission from implementation permission. Common communication and autonomy rules are in [orchestration](../../docs/process/orchestration.md); execution events and review history are in [work items](../../docs/process/work-items.md).
 
-Short route: known expectation, brief, test, acceptance. Full: behavior, contract, data, or security changes.
+## Prepare and implement
 
-Stack: `docs/process/stack.md`. Craft: `docs/delivery/README.md` of the method canon — qa.md always; stack-specific craft (rules of a concrete language/framework) — product overlay, not canon.
+Preserve the original problem and its observable outcome. Consequential expected behavior needs an independent primary-source/observation check, not only tests derived from the specification. Follow [assurance](../../docs/process/assurance.md) for this check and the mandatory reassessment after two correction returns without outcome progress; retain that history across model switches.
 
-## Cycle
+- Reuse the existing `P-*` record, never a parallel task registry. Before coding, reconcile the current requirements, plan and work items: coverage, versions, conflicts, dependencies and acceptance criteria. For complex existing code, inspect affected behavior, entry points, contracts, tests and data flow before finalizing the specification. Unknown feasibility becomes a bounded R&D item.
+- Pin inputs and the candidate to versions/hashes. A dirty tree needs its base plus a recoverable patch/snapshot, including relevant untracked files. Record stable author actor IDs and run IDs; role/model/family do not identify a participant. Claim `ready` work as `in-work` with its writable boundary and next action.
+- For testable changed behavior, show a meaningful failing check, then the minimal implementation. Choose unit, integration, contract or critical-path checks by the ways it can fail; justify N/A. Keep scope atomic around one outcome. Maintain specification and user/operational documentation when behavior changes, in this cycle.
+- Submit candidate, all contributing authors, evidence and limits. Evidence identifies environment/tool versions, commands or procedures, results/exit status and criterion coverage. A green test run or merged PR alone is not acceptance.
 
-Brief → implementer subagent (contract and failing check → minimal diff) → critic subagent from a different family → up to 2 fix cycles → release only per `autoteam-release` and an assignment.
+## Handoff and acceptance
 
-An L2/L3 parent does not write the same diff. Atomicity: one result, no "and while we're at it".
+Task completion triggers the assigned independent review through the orchestrator; pass artifact links and pinned context, not a copied transcript. Record `on-review` only when the handoff succeeds. A block records owner, dependent action and recheck while unrelated work continues.
 
-## QA (not a slogan)
+The author cannot accept the candidate. An orchestrator or reviewer who edits the judged artifact joins its authors and requires another independent acceptor. Separate reviewers submit first verdicts without seeing peer verdicts. Keep immutable review records with reviewer actor/run/model/family, stable findings and exact candidate/input coverage. Normally route fixes back to the familiar independent reviewer; add a fresh perspective by risk. Use [model routing](../../docs/process/model-routing.md) for reviewer selection and optional aggregate budgets.
 
-Unit — rules. Integration — DB/queue. Contract — API changes between parts. E2E — the critical path. N/A with a reason. Evidence = command + output.
+`CHANGES_REQUIRED` returns the P-item to `in-work` with the original finding IDs. A revised candidate makes affected acceptance stale; obtain re-review or a justified independent carry-forward after impact analysis. Mark `done` only when current independent acceptance, criteria, blocking finding dispositions and required handoff/documentation are complete. Do not turn retries into an unrecorded loop; resolve stalled disagreements under orchestration.
 
-Someone else's test is never changed or weakened silently: a separate artifact section states what property the test guarded, why it is no longer relevant, and which alternative was rejected. Without this section, acceptance must reject.
+## Checks and related work
+
+Read [reference.md](reference.md) when selecting evidence or handling an existing test change. Stack pin: [product stack](../../docs/process/stack.md). Craft map: [delivery docs](../../docs/delivery/README.md); language/framework rules belong to the product overlay.
+
+Race conditions → `autoteam-quality`; secrets/roles → `autoteam-security`; screens → `autoteam-ui`; behavior/API documentation → `autoteam-docs`; release under the assignment's authority → `autoteam-release`.

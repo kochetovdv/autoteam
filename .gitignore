@@ -11,3 +11,8 @@ secrets/
 
 # рабочие архивы сессий
 _*.tar.gz
+
+# Local review evidence and working-machine paths; not part of the public bundle.
+/validation/
+__pycache__/
+*.py[cod]

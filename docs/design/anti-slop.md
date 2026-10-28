@@ -1,11 +1,11 @@
-# UI that isn't an "AI mockup"
+# Product-specific visual direction
 
-An unconstrained model draws the average: Inter, a purple gradient, three cards, out-of-the-box shadcn. That's the "made by a generator" signal. Skill: `autoteam-ui`.
+A list of banned colors, fonts, or effects cannot specify the interface the product needs. Avoid replacing one repeated template with another. Evaluate recognizable product character, hierarchy, information density, composition, typography, and working interaction against concrete references.
 
-Banned defaults: Inter/Roboto/Open Sans as the only pair; purple-blue gradient and neon on black; cards inside cards; blur "for beauty"; the "hero + 3 features + CTA" skeleton on every landing page.
+- Select references for the actual genre and user task. Record what is useful: layout, rhythm, type, navigation, motion, or data presentation. Do not copy another identity.
+- When the direction is unresolved, compare materially different working samples early. A palette change is not a different direction.
+- Choose tokens and reusable components after the direction is coherent. An existing kit is a tool; adapt its defaults to the product.
+- Use motion, sticky actions, graphics, and effects where they support the scenario and required visual level; preserve performance, accessibility, and fallback.
+- Review rendered desktop/mobile behavior independently, with recordings for motion. A claim such as "modern" or "premium" needs observable criteria.
 
-Order: character (3–5 words, industry over fashion) → references (what to copy: grid/type/density; don't copy someone else's brand) → tokens → skeleton of states → assembly → the "is it recognizable as AI" check. If yes — change the type **and** the grid, not just the button color.
-
-Admin panel: density and honest tables. Landing page: one offer. Product: honest empty states. Internal tool: density over marketing. The client lineup is a project decision, see `docs/process/stack.md`.
-
-Anti-slop is a safety fuse, not the whole bar. The positive craft (references, tokens, typography, motion, the genre bar) — skill `autoteam-ui`.
+Colors, named sites, preferred typefaces, and desired genre intensity belong to the project profile. Do not turn one user's example into a universal style. Skill: [UI](../../skills/autoteam-ui/SKILL.md).

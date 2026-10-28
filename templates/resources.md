@@ -1,17 +1,28 @@
-# Resource registry
+# Resources and run lifecycle
 
-Everything the product needs besides code and money: accounts, access, infrastructure, data, human actions. Money — `autoteam-budget`; here — things and access. Secret values never enter this file — only a pointer to where they live.
+Accounts, access, environments, data and human actions, plus resources created or borrowed by a run. Money: `autoteam-budget`. Secret values never enter this file, snapshots or archives; use vault pointers only. Reuse the existing project ledger. Method: `docs/process/resource-lifecycle.md` in the verified canon snapshot. The rows below are unfilled examples, not actual resources.
 
-| ID | Type | Resource | Status | Pointer / owner | Expiry | Blocks packages |
-|----|-----|--------|--------|----------------------|---------------|------------------|
-| R-001 | account \| access \| infrastructure \| data \| human action | | have \| needed \| requested (date) | | | |
+| ID | Type / resource identity | Status | Owner / access pointer | Expiry / limit | Dependent work |
+|---|---|---|---|---|---|
+| R-<id> | account / access / environment / data / human action | have / needed / requested (date) | | | |
 
-Rules:
+For each run-owned or borrowed resource, include these fields in the same ledger or its work item; do not maintain duplicate registries:
 
-- Any registry (resources, patches, statuses) stays alive only while it records the inconvenient: the registry diverging from reality is a stop until either the record or reality is fixed. A registry that permits "proceed despite the divergence" becomes a decoration from the first such permission.
-- A missing resource does not stop the cycle: the package is marked `Blocked-by-resource`, the rest keeps moving.
-- Creating an account / paying / passing identity verification — only the human can do that; such rows go into the human action queue (the cycle-start digest) with the consequence made transparent: "without R-00X, package Y stalls after checkpoint Z".
-- A resource with a limit shared across products (LLM account, hosting account) is marked "shared"; dividing the shared — the human's call.
-- The "expiry" field (domain, certificate, plan) is checked by the operations lens at acceptance.
-- Secret created — the registry holds a pointer to the vault; the value goes neither into git nor into chat (`autoteam-security`).
-- **Perimeter narrowing** (a tool failure, an unreachable part of the repository, an interrupted export) is an event, not a line: an open `Blocked-by-resource` item with an owner and a re-check date. While the item is open, every dependent conclusion is phrased "the unread part was not searched", never "not found". Open narrowings are re-checked at every checkpoint (it is cheap). Access restored — the item is closed by revising dependent conclusions, never silently. An open narrowing goes into the human digest: the agent may propose a perimeter narrowing but never introduce it silently — the task's limits are set by the human.
+```markdown
+Run / work item / owner:
+Exact identity (absolute tree path, process/session ID, container, volume, port, etc.):
+Ownership: created / delegated / borrowed (owner and permission):
+Purpose / authorized actions:
+Status: planned | active | outcome-unknown | cleanup_pending | cleaned | retained | transferred
+Lock owner token / heartbeat / liveness evidence, when relevant:
+Preserve before cleanup → safe changes / evidence / needed ignored files / verified recovery pointer:
+Cleanup or retention rule → action / owner / trigger or deadline:
+Last reconciliation / actual outcome / error / next action:
+```
+
+- Capture exact IDs before dependent use. Unknown creation outcome requires reconciliation before retry. One writer per isolated physical tree; file assignment alone is insufficient. Ownership transfers within the authorized task are explicit coordinator actions; unrelated owner conflicts go to the human.
+- Reconcile at finish **and** on failure/recovery. Preserve retrievable changes and necessary sanitized evidence before deleting. Only owned worktrees with recoverable snapshots may be archived; preserve needed ignored files separately. Exclude raw secrets from bulk operations.
+- Cleanup validates owner and resolved target anew. No blind prune, shared-volume deletion or stale-age deletion. Lock age prompts liveness checks; unknown liveness blocks a second writer. Only verified absence permits conditional atomic lock recovery.
+- Failed cleanup stays `cleanup_pending` in state and handoff with owner and next check. Retained resources have an explicit reason, owner and removal condition. Monitor actions use the same lifecycle.
+- A registry mismatch stops only work relying on that entry until record or reality is corrected. A missing resource blocks its dependents. Human-only actions enter the human queue with a concrete consequence; shared limit allocation requires its authorized owner's decision. Check expiry at acceptance.
+- An unavailable source/tool/export is an open perimeter limitation with owner, affected conclusions and recheck trigger. Recheck at relevant checkpoints and after restoration. Say “this scope was not searched”, never “absent”. Close by revising dependent conclusions; include unresolved limitations in the handoff. The agent cannot silently narrow the assignment.

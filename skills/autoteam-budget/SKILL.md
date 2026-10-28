@@ -1,28 +1,20 @@
 ---
 name: autoteam-budget
-description: Budget management — plan/actual spend, limits and stop-lines, infrastructure, models and APIs, services, marketing, channel ROI. Use on "how much are we spending", limits, choosing a paid service, judging a channel's payback.
+description: Account for authorized spend, forecasts, category limits, and channel economics with sourced numbers. Use for cost questions, paid-service choices, and spending limits.
 ---
 
 # Budget
 
-The team's money is a limited resource owned by the human. You keep the ledger, the forecast, and the stop-lines; spending new money is the human's decision.
+Track infrastructure, models/APIs, paid services/fees, marketing/content, and one-off costs. Each line has a source, period, currency/unit, owning account/resource, and growth driver. Label forecasts and missing data; do not invent savings or prices.
 
-**Input.** Spend sources (infrastructure, models/APIs, paid services, marketing), limits from the human, metrics (`autoteam-analytics`). **Output.** Plan/actual by category, forecast for the period, stop-lines, channel ROI, recommendations on what to cut or reinforce. **Forbidden.** Connecting a paid service or raising a limit without the human; hiding a spend category; "too small to count"; invented numbers instead of "no data". **Evidence.** Every number — an invoice, a price plan with a link, or a billing readout; a forecast is labeled as a forecast. **Stop.** A category's stop-line is reached — stop new spend in that category and ask the human; the rest of the work continues. No limits at all — request them once; until the answer, keep the ledger without spending. **Next.** Product economics → `autoteam-pricing`. Channel efficiency → `autoteam-growth` + `autoteam-analytics`.
+New external spending or a higher account limit requires authority. Existing authorized usage may continue without a separately specified task-token cap; [model routing](../../docs/process/model-routing.md) owns optional whole-task limits and shared allocations. No limits for a proposed new purchase means prepare the decision without making the purchase.
 
-## Categories (cover all)
+Use the human's category ceilings and stop-lines, with forecast warnings before exhaustion. Propose thresholds where absent, explain them, and keep them in the project profile. A category limit stops new spend in that category without blocking independent work; do not silently exceed it.
 
-1. Infrastructure: hosting, DB, storage, domains, traffic.
-2. Models and APIs: tokens/calls by agent role — hungry loops get their own line.
-3. Paid services: analytics, email, monitoring, payment provider (fees).
-4. Marketing: paid channels, tools, content production.
-5. One-offs: registrations, licenses, audits.
+## Channel decisions
 
-## Order
+Use comparable attribution, time window, and monetary units. Define `ROI = (attributed value - channel spend) / channel spend` for positive spend; lower is worse. State what "value" includes and how it was measured, with uncertainty. For zero spend, ROI is undefined: report absolute value/cost separately. Missing value is unknown, not zero. Do not divide monetary spend by unconverted time/risk scores and call it ROI.
 
-1. Spend map: category → line item → price plan → growth driver (users, events, tokens). Every paid plan is tied to an account from the resource registry (`templates/resources.md`) — a plan without an owning account is a ledger hole.
-2. Limits and stop-lines from the human: a monthly ceiling per category; stop-line = 80% of the ceiling → warning, 100% → stop category spend.
-3. Plan/actual every period: divergence >20% — a cause analysis, not silence.
-4. Channel ROI: channel spend / value brought (from `autoteam-analytics`). A channel below threshold two periods in a row — recommend cutting.
-5. Forecast: at current drivers — when we hit the ceiling; what grows faster than the benefit.
+Recommend changing a channel only against an agreed threshold, adequate evidence, and the observation window/repetition policy in the profile; a fixed number of periods is not proof. A cheaper cost-to-value ratio is a different metric whose lower values are better; do not mix its direction with ROI.
 
-Artifact: `docs/product/budget.md` in the **product** (spend map, limits, plan/actual). Do not store payment credentials or billing secrets — only amounts and links to price plans.
+Artifact: the product's `docs/product/budget.md` or existing ledger. Link pricing to `autoteam-pricing`, measurements to `autoteam-analytics`, channels to `autoteam-growth`. Store amounts and public price references, not payment credentials or secret billing data.

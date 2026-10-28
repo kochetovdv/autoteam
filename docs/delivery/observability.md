@@ -9,3 +9,5 @@ When mandatory (otherwise an L2+ release fails in "we can't see it" mode):
 Metrics: latency, errors, queue/pool saturation. Cross-process tracing — if a request hops API→worker→DB and incidents can't be fixed without it.
 
 Dashboard and alerts — per product; the minimum is grep by `request_id` in the runbook.
+
+Ongoing observation follows [monitoring](../process/monitoring.md): record the source and last successful observation, distinguish stale/unavailable data from health, and verify the actual scheduler and delivery path before claiming coverage. An alert links evidence, impact, and a bounded next action; automatic remediation needs its own authority.

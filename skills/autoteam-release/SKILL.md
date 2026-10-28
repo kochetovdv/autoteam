@@ -26,3 +26,5 @@ If the project keeps patch files: `draft` → `ready` (written by the implemente
 ## Incident
 
 Symptom → evidence → mitigation → cause → the same check again → runbook entry. Template `templates/incident.md`. Don't refactor prod "while at it".
+
+Use a separate owned release workspace and preserve needed evidence/changes before cleanup, following [resource lifecycle](../../docs/process/resource-lifecycle.md). Do not automatically stash developer untracked files; that can persist secrets in Git.

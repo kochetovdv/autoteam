@@ -21,3 +21,9 @@ Deliberate gaps. Do not inflate them into "just in case" skills.
 | Knowledge transfer between products (what one product's cycles learned, reused in another) | no; the method lives within one product's boundaries — the journal, the state, and the registries belong to their product |
 
 When a topic becomes recurring work — a separate skill or docs, not before.
+
+## Method versus runtime
+
+Versioned work items, reviews, verified project memory, cross-direction audits, and monitoring contracts are covered by the method. Provider/tracker/scheduler bridges, runtime leases, and automatic cleanup require product adapters and empirical verification; a written plan is not an installed service. Coordination between repositories of one product is covered; cross-product portfolio management remains outside the method. General lessons can be proposed through retro, while automatic transfer of private project memory between products remains out of scope.
+
+Deferred: checking that the running release artifact is exactly the intended revision. Existing release smoke behavior is not upgraded for that purpose in 1.6.

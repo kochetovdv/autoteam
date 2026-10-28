@@ -1,58 +1,50 @@
 # Cycle state
 
-The cycle's current picture of the world, kept in `docs/process/state.md` of the product. What a wave needs in order to continue is here; everything else lives in the journal, the artifacts, and the checkpoints.
+Keep the current cycle summary in the product's `docs/process/state.md`. It links the durable records that let the next actor continue. [Work items](../docs/process/work-items.md) own P-* statuses, contributions, findings and acceptance history; [project knowledge](../docs/process/project-knowledge.md) defines the wider artifact map. State does not duplicate those sources.
 
-State is not history. The decision journal is history for the retro and its entries are never rewritten; state is the mutable present for execution. Both are needed; neither replaces the other.
+The decision journal preserves decisions and amendments; immutable reviews preserve verdicts. State is a mutable navigation and scheduling summary, never a replacement for either. Logs and transcripts stay out: retain their material consequence and an artifact link.
 
-## Schema (method fields — always present)
+## Method fields
 
-| Field | Holds | Note |
-|------|---------|-----------|
-| `cycle` | id, assignment in one line, mode (interactive / solution), start | from the brief |
-| `phase` | where the loop is now | product / positioning / scope / architecture / delivery / release / analytics |
-| `packages` | package → status → owner | statuses: planned, in-work, on-review, `Blocked-by-resource`, done |
-| `decisions` | D-ids of decisions in force | references, never the text — the text is in the journal |
-| `assumptions` | ASSUMPs the current work rests on | with the revision trigger |
-| `blockers` | what is stopping what, owner, date | includes open perimeter narrowings |
-| `resources` | reference to the product's resource registry | plus what is awaited from the human |
-| `verdicts` | last board verdicts and return count | acceptance input |
-| `awaiting_human` | hard stops only | everything else is a decision |
-| `costs` | time, tokens/calls if the environment reports them | retro input |
+| Field | Holds |
+|---|---|
+| `cycle` | ID, assignment/brief link, mode, start and pinned canon |
+| `continuity` | new cycle, or explicit resume of the same interrupted cycle; checkpoint and revalidation record |
+| `recovery` | shared recovery record or owner, verified independent wakeup/reconciliation route and maximum detection delay for unattended work; otherwise explicit manual-resume limitation |
+| `phase` | current stage and next coordinating action |
+| `packages` | links to authoritative existing P-* records, dependency/frontier view and observation revision/time |
+| `decisions` | links to decisions in force and open decisions; text remains in the journal/request |
+| `assumptions` | active ASSUMP links and revision triggers |
+| `blockers` | links to blocked actions/P-records, blocker owner and next recheck; details remain at their source |
+| `resources` | resource registry link and requests relevant now |
+| `verdicts` | review/applicability record links needed for the next action |
+| `awaiting_human` | all unresolved human decisions/actions, including interactive choices and hard stops; request ID/link, dependent P-items, continuation and recheck |
+| `costs` | optional reported aggregate usage/time or budget link, including child runs, reviews/retries and cleanup; unavailable metrics stay unavailable |
 
-Product fields are added by the product's overlay (a stack pin, an environment, its own entities). The overlay extends the schema; it does not rewrite the method's fields.
+The product overlay may add useful fields without replacing these meanings. A linked view may cache a status for readability only if tagged with its source revision/time; edit the P-record first and regenerate the view. A stale cache cannot authorize execution or acceptance.
 
-## Rules
+## Updating and recovering
 
-- **A wave is a step.** A subagent is launched from the skill plus the state plus the assignment of its wave — never from a transcript. Whatever must survive the wave goes into the state: what is not in the state is lost by design, not by oversight.
-- **A patch, not a rewrite.** A wave returns a delta: which fields changed, what was added, what is explicitly removed. A delta that silently drops existing fields is invalid and comes back to its author. Removal is always explicit.
-- **The author does not merge their own patch.** The orchestrator (or the acceptor) applies the delta — the author ≠ acceptor boundary extends to the state. An invalid patch is a return, not a fix in flight.
-- **A fresh observation beats the state; the state never beats the observation.** Reality diverging from the state is a stop until the state is corrected — working on top of a state known to be stale is forbidden.
-- **Noise does not enter.** Logs, telemetry, tool output are observations; only their consequence is committed to the state. A field nobody reads on the next wave does not belong in the schema.
-- **A chat summary is not state.** Compressing history to fit the context is forbidden as a substitute for maintaining the state: a summary loses exactly the identifiers and dependencies the next wave needs.
-- **One writer per wave.** Parallel branches return their own deltas; the merge is the orchestrator's, at the end of the wave, by the rules for a shared mutable boundary.
-- **The state is checkpointed with everything else.** Restoring a cycle = the last checkpoint's state plus the journal.
-- **A new cycle means a new state.** The previous one is closed (its last version stays in the checkpoint), not continued: only what has been re-verified carries over. A state file found in the folder at cycle start is history until proven current.
+- Pass skill, assignment, state links and pinned artifacts to the next actor. Do not ask a human to copy chat history. Missing knowledge becomes a durable artifact in the appropriate record, not an ever-growing state dump.
+- Apply explicit deltas and serialize writes to shared state. Parallel branches return their proposed changes and artifact links; the state maintainer merges them without silently dropping fields. Updating a summary does not itself accept a deliverable.
+- New observations override a stale summary. Reconcile the affected records and references before scheduling dependent work; unaffected work continues. Checkpoint state with the linked work items, journal and recoverable source snapshot according to orchestration and resource lifecycle.
+- A new assignment/cycle creates a new state. Preserve the closed cycle's final state and records; revalidate anything carried over. A state file found in a directory is not proof that the previous cycle is active.
+- An explicitly resumed interrupted cycle keeps its ID and history. Reconstruct it from checkpoint, events, reviews and journal, verify current inputs, pending runs/ownership and resource locks, then record the resume and any stale acceptance. Do not create a new cycle merely because a chat or agent restarted, and do not silently resume an unrelated old assignment.
+- Recovery does not depend on the failed coordinator waking itself: the linked mechanism reconciles durable assignments, completions and current ownership within its stated delay. Deduplicate late/replayed events and check their assignment generation and candidate before advancing; cancelled/superseded items stay terminal. Unsettled runs/effects and cleanup stay visible even after non-delivery leaves the delivery queue. See the handoff rules in [work items](../docs/process/work-items.md).
 
-## Template
+## Example
 
-```
-cycle: C-001 | "<assignment in one line>" | mode: solution | started: YYYY-MM-DD
-phase: delivery
-
-packages:
-  P-01 <name> — done — <role>
-  P-02 <name> — in-work — <role>
-  P-03 <name> — Blocked-by-resource R-002 — <role>
-
-decisions: D-001..D-007 in force; D-004 amended by D-009
-assumptions:
-  A-01 <assumption> — revise when <trigger>
-
-blockers:
-  B-01 <what is blocked> — <cause> — owner — re-check YYYY-MM-DD
-
-resources: docs/process/resources.md; awaiting from human: R-002 (account)
-verdicts: board YYYY-MM-DD — ACCEPTED, N non-blocking, returns: N
-awaiting_human: none
-costs: 3 waves, ~N h; tokens: <if reported>
+```text
+cycle: C-001 | brief: <link> | mode: interactive | started: YYYY-MM-DD | canon: <pin>
+continuity: resume C-001 from <checkpoint>; revalidated <record>; resumed <time>
+recovery: <owner/record>; <verified independent trigger and maximum detection delay, or manual-resume limitation>
+phase: delivery; next: review P-02 candidate <hash>
+packages: P-01 <record link>; P-02 <record link>; observed at <revision/time>
+decisions: <D-record links in force>; open <request link>
+assumptions: <ASSUMP link> — revise when <trigger>
+blockers: P-03 <record/blocker link> — owner <actor> — recheck <trigger/date>
+resources: <registry link>; relevant request <R-id/link>
+verdicts: P-02 <RV/applicability links>
+awaiting_human: <request link> — interactive choice — affects P-03 — P-02 continues — recheck <date>
+costs: <optional aggregate usage/budget link, or unavailable>
 ```

@@ -19,3 +19,5 @@ Without measurement, growth is blind and experiment verdicts are opinions. You o
 6. Reading: trend over a point; segments over the average; correlation ≠ causation. An anomaly — check the instrumentation first, theories second.
 
 Artifact: `docs/product/metrics.md` in the **product** (metric tree and event plan).
+
+Process measurements use versioned work-item transitions: define start, independent acceptance, waiting, and return events before calculating cycle time or throughput. Compare like task classes; counts of closed tasks do not prove customer value. For ongoing signals use `autoteam-monitor`; stale/missing telemetry is not evidence of no change.

@@ -1,75 +1,51 @@
 # Orchestration and autonomy
 
-The human opens **one** chat with an assignment. The orchestrator (`autoteam-orchestrator`) invokes subagents itself. No new chat per role. Any execution environment with subagents works — the method is not tied to an environment.
+The orchestrator owns a checked outcome, assignments, integration, and a business-readable explanation. It launches the necessary agents; the human does not transport messages between roles. At L2/L3 it does not implement and accept the same work. Author, independent acceptor, and releaser are distinct responsibilities.
 
-## Assignment
+## Entry and authority
 
-| Meaning of the first message | Cycle without waiting for "go ahead" |
-|-------------------------|---------------------------|
-| build / fix / investigate | brief → roles → acceptance → artifact |
-| build and release | same + `autoteam-release` after acceptance |
-| turn an idea into a working solution | "solution mode": full cycle non-stop, decision journal, critic board at the finish |
-| an idea, no spec | `autoteam-product` → `autoteam-positioning`, not code |
-| estimate the scope | `autoteam-scope` |
-| how to promote / why aren't we growing | `autoteam-growth` + `autoteam-analytics` + `autoteam-content` |
-| how to charge money | `autoteam-pricing` |
-| how much are we spending / limits | `autoteam-budget` |
-| learn the repository | `autoteam-onboarding` |
+No assignment means cold start (`autoteam-catalog`), not permission to invent a product. Recover the profile and relevant knowledge, distinguish an explicit interrupted-cycle resume from a new assignment, pin the canon snapshot, and write a proportionate brief. A review or analysis does not modify its subject; reports belong in an authorized output workspace. Do not initialize, install the canon into, or commit the subject merely to review it.
 
-The brief is always written. Unknown repository — `autoteam-onboarding` right away. Stack: `docs/process/stack.md`.
+- **Interactive:** ask about consequential ambiguity; stop only dependent work. Reuse existing answers and authorizations.
+- **Solution:** decide reasonable reversible details, journal decisions and assumptions, and continue. Ask early where an answer matters, without a setup questionnaire. A changed answer explicitly revises dependent artifacts.
+- Both modes respect authority for new external spending, public/legal commitments, irreversible destruction, and production release. A broad token mandate does not grant those powers. Release authority is scoped to the assignment/cycle.
 
-## Two modes
+A coding task produces working verified behavior and instructions; an investigation produces a substantiated answer. Product milestones distinguish payment readiness, observed revenue, and demonstrated economics. A demo and agent agreement do not prove demand.
 
-**Interactive** (human in the loop): meaning-level forks (two readings of money, rights, a contract, security, no stack) — a question to the human, stop only dependent tasks.
+## Communication and initiative
 
-**"Solution mode"** (autonomous, activated by an assignment like "build a solution / work autonomously"): questions turn into decisions recorded in the journal (the product's `docs/process/decisions.md`, canon template `templates/decisions.md`). **Ask and continue:** at the start of the cycle the human gets a digest — up to 3 questions where an early answer is cheapest, plus a queue of actions only the human can perform (accounts, payments, identification — from the resource registry `templates/resources.md`, each with the consequence "without X, package Y stalls after checkpoint Z"); work proceeds on ASSUMP without waiting; an answer or action at any moment = an amendment to the journal. ASSUMPs that change the market, the audience, or money are duplicated into the journal. A missing resource is not a cycle stop: `Blocked-by-resource` for that package, the rest keeps moving. Only hard stops halt work: external money; law and public commitments; irreversible destruction; production without "release it". The result is a working solution as a whole: it launches, is verified with evidence, is deployed in an available environment (if an external environment is forbidden — a local run reproducible from instructions; the interpretation goes into the journal), is documented; anything deferred — an explicit short list.
+Lead with **what happens → who is affected → consequence → evidence and uncertainty → proposed action/decision**. Use the project's business vocabulary; exact technical names support the explanation. Do not invent frequency, savings, or impact. Reuse profile preferences; ask only for missing information that materially changes the decision and cannot be inferred safely.
 
-The cycle carries an explicit state (`templates/state.md` of the canon → `docs/process/state.md` of the product): the current phase, packages and their statuses, the decisions and ASSUMPs in force, blockers, what is awaited from the human, cycle costs. A wave is a step over that state: a subagent gets the skill, the state, and its assignment — not a transcript; it returns a patch, and the orchestrator merges it. The state is the present, the journal is the history: neither replaces the other, and a chat summary replaces neither. Fields beyond the method's are added by the product's overlay.
+Notice recurring manual transfers, missing capabilities, failures, and opportunities. An initiative states **observation → improvement → expected benefit → cost/tradeoff → validation**. Check available tools before recommending an installation. Apply reversible improvements within the assignment; additional scope and commitments are explicit decisions. Deduplicate proposals.
 
-## Non-blocking approvals
+Report useful progress and changed assumptions. Every wait names its cause, owner, next action, and expected recheck. Human actions such as access requests explain the dependent outcome. A human nudge or unexplained silence is a process incident for retro.
 
-Request the decision and **continue independent** tasks. Stop only work for which that decision is an input.
+## Automatic team and context
 
-Stop dependents (interactive): two readings of money/law/security/contract; new product behavior; a new architecture boundary; release without an assignment; the irreversible (wipe, mass recomputation without confirmation); no stack when code cannot be written without one.
+Choose roles from missing results, uncertainty, dependencies, and cost of error. Launch as many useful agents and independent specialists as needed; no arbitrary ceiling. Every assignment has one responsibility, a verifiable output, and a stopping condition. Adjacent sequential roles may share an agent at low risk; self-acceptance remains forbidden.
 
-Not a stop: documentation of another module, another screen, tests, estimating another boundary, refactoring outside the boundary, a draft not headed to prod.
+Use available concurrency in waves. Parallel work must not change a shared mutable boundary: a working tree, contract, numbering source, or unallocated numeric budget. Assign ownership or isolate work first. A separate branch inside one working copy is not isolation. Integrate explicit deltas rather than overwrite shared state.
 
-`Blocked`: blocker owner, next action, check date.
+The context package contains role, pinned input revisions, scope, prohibitions, relevant decisions/findings, checks, and return format. Load needed evidence rather than entire transcripts. Across repositories/providers, pass versioned artifacts and the authoritative boundary agreement. A discovered gap returns to its owner as linked work, not a silent edit in another context.
 
-## How to launch subagents
+[Work items](work-items.md) own readiness, transitions, provenance, reviewer routing, and review applicability. [Model routing](model-routing.md) owns actual dispatch and optional whole-task limits. No model or scheduler is considered launched from a written plan alone.
 
-1. One role, one deliverable. Adjacent roles in a chain may be merged into one subagent at L1–L2 (artifacts are sequential); at L3 (data, race conditions, security, money) — do not merge. Author ≠ acceptor, always.
-2. Model per the **project's** `docs/process/model-routing.md` if the file exists; otherwise canon principles.
-3. In the prompt: read the specified skill (+ reference if needed), the context package, the return format. Not the chat history.
-4. Acceptance — see "Critic board". Different model families if the environment provides them; one family — a `same-family` note in the handoff.
-5. `CHANGES_REQUIRED` → back to the implementer, at most **2** cycles, then the human (in "solution mode" — record in the journal and simplify the solution, don't hang).
-6. Release — a third subagent, neither the code's author nor its acceptor.
+## Independent acceptance and convergence
 
-Context package: role; spec/plan/task revisions; affected contracts and entry points; in/out; prohibitions; verification commands; return format; perimeter boundaries — what was left out and why (a conclusion of absence beyond the perimeter is a question to the orchestrator, not a finding).
+Validate ambiguous briefs/plans before expensive implementation. Anchor the original problem and independently check consequential interpretations against primary sources/observations, not only the derived specification. Review the result and the checks themselves. A passing suite, checklist, merged PR, or majority vote alone does not prove the agreed outcome. Records identify actual author/reviewer runs, versions, scope, environment, and evidence.
 
-Parallelism — only without a shared mutable boundary. **An unpinned shared numeric budget or NFR is also a shared boundary:** before a parallel launch the orchestrator writes out the shared numbers explicitly or appoints one branch as the number's owner. Many roles — in waves: independent ones in parallel, dependent ones in the next wave; while one stream waits for assembly, other waves keep working.
+A familiar independent reviewer may recheck fixes using previous findings and the current diff. First independent assessments do not inherit other critics' verdicts. Additional fresh perspectives are selected by risk. At the finale choose lenses able to reject the result: user value, engineering, visual behavior for UI, operations, and other relevant risks. A commercial preference cannot silently waive a safety or correctness requirement.
 
-Resilience: end of a wave = checkpoint — a git commit in the product, or with git unavailable a file snapshot in `_checkpoints/` (fixing git tops the human action queue); an interrupted cycle recovers from the journal and checkpoints; at each checkpoint, open perimeter narrowings are re-checked (`templates/resources.md`) and the working tree is compared against the previous checkpoint — unexplained foreign changes = a perimeter incident. Silence is a failure: "waiting" without a recorded reason is forbidden; no trace for longer than a wave — the human restarts from the checkpoint; a human nudge = an environment incident in the journal. The active cycle marker `docs/process/.cycle-lock` (id, start time) guards against a double launch in one folder; a live foreign marker — a question to the human; a marker older than a day is stale. An amendment that changes an ASSUMP spawns a task to revise dependent artifacts.
+Use [assurance](assurance.md) for independent meaning, critique limits and stalled-loop reassessment. Its default open-ended critique is one broad pass plus one targeted recheck; two correction returns without demonstrated outcome progress require reassessing the problem/approach before more patches. Carry that history across model switches. A changed artifact alone does not justify another broad critique. There is no automatic acceptance after a fixed number of returns: unresolved material contradictions remain unaccepted, and budget exhaustion produces an honest partial result. The coordinator chooses the next bounded action within authority; only a required missing decision goes to the human.
 
-## Critic board
+## Ongoing observation
 
-Composition is not fixed: **lenses = ways the product can fail** — the board is assembled from the question "how can this product die"; composition and rationale go into the journal. Core: commercial, engineering, art (for UI; screenshots of both versions), user (an impatient user walking the demo scenario). By product nature: facts (claims → fact/ASSUMP/source), operations ("what breaks in a month"), DX instead of art for API/CLI, security/quality by risk.
+Use `autoteam-audit` and [assurance](assurance.md) for coverage and the claim/counterexample/probe protocol. Use `autoteam-monitor` and [monitoring](monitoring.md) for meaningful changes over time. The agent generates monitoring settings from the objective/profile; the human does not fill an internal form.
 
-Mechanics: each critic is a separate subagent with fresh context and a mandate to "look for reasons to reject"; critics don't see each other's verdicts until they submit their own; any `CHANGES_REQUIRED` sends the work back (up to 2 cycles); the implementer may contest a finding with evidence — the orchestrator arbitrates, the dispute goes into the journal; a conflict of lenses — tie-break by positioning (the lens closer to what the ICP pays for is senior); acceptance budget ≤5 critics by default, cut lenses go into the journal; the critic's model ≥ the implementer's model. Returns are the norm and are recorded in the handoff; a systematic zero returns is a retro trigger. Intermediate tasks — one specialized critic.
+An incident, changed boundary, new source, or weakened evidence triggers focused work. Keep the architecture cadence: active work, a week or about eight closed tasks, whichever comes first; quiet products, a month. Use that opportunity to assess other audit coverage, without calling a scan a deep audit. Monitoring frequency follows its own decision and sources.
 
-The acceptance checklist includes: the decision journal does not contradict the final artifacts (amendments in place); the artifact's recommendations do not contradict its own findings — a recommendation's object is not marked defective in another section, otherwise an explicit "fix X first" dependency; every conclusion of absence carries its search area, and conclusions resting on an open perimeter narrowing are marked incomplete.
+## Checkpoint and handoff
 
-## Gates (human)
+Follow [project knowledge](project-knowledge.md) for memory, sources, and the immutable canon snapshot, and [resource lifecycle](resource-lifecycle.md) for locks, ownership, cleanup, and recovery. Checkpoint state, accepted deltas, evidence, open findings, and recoverable changes at wave boundaries. In an authorized implementation repository commit explicit file lists; otherwise retain an allowed snapshot. Exclude unrelated human changes.
 
-Apply in interactive mode; in "solution mode" gates 1–3 are replaced by the critic board plus the decision journal.
-
-1. Requirements approved — if behavior changes.
-2. Architecture approved — if there's a new boundary, storage, protocol.
-3. Merge / PR acceptance — if the project has PRs and the human asked for it.
-4. Release to production — always the human, unless there's an explicit "release it" in the assignment for **this** cycle. Hard stop in both modes.
-
-Release to staging (pre-prod) ≠ declaring production.
-
-## Cadences
-
-Architecture review: `docs/architecture/review.md` and `autoteam-architecture-review`. Method retro: by triggers (`autoteam-retro`), not after every run.
+Handoff explains the outcome and limits, then links work items, revisions, authors/reviewers, applicable verdicts, checks, decisions, memory amendments, resource/cleanup status, and next action. Report actual time/cost where available and label estimates. Record pending human decisions in both modes. State is a current view of authoritative records, not a second independently maintained history.
