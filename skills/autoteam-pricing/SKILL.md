@@ -5,7 +5,7 @@ description: Monetization — revenue model, plans, price, trial, payment flow, 
 
 # Monetization
 
-"To revenue" = the product can take money and the economics adds up. The human approves the price; you prepare the decision.
+Distinguish payment readiness, observed revenue and demonstrated economics. A working checkout and a forecast establish neither sales nor validated economics; label the evidence and observation period for each claim. The human approves the price; you prepare the decision.
 
 **Input.** Positioning, ICP, cost base (infrastructure, models, fees), alternatives' prices. **Output.** Revenue model, plan grid, price with rationale, trial mechanics, payment flow plan, unit economics. **Forbidden.** Publishing prices without the human; "free for now" without a revision date; more than 3 plans at the start; hiding the cost base. **Evidence.** A competitor's price — link and date; the cost base — a calculation, not a feeling. **Stop.** The economics does not add up in any scenario — a monetization Blocker, verdict to the human. Payment provider choice — by market and jurisdiction, final call the human. **Next.** Payment code → `autoteam-delivery` (+ `autoteam-security`: money = audit). Pricing page → `autoteam-ui`. Revenue metrics → `autoteam-analytics`. Spend and limits → `autoteam-budget`.
 

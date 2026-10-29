@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "version": "1.6.0",
+  "canonical_language": "en",
+  "locales": {
+    "en": ".",
+    "ru": "ru"
+  },
+  "content_roots": [
+    "skills",
+    "docs",
+    "templates"
+  ],
+  "entry_documents": [
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "support_files": [
+    "scripts/check_canon.py"
+  ]
+}

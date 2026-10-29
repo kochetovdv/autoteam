@@ -1,7 +1,3 @@
-# Субагенты и модели
+# Ссылки процесса
 
-Подробности канона метода: `docs/process/orchestration.md`, `docs/process/model-routing.md`, `docs/process/stack.md`.
-
-Приёмка тем же агентом, что писал код, — недействительна. Одна семья моделей в среде — критик со свежим контекстом и пометка same-family.
-
-L1 (подпись, формат): родитель может сделать diff, `ACCEPTED` всё равно ставит отдельный критик.
+Общие правила — в [оркестрации](../../docs/process/orchestration.md). Подробные источники: [рабочие задачи](../../docs/process/work-items.md), [выбор моделей](../../docs/process/model-routing.md), [знания проекта](../../docs/process/project-knowledge.md), [проверка обоснований](../../docs/process/assurance.md), [мониторинг](../../docs/process/monitoring.md) и [жизненный цикл ресурсов](../../docs/process/resource-lifecycle.md). Разрешай ссылки внутри закреплённого снимка цикла.

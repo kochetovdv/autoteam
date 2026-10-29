@@ -40,3 +40,7 @@ Rewritten in place or never rewritten — two different classes, do not mix them
 - Don't describe package classes to the user.
 - Don't invent UI commands.
 - Don't keep the only source of truth solely in chat.
+
+## Knowledge and provenance
+
+The project profile, verified memory, specification, decision history, and source derivations have different authority: follow [project knowledge](../process/project-knowledge.md). Relevant documents change with behavior in the same task; a separately queued editorial improvement must not leave required user or operational instructions false. Record authors, versions, review coverage, and applicability through [work items](../process/work-items.md), rather than duplicating their history here. User-facing explanations lead with consequences and evidence under [orchestration](../process/orchestration.md).

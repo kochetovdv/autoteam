@@ -1,6 +1,6 @@
 # Architecture styles
 
-Default style: **modular monolith**. Language and UI framework — from the current product / ADR (`docs/process/stack.md`). No stack — pin it down with the human, do not assign a language. A new service, broker, or store — only with a measurable reason and an ADR.
+Default style: **modular monolith**. Language and UI framework — from the current product / ADR (`docs/process/stack.md`). No stack — follow the interactive/solution decision in `docs/process/stack.md`. A new service, broker, or store — only with a measurable reason and an ADR.
 
 ## Which style when
 

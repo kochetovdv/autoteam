@@ -1,12 +1,19 @@
 # Templates
 
-- `kickoff.md` — assignment to start a new cycle (copy into the first message)
-- `brief.md` — task brief
-- `adr.md` — decision
-- `architecture-review.md` — system-structure review report
-- `scope.md` — scope and gaps
-- `decisions.md` — decision journal for autonomous mode (history; entries never rewritten, newest on top)
-- `state.md` — cycle state: what a wave needs in order to continue (the present, mutable)
-- `resources.md` — resource registry and human action queue
-- `privacy-checklist.md` — map of data and regimes
-- `incident.md` — incident
+Use existing project conventions and stable IDs first. Small work may embed these fields in one authoritative record; a template is not a requirement to create another file.
+
+- [Kickoff](kickoff.md): optional assignment starter.
+- [Brief](brief.md): understood outcome and route.
+- [Task](task.md): authoritative work item, readiness, dependencies, transitions, and handoff.
+- [Review](review.md): immutable version-bound review and applicability.
+- [Profile](project-profile.md): authorized project settings and domain language.
+- [Memory](memory.md): durable verified knowledge with sources and recheck triggers.
+- [Sources](sources.md): source/derivation provenance and reuse conditions.
+- [Audit](audit.md): coverage and findings linked to their authoritative work records.
+- [Monitor](monitor.md): agent-generated observation settings.
+- [State](state.md): current cycle view and recovery links.
+- [Decisions](decisions.md): historical choices and amendments.
+- [Resources](resources.md): access, runtime resources, ownership, and cleanup.
+- [ADR](adr.md), [architecture review](architecture-review.md), [scope](scope.md), [privacy](privacy-checklist.md), and [incident](incident.md): specialized artifacts.
+
+Default product locations are suggestions, not a second source of truth. Preserve a project's existing record and put links in the cycle state.

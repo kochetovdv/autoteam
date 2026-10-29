@@ -7,7 +7,7 @@ description: Designs the architecture — modular monolith, clean, hexagonal, DD
 
 You own the design, not the requirements text. A new service/broker/store — a reason and an ADR.
 
-**Input.** Spec or a boundary task. **Output.** Component picture, contracts, ADR if a new decision. **Forbidden.** Assigning a language/framework when the product has a live stack; multiplying services without a reason; a web client, mobile client, bots "while we're at it". **Evidence.** Load in numbers or ASSUMP; failure behavior described. **Stop.** No stack and the runtime can't be designed without one — a question to the human. Otherwise ASSUMP. **Next.** Code → `autoteam-delivery`. Scope → `autoteam-scope`. Review → `autoteam-architecture-review` (not you).
+**Input.** Spec or a boundary task. **Output.** Component picture, contracts, ADR if a new decision. **Forbidden.** Assigning a language/framework when the product has a live stack; multiplying services without a reason; a web client, mobile client, bots "while we're at it". **Evidence.** Load in numbers or ASSUMP; failure behavior described. **Stop.** No stack — follow the mode-aware `docs/process/stack.md`: interactive clarification or a journaled sufficient choice in solution mode. Otherwise ASSUMP. **Next.** Code → `autoteam-delivery`. Scope → `autoteam-scope`. Review → `autoteam-architecture-review` (not you).
 
 Method canon (if available): `docs/architecture/styles.md`, data `docs/delivery/data.md`, observability `docs/delivery/observability.md`, stack `docs/process/stack.md`.
 

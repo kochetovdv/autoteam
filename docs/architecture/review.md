@@ -11,3 +11,5 @@ While the review runs, independent tasks continue. Stop — only scope with a Bl
 Dimensions: boundaries; data owner; race conditions and idempotency; server-side roles; failures and observability; simplicity (KISS); debt with an owner and a date.
 
 Verdict: `HEALTHY` | `WATCH` | `REMEDIATE`. REMEDIATE ≠ stopping all development.
+
+Record the reviewer, target/input versions, coverage, and evidence using [work items](../process/work-items.md). Broader direction coverage follows [assurance](../process/assurance.md); a scheduled opportunity for architecture review is not proof that all other directions were deeply checked.

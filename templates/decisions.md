@@ -1,17 +1,16 @@
-# Decision journal (autonomous mode)
+# Decision journal
 
-Newest entries on top.
+Newest entries first. This is choice and amendment history in either mode, not verified facts or current task state. Read prior decisions before making another. Autonomous mode records choices within delegated authority; recording a choice does not expand that authority. Method: `docs/process/project-knowledge.md` in the verified canon snapshot.
 
-Every decision that in interactive mode would have gone to the human is recorded as a row. The human reads the journal afterwards, not approves beforehand. The journal is an input, not only an output: before deciding, check whether it was already decided. A decision repeating or overturning a journal entry without citing it is an acceptance defect.
+| ID / date | Choice / scope | Rationale / evidence | Alternative | Authority / author | Reversibility | Affected artifacts / amendment |
+|---|---|---|---|---|---|---|
+| D-<id> / <date> | | source revision / section | | assignment / approval reference; role | easy / costly / irreversible | |
 
-| ID | Date | Decision | Why this | Alternative | Reversibility | Decided by |
-|----|------|---------|------------|--------------|-------------|-----------|
-| D-001 | | | | | easy / costly / irreversible | agent role |
+This row is a template, not a decision already made.
 
-Rules:
-
-- The irreversible and external money never enter the journal — those are a hard stop, not an agent's decision.
-- "Reversibility: costly" — the decision is flagged for priority reading by the human.
-- ASSUMP entries from spec/scope are not duplicated here — this is for choices ("took X, not Y"). Exception: ASSUMP entries that change the market, the audience, or money are duplicated here without fail.
-- Journal entries are never rewritten: if a later artifact refined or overturned a decision, an amendment with a link is added to the entry ("D-004a: refined in spec §5"). The check "the journal does not contradict the final artifacts" is an acceptance item.
-- An amendment that changes an ASSUMP or a decision lists the dependent artifacts and spawns a task to revise them.
+- External money, law/public commitments, irreversible destruction and production release still follow the method's authorization stops. A blocked request and later human approval may be recorded with their status; never present an unauthorized action as an agent-approved decision.
+- Cite the earlier decision when repeating, refining or overturning it. Preserve the original entry; append a dated amendment linking its replacement and rationale. Expensive reversal is flagged for the human's priority reading.
+- ASSUMPs remain in spec/scope with their resolution triggers; link them rather than copying. Choices that materially change market, audience or money must be visible here with their assumptions and authority.
+- An amendment names dependent specs, profile settings, memory and artifacts, and creates revision work. Record each dependent's resolution; an uncompleted revision remains visible in state. The journal and final artifacts must agree through explicit amendments.
+- An observation records what happened; a spec records desired behavior; this journal records a choice. A conflict creates an investigation with evidence and owner. Never silently revise a spec to fit observed implementation or promote a decision's premise to a verified memory fact.
+- Authors propose profile/memory updates with evidence; an acceptor reviews them with the change. Current statuses live in state, not in a rewritten decision history. No secrets, raw logs or transcripts.

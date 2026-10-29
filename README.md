@@ -1,83 +1,77 @@
-# autoteam
+# autoteam 1.6 — Agent development canon
 
-A skill library for an autonomous agent team: **how to think and how to build** from idea to revenue — work through and position the idea, design the product, build it, and take it to revenue. A baseline method: copied wholesale into any project and any agent environment (Claude, Cursor, your own runner), not tied to a customer, stack, or tool.
+A portable method library for coordinating an agent team: understand the user's outcome, plan, implement, independently check, and retain verified project knowledge. The method applies to products, investigations, experiments, and documents. It does not include a running scheduler or connections to external providers.
 
-The canon is this repository: `skills/`, `docs/`, `templates/`. Change the canon here, then propagate the copies. Never leave two diverging versions.
+English is canonical. [Русская версия](ru/README.md) is maintained with the same changes. The library contains **25 skills in each language**. Read the [v1.6.0 release notes](docs/releases/v1.6.0.md) for changes and upgrade instructions, or the [changelog](CHANGELOG.md) for the revision history.
 
-English is the canonical language. Русская версия: [ru/](ru/README.md) — a maintained locale, updated in the same commit as the canon; when in doubt, English wins.
+## Start here
 
-## Layers: method and product
+- A situation and its roles: [catalog](skills/autoteam-catalog/SKILL.md).
+- One assignment through the team: [orchestration](docs/process/orchestration.md).
+- Detailed authorities: [process map](docs/process/README.md).
+- Reusable artifact shapes: [templates](templates/README.md).
 
-| Layer | Question | Where |
-|------|--------|-----|
-| **Method (this repository)** | How to reason, design, write, review, release, grow | `skills/`, `docs/`, `templates/` |
-| **Current product** | Stack, paths, overlay, output template if one exists | the repository where the work happens |
+## What's new in 1.6
 
-The product's output template (if any) defines *where to put* the result. It does not replace the method.
+- **Outcome checks and bounded critique.** Independently check critical meaning against primary sources. Two correction returns without outcome progress trigger reassessment; changing models does not reset the history. Open-ended critique defaults to one broad pass and one targeted recheck. [Assurance](docs/process/assurance.md).
+- **Traceable work and review.** Keep one task record, pinned inputs, every contributing author, immutable verdicts, and current/stale applicability. Cancellation and replacement are explicit non-delivery outcomes. [Work items](docs/process/work-items.md).
+- **Reusable project knowledge.** Separate project settings, verified memory, specifications, decisions, sources, and cycle state. Recheck present applicability against current facts and observation dates. [Project knowledge](docs/process/project-knowledge.md).
+- **Audits and monitoring.** Review applicable risk areas and generate observation settings from context. Detect cumulative drift, retain unknown delivery, and verify actual scheduling before promising recurrence. [Audit skill](skills/autoteam-audit/SKILL.md) and [monitor skill](skills/autoteam-monitor/SKILL.md).
+- **Team, limits, and resources.** Delegate useful work automatically, account for optional limits across all agents, preserve evidence, and clean up only owned resources. [Model routing](docs/process/model-routing.md) and [resource lifecycle](docs/process/resource-lifecycle.md).
 
-## How to plug in
+## Quick start
 
-1. Canon: folders `skills/autoteam-<name>/` (containing `SKILL.md`, and `reference.md` where needed).
-2. Copy the folders you need into your agent environment's skills directory — wholesale, no edits. The copy is a cache: at cycle start in a product with the canon available, onboarding overwrites it with a fresh copy.
-3. In a specific product you may add a thin overlay (paths, prohibitions, your own `docs/process/model-routing.md`, output template) in that repository's environment config directory. The overlay does not rewrite the method.
+1. Download the complete repository or clone it:
 
-The language of reports and questions to the human is the project human's language (by default, the language of the assignment). Explain each technical term on first use. Do not translate code or API names.
+   ```text
+   git clone https://github.com/kochetovdv/autoteam.git
+   cd autoteam
+   python scripts/check_canon.py
+   ```
 
-## Stack
+   The checker uses Python 3 and its standard library. A successful check prints `"ok": true` and the bundle fingerprint.
 
-The stack comes from the current repository / ADR. No stack — pin it down with the human (in "solution mode" — pick the minimal sufficient one and record it in the journal). Details: `docs/process/stack.md`.
+2. Select English or Russian, keep a verified snapshot for the cycle, and give the agent its absolute path. Use [kickoff](templates/kickoff.md) for the assignment and [project profile](templates/project-profile.md) for known project settings; the agent fills these from context rather than asking you to complete every field.
+3. Point the agent at [the orchestrator](skills/autoteam-orchestrator/SKILL.md) for an assigned task, or [the catalog](skills/autoteam-catalog/SKILL.md) when choosing a role. Register skills using the facilities of your agent environment and keep their shared references bound to the same snapshot.
 
-The client mix (web / responsive / PWA / cross-platform / native) is a per-project decision: never add a new platform silently; if there is a requirement — an explicit fork with its cost.
+No provider-specific installer or integration is bundled. A single copied skill directory is not a full installation. See [installation and version pinning](#installation-and-version-pinning) before updating an existing project.
 
-## Map: situation → skill
+## Method, project, and cycle
 
-| Situation | Skill |
-|----------|--------|
-| No assignment yet: an empty folder, a fresh copy of the canon, "what can you do" | cold start: `autoteam-catalog` |
-| Unclear where to start | `autoteam-catalog` |
-| Multiple roles, autonomy, subagents | `autoteam-orchestrator` |
-| New repository, "agent, find your bearings" | `autoteam-onboarding` |
-| Business idea, no spec, demand validation | `autoteam-product` |
-| Who we sell to and against what, offer, naming | `autoteam-positioning` |
-| Plans, pricing, payments, payback | `autoteam-pricing` |
-| Costs, limits, ROI of spend | `autoteam-budget` |
-| What we measure, funnel, dashboard | `autoteam-analytics` |
-| Channels, conversion, retention, SEO/GEO | `autoteam-growth` |
-| Articles, posts, emails, copy | `autoteam-content` |
-| There is a spec | `autoteam-requirements` |
-| Scope, input gaps, MVP ordering | `autoteam-scope` |
-| How to structure the system, ADR | `autoteam-architecture` |
-| Regular or urgent review of the system's structure | `autoteam-architecture-review` |
-| Feature, bug, tests, contract | `autoteam-delivery` |
-| Race conditions, failures, performance | `autoteam-quality` |
-| Secrets, sessions, threats, roles | `autoteam-security` |
-| First-class UI: landing page, SaaS, admin panel | `autoteam-ui` |
-| Presentation, spreadsheet, business writing | `autoteam-documents` |
-| Product and code documentation, when to update | `autoteam-docs` |
-| Release, environments, incident | `autoteam-release` |
-| Hypothesis-driven experiment, spike | `autoteam-research` |
-| Run debrief, method fixes | `autoteam-retro` |
+The canon owns how work is organized. The project profile owns domain vocabulary, stack, commands, available models/integrations, authority, limits, and visual references. Verified memory preserves reusable facts and lessons with evidence. Specifications define desired behavior; decisions preserve the reasons; state summarizes the current cycle. [Knowledge rules](docs/process/project-knowledge.md) prevent these from replacing each other.
 
-The "idea → revenue" loop: `product` → `positioning` → `scope`/`requirements` → `architecture` → `delivery` → `release` → `analytics` → `growth`/`content`/`pricing`/`budget` → back to `product`. Not a waterfall: numbers and feedback change the picture.
+The orchestrator launches the useful agents and independent checks without repeated requests for their number. A user may set a whole-task limit; otherwise quality and completion take priority over token economy. [Model routing](docs/process/model-routing.md) covers actual dispatch, shared accounting, and preservation/acceptance reserves.
 
-Process details: `docs/process/`. Delivery craft: `docs/delivery/` (language-specific only if that language is already in the product).
+Critical meaning is independently checked against primary sources and observations. [Assurance](docs/process/assurance.md) bounds open-ended critique and interrupts patch loops that make no progress toward the original outcome. Changing models does not reset the history. Cancelled/replaced work stays distinct from accepted delivery; recovery and monitoring guarantees require verified environment capabilities.
 
-## Autonomy and "solution mode"
+Explain consequences for the user and product before implementation details. Product milestones distinguish a payment-ready system, observed revenue, and validated economics.
 
-The human gives one assignment. The orchestrator launches subagents in waves on its own. A critical approval does not freeze an independent stream.
+## Installation and version pinning
 
-The assignment "turn the idea into a working solution" enables "solution mode": the cycle runs non-stop, every question that would have gone to the human becomes an entry in the decision journal (`templates/decisions.md`), and the result is a complete working solution — not an MVP with gates and todos. There are three hard stops: external money; law and public commitments; irreversible destruction. Production — only on an explicit "release it". Details: `docs/process/orchestration.md`.
+The full bundle is `canon.json`, this entry documentation, `skills/`, `docs/`, `templates/`, their maintained `ru/` counterparts, and `scripts/check_canon.py`. Keep a complete immutable snapshot and record its version, content fingerprint, path, and selected language in the project profile/brief. Expose skills from that snapshot where the environment supports it; bind discovery copies and shared references to it otherwise.
 
-Unknown repository — `autoteam-onboarding` first. Do not read or copy secrets. Code acceptance — by a separate agent; a different model family if the environment provides one.
+Required shared documents are dependencies. A copied skill folder alone gives focused guidance, not the complete process. Check a candidate bundle before exposing it; do not overwrite global user skills or update a shared checkout incidentally. An active cycle continues reading its snapshot even when another project updates the source. [Packaging details](skills/README.md).
 
-## Architecture review cadence
+```text
+python scripts/check_canon.py
+python scripts/check_canon.py --compare <full-bundle-root>
+```
 
-- Active development: once a week **or** every ~8 closed tasks (whichever comes first).
-- Quiet product: once a month.
-- Out of band: an incident involving data/a race condition/a boundary; a new store or service.
+The checker reports structure, locale coverage, links, and content differences. It is read-only and does not install the method, prove translations equivalent, or establish agent behavior. Environment adapters must actually launch and verify models, scheduled observations, tracker transitions, and recovery.
 
-The review does **not** stop other tasks. Only work that runs into a Blocker stops. Template: `templates/architecture-review.md`. Skill: `autoteam-architecture-review`.
+## Validation
 
-## What is not here
+Run the checker and its regression suite from the repository root:
 
-An honest list of holes: [`docs/process/gaps.md`](docs/process/gaps.md).
+```text
+python -X utf8 scripts/check_canon.py
+python -X utf8 -m unittest discover -s tests -v
+```
+
+GitHub Actions runs both commands on Linux and Windows. Structural checks and instruction-level scenario reviews do not prove runtime recovery, delivery guarantees, agent compliance, or improved business results. See the [release validation scope](docs/releases/v1.6.0.md#validation).
+
+## Boundaries
+
+A review does not mutate its subject. Writing agents use isolated owned workspaces. External spending, commitments, destruction, and production follow the granted authority. Audits disclose incomplete coverage; monitors distinguish missing data from no change and generate their internal settings from context.
+
+The library is maintained in `skills/`, `docs/`, and `templates/`; product-specific commands and findings stay in the product. [Deliberate gaps](docs/process/gaps.md).

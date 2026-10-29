@@ -1,33 +1,28 @@
 ---
 name: autoteam-ui
-description: First-class interfaces — landing pages, SaaS, B2B, admin panels; design tokens, typography, motion, WebGL where it belongs. Use for UI, UX, a landing page, a mockup, a redesign.
+description: Design and implement product-specific interfaces with visual direction, working interaction samples, states, and independent visual acceptance. Use for UI/UX, landing pages, and redesigns.
 ---
 
 # Interfaces
 
-The bar is the industry's best products, not "no worse than a generator". The UI stack comes from the product / ADR; no stack — a question for the human.
+Start from the user scenario, product positioning, profile, and existing design system. The stack follows [the mode-aware rule](../../docs/process/stack.md). Explain design choices through user outcomes. Public reference sites are source material, not authority over the project.
 
-**Input.** Screen/flow, product character, references if any, UI stack. **Output.** A working interface: tokens, states, motion. **Forbidden.** AI defaults (`docs/design/anti-slop.md`); copying someone else's brand; heavy effects that block content; animation for animation's sake. **Evidence.** All screen states (empty/loading/error/success); a11y minimum; speed does not degrade. **Stop.** No UI stack — ask. No reference — don't wait: direction from character, code right away, alternative in text. **Next.** Delivery → `autoteam-delivery`. Public page → `autoteam-growth`. Stack-specific UI craft — product overlay.
+## Direction before scale
 
-## The bar by genre
+For a new product or unresolved major redesign, inspect relevant current references and create a small set of materially different working samples of the key screen/flow. They differ in composition, typography, density, graphic language, and interaction, not just palette. Reuse an approved direction for ordinary screens rather than redesigning every task.
 
-Landing page: one offer; composition, typography, and speed sell on their own. **Flagship tech-company site / showcase**: the bar is today's best industry sites, not "a tidy brochure"; scroll choreography, an expressive hero, meaningful motion are the price of entry to the genre, not an option; WebGL/canvas — where it raises the level. Stack asceticism is no excuse: pick the stack as "the minimum that delivers the genre bar"; weight budget and build come from the genre. SaaS product: flow clarity, empty states lead to value, density per task. B2B/admin panel: density, tables as a tool, filters in the URL, bulk operations. Internal tool: operator speed over marketing.
+The agent proposes and, within the granted mode, selects a direction with reasons and continues. Reuse the human's known preferences; do not force a repeated style questionnaire. Store references and the chosen direction in the project profile, not in the method. A year, a fashionable effect, a forbidden font list, or a replacement default palette does not define quality. [Visual direction rules](../../docs/design/anti-slop.md).
 
-Mobile checklist (mandatory for public UI): navigation collapses meaningfully (hamburger/drawer on overflow), touch targets ≥44px, the first screen sells without scrolling, no horizontal scroll; at acceptance — a mobile screenshot through the art lens, not just a formal width check. For interfaces with choreography and motion, art acceptance submits a scroll recording (video/gif), not only static screenshots — stills hide half the work.
+## Working behavior
 
-## Craft
+Define the essential empty/loading/error/success/partial states. For an expressive public product, demonstrate the intended hero, navigation, scroll behavior, and motion in the sample before multiplying it across the site. Motion should communicate feedback, relationships, or progression. Use appropriate timing, reduced-motion behavior, and a fallback; content and the primary action remain usable without special effects.
 
-1. Character: 3–5 words, industry over fashion. From positioning, if it exists.
-2. References are a habit, not a one-off step: before every significant screen, look at how the best in class solve this task today. Copy the level (grid, type, density, rhythm), not the brand.
-3. Tokens: color, type scale, spacing, radii, shadows — a system, not ad hoc. A UI kit is fine, but on top of the project's tokens.
-4. Typography: scale, rhythm, size contrast — half of the "expensive" look. A typeface with character, not the first system font.
-5. States: empty / loading / error / success / partial — designed, not "later".
-6. Motion: micro-interactions with a purpose (feedback, connection, entrance). 150–300ms, easing, `prefers-reduced-motion`. An expensive impression comes from appropriateness, not quantity.
-7. Special effects (WebGL, canvas, 3D, shaders) — where they raise the genre bar (flagship landing, data viz). Always: fallback, performance budget, content doesn't wait for the effect.
-8. Build → check: is it recognizable as "made by a generator"? Change type **and** grid, not just color.
+A sticky action, transition, canvas, or 3D effect needs a scenario-level reason and an explicit performance/accessibility budget. A business tool may prioritize task density and clarity. Select the visual and interaction level deliberately from the product's purpose; do not assume every genre needs the same effects.
 
-a11y minimum: visible focus, `type=button`, contrast, not color alone, keyboard on the critical path.
+## Acceptance
 
-## Clients
+An independent reviewer examines the actual rendered result against the scenario, chosen references, and declared direction. Require desktop/mobile observations and critical-state evidence where applicable. Motion/scroll claims need a recording or equivalent observed interaction; a static screenshot cannot prove them. Check focus, keyboard use, contrast, touch usability, responsiveness, readable content, and primary actions.
 
-Web / responsive / PWA / native — a project decision, explicit and with its cost. Don't silently add a new platform.
+Report what was actually viewed, at which version, and what remains unverified. Source inspection and "the build passed" do not establish visual quality. A failed screenshot or browser tool is missing evidence, not a reason to declare the result visually accepted. Record author/reviewer and applicable version under [work items](../../docs/process/work-items.md).
+
+Delivery → `autoteam-delivery`; public discoverability → `autoteam-growth`. Do not silently add a client platform or replace an existing stack.
